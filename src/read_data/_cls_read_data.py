@@ -57,6 +57,7 @@ class FileReader:
 
         # Agregar las columnas de fecha y año-mes al DataFrame
         df['fecha_asignacion'] = creation_time
+        df['anio'] = year_month
         df['periodo'] = int(year_month)
 
         # Limpiar los datos (eliminar tildes, punto y coma, y comas)
