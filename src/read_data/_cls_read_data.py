@@ -34,10 +34,10 @@ class FileReader:
         print(f"Leyendo archivo: {file_path}")
         
         # Obtener la fecha de creación
-        creation_time = self.get_creation_time(file_path)
-        creation_date = datetime.strptime(creation_time, '%Y-%m-%d %H:%M:%S')
+        creation_time = '2025-03-01 00:00:00' #self.get_creation_time(file_path) #'00:00:00'
+        creation_date = datetime.strptime(creation_time, '%Y-%m-%d %H:%M:%S') #'2025-03-01'
         year_month = creation_date.strftime('%Y%m')
-
+        year = creation_date.strftime('%Y')
         # Imprimir la fecha de creación
         print(f"Fecha y hora de creación: {creation_time}")
 
@@ -57,7 +57,7 @@ class FileReader:
 
         # Agregar las columnas de fecha y año-mes al DataFrame
         df['fecha_asignacion'] = creation_time
-        df['anio'] = year_month
+        df['anio'] = year
         df['periodo'] = int(year_month)
 
         # Limpiar los datos (eliminar tildes, punto y coma, y comas)

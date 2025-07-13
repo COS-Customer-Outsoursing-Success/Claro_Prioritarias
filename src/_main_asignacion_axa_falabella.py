@@ -12,8 +12,8 @@ class load_asignacion():
     def __init__(self):
         self.fecha = datetime.now().strftime("%Y-%m-%d")
 
-       # self.schema = 'bbdd_cos_bog_grupo_axa'
-        #self.table = 'tb_asignacion_axa_falabella'
+        self.schema = 'bbdd_cos_bog_grupo_axa'
+        self.table = 'tb_asignacion_falabella_v2'
 
         self.current_folder = os.path.dirname(os.path.abspath(__file__))
         self.project_root = os.path.dirname(os.path.dirname(self.current_folder))
@@ -22,9 +22,9 @@ class load_asignacion():
         self.end_path = os.path.join(self.project_root, 'Axa', 'data', 'asignacion', 'cargado')
 
 
-        #self.engine = MySQLConnector().get_connection(database=self.schema)
+        self.engine = MySQLConnector().get_connection(database=self.schema)
         self.df = None
-        #self.loader = MySQLLoader(self.engine,self.schema,self.table)
+        self.loader = MySQLLoader(self.engine,self.schema,self.table)
         
     def read_data(self):
 
@@ -190,6 +190,8 @@ class load_asignacion():
         except Exception as e:
             print(f"Error inesperado al leer datos: {str(e)}")
             return None
+        
+        #reader.read_directory()
 
     def load_data(self):
         self.loader.upsert_into_table(self.df)
@@ -197,7 +199,7 @@ class load_asignacion():
     
     def main(self):
         self.read_data()
-#        self.load_data()
+        self.load_data()
 
 if __name__ == '__main__':
     loader_asignacion = load_asignacion() 
