@@ -34,8 +34,8 @@ class FileReader:
         print(f"Leyendo archivo: {file_path}")
         
         # Obtener la fecha de creación
-        creation_time = self.get_creation_time(file_path) #'00:00:00'
-        creation_date = datetime.strptime(creation_time, '%Y-%m-%d %H:%M:%S') #'2025-03-01'
+        creation_time = '2025-03-01 00:00:00' #self.get_creation_time(file_path) #'2025-07-01 00:00:00'
+        creation_date = datetime.strptime(creation_time, '%Y-%m-%d %H:%M:%S')
         year_month = creation_date.strftime('%Y%m')
         year = creation_date.strftime('%Y')
         # Imprimir la fecha de creación
@@ -176,15 +176,15 @@ class FileReader:
         df = self._read_csv(string_io, **kwargs)
         return df
 
-    def read_directory(self, **kwargs):
+    def read_directory(self, file_path=None, **kwargs):
+        
         try:
-            latest_file_path = self.get_latest_file()
-            data = self.read_file(latest_file_path, **kwargs)
-
+            if file_path is None:
+                file_path = self.get_latest_file()
+            data = self.read_file(file_path, **kwargs)
             if self.end_path:
-                self.move_file(os.path.basename(latest_file_path))
-
-            return data  # Retornar el DataFrame directamente
+                self.move_file(os.path.basename(file_path))
+            return data
 
         except ValueError as e:
             print(e)

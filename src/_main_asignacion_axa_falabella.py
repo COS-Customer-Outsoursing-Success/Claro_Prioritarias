@@ -54,7 +54,7 @@ class load_asignacion():
             nombre_base = os.path.splitext(nombre_archivo)[0]
             
             
-            self.df = reader.read_directory(latest_file_path)
+            self.df = reader.read_directory( latest_file_path)
             if self.df is None or self.df.empty:
                 print("Error: No se pudo leer el archivo o está vacío")
                 return None
