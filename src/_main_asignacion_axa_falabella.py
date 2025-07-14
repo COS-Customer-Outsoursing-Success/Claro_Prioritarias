@@ -16,9 +16,10 @@ class load_asignacion():
         self.table = 'tb_asignacion_falabella_v2'
 
         self.current_folder = os.path.dirname(os.path.abspath(__file__))
-        self.project_root = os.path.dirname(os.path.dirname(self.current_folder))
-        self.start_path = r'C:\Users\Emerson.Aguilar\Documents\git_hub\Axa\data\asignacion\nueva'
-#        self.start_path = os.path.join(self.project_root, 'Axa', 'data','asignacion', 'nuevo')
+        self.project_root = os.path.dirname(self.current_folder)
+        self.start_path =  os.path.join(self.project_root, 'data', 'asignacion','nueva','asignacion_falabella')
+        self.end_path = os.path.join(self.project_root, 'data', 'asignacion','cargado', 'asignacion_falabella')
+#       self.start_path = os.path.join(self.project_root, 'Axa', 'data','asignacion', 'nuevo')
         self.end_path = os.path.join(self.project_root, 'Axa', 'data', 'asignacion', 'cargado')
 
 
