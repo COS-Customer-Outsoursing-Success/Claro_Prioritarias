@@ -13,12 +13,12 @@ class load_asignacion():
         self.fecha = datetime.now().strftime("%Y-%m-%d")
 
         self.schema = 'bbdd_cos_bog_grupo_axa'
-        self.table = 'tb_asignacion_renovados_vida_v2'
+        self.table = 'tb_asignacion_scotiabank_v2'
 
         self.current_folder = os.path.dirname(os.path.abspath(__file__))
         self.project_root = os.path.dirname(self.current_folder)
         self.project_root = os.path.dirname(self.current_folder)
-        self.start_path =  os.path.join(self.project_root, 'data', 'asignacion','nueva','asignacion_vida')
+        self.start_path =  os.path.join(self.project_root, 'data', 'asignacion','nueva','asignacion_scotiabank')
         self.end_path = os.path.join(self.project_root, 'data', 'asignacion','cargado')
         self.engine = MySQLConnector().get_connection(database=self.schema)
         self.df = None
@@ -31,7 +31,6 @@ class load_asignacion():
             'telefono1', 'telefono2', 'telefono3', 'telefono4', 'telefono5',
             'telefono6', 'telefono7', 'telefono8', 'telefono9', 'telefono10','Celular del tomador',
             'celular','celular2','Tel1','Tel2','Tel3','Tel4','Tel5','Tel6','Tel7','Tel8'
-
         ]
 
         if not hasattr(self, 'start_path') or not os.path.exists(self.start_path):
@@ -63,10 +62,10 @@ class load_asignacion():
             # Renombrar columnas clave
             self.df = self.df.rename(columns={  
 
-                'fecha_inicio_de_vigencia_':'fecha_inicio_de_vigencia',
-                'altura_de_la_poliza_anos_':'altura_de_la_poliza_anos_2',
-                'valor_de_renovacion_anterior_':'valor_de_renovacion_anterior',
-                'descripcion_pyg_0':'descripcion'
+                'fecha_fin_vigencia_actual_':'fecha_fin_vigencia_actual',
+                'esencial_':'esencial',
+                'asistencia_':'asistencia',
+                '__de_vehiculos':'No_de_vehiculos'
 
                 })
             self.df['nombre_base'] = nombre_base
@@ -75,17 +74,20 @@ class load_asignacion():
 
             columnas_necesarias = [
 
-                'fecha_de_asignacion', 'descripcion', 'compania', 'ano',
-                'numero_mes', 'canal', 'subcanal', 'zona', 'oficina', 'lider_comercial',
-                'clave_asesor', 'nombre_asesor', 'prod_tec_nivel_5', 'prod_tec_nivel_4',
-                'prod_tec_nivel_3', 'prod_tec_nivel_2', 'fecha_inicio_de_vigencia',
-                'contrato', 'identificacion', 'cliente', 'tipo_linea', 'tipo_pago',
-                'descripcion_grupo_endoso', 'prima', 'celular', 'celular2',
-                'correo_electronico', 'fecha_inicio_de_vigencia_1',
-                'fecha_fin_de_vigencia', 'altura_de_la_poliza_anos',
-                'altura_de_la_poliza_anos_2', 'fecha_de_nacimiento',
-                'valor_de_renovacion_anterior', 'fecha_asignacion', 'anio', 'periodo',
-                'nombre_base'
+                'typeid', 'codid', 'prioridad', 'primer_apellido', 'segundo_apellido',        
+                'primer_nombre', 'segundo_nombre', 'genero', 'segcal', 'edad',
+                'antig_edad_segmento', 'placa', 'codmunicipio', 'nommunicipio',
+                'coddpto', 'nomdepto', 'direccion', 'tel1', 'tel2', 'tel3', 'tel4',
+                'tel5', 'tel6', 'tel7', 'tel8', 'numpro', 'opty_id', 'id_campana',
+                'cod_canal', 'tipo_producto', 'nombre_franquicia',
+                'fecha_vencimiento_tarjeta', 'cupo_hoy', 'cupo_disponible',
+                'codigo_agrupador', 'fecha_fin_vigencia_actual',
+                'fecha_inicio_nueva_vigencia', 'modelo', 'linea', 'motor', 'chasis',
+                'cod_fasecolda', 'marca', 'asistencia', 'valor_asegurado', 'esencial',      
+                'no__temporario_plus', 'prima_plus', 'iva', 'fecha',
+                'aseguradora_actual', 'clase_vehiculo', 'fechadenacimiento',
+                'No_de_vehiculos', 'servicio', 'email', 'fecha_asignacion', 'anio',
+                'periodo', 'nombre_base'
 
             ]
 
@@ -113,7 +115,7 @@ class load_asignacion():
                 if col in self.df.columns:
                     self.df[col] = self.df[col].apply(estandarizar_telefono)
 
-            cols_duplicados = ['contrato', 'anio']
+            cols_duplicados = ['codid', 'anio']
 
             if all(col in self.df.columns for col in cols_duplicados):
                 filas_antes = len(self.df)
