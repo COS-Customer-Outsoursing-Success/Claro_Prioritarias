@@ -19,9 +19,6 @@ class load_asignacion():
         self.project_root = os.path.dirname(self.current_folder)
         self.start_path =  os.path.join(self.project_root, 'data', 'asignacion','nueva','asignacion_falabella')
         self.end_path = os.path.join(self.project_root, 'data', 'asignacion','cargado', 'asignacion_falabella')
-#       self.start_path = os.path.join(self.project_root, 'Axa', 'data','asignacion', 'nuevo')
-        self.end_path = os.path.join(self.project_root, 'Axa', 'data', 'asignacion', 'cargado')
-
 
         self.engine = MySQLConnector().get_connection(database=self.schema)
         self.df = None
