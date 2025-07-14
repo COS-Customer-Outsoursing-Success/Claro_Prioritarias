@@ -17,7 +17,6 @@ class load_asignacion():
 
         self.current_folder = os.path.dirname(os.path.abspath(__file__))
         self.project_root = os.path.dirname(self.current_folder)
-        self.project_root = os.path.dirname(self.current_folder)
         self.start_path =  os.path.join(self.project_root, 'data', 'asignacion','nueva','asignacion_bienvenida_whatsapp')
         self.end_path = os.path.join(self.project_root, 'data', 'asignacion','cargado')
         self.engine = MySQLConnector().get_connection(database=self.schema)
@@ -51,7 +50,7 @@ class load_asignacion():
             nombre_archivo = os.path.basename(latest_file_path)
             nombre_base = os.path.splitext(nombre_archivo)[0]
 
-            self.df = reader.read_file(latest_file_path)
+            self.df = reader.read_directory(self.end_path,latest_file_path)
             if self.df is None or self.df.empty:
                 print("Error: No se pudo leer el archivo o está vacío")
                 return None
