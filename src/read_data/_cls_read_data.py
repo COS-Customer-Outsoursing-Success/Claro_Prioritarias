@@ -34,7 +34,7 @@ class FileReader:
         print(f"Leyendo archivo: {file_path}")
         
         # Obtener la fecha de creación
-        creation_time = '2025-03-01 00:00:00' #self.get_creation_time(file_path) #'00:00:00'
+        creation_time = self.get_creation_time(file_path) #'00:00:00'
         creation_date = datetime.strptime(creation_time, '%Y-%m-%d %H:%M:%S') #'2025-03-01'
         year_month = creation_date.strftime('%Y%m')
         year = creation_date.strftime('%Y')
