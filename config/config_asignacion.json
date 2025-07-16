@@ -1,0 +1,163 @@
+{
+  "axa_falabella": {
+
+    "schema":"bbdd_cos_bog_grupo_axa",
+    "table":"tb_asignacion_falabella_v2",
+
+    "nombre_asignacion": "asignacion_falabella",
+
+    "telefonos": [
+                "telefono", "tele_numb", "tele_numb_3", "tele_numb_4", "telefono_contacto",
+                "telefono1", "telefono2", "telefono3", "telefono4", "telefono5",
+                "telefono6", "telefono7", "telefono8", "telefono9", "telefono10"
+            ],
+
+    "renombrar_columnas": {
+      "registerid": "registro",
+      "codid": "co_id",
+      "primernombre": "nombre",
+      "segundonombre": "segundo_nombre",
+      "primerapellido": "apellido",
+      "segundoapellido": "segundo_apellido",
+      "fechanacimiento": "fecha_nacimiento",
+      "codmunicipio": "cod_municipio",
+      "nommunicipio": "municipio",
+      "coddpto": "cod_departamento",
+      "nomdepto": "departamento",
+      "fecha_fin_vigencia_actual_": "fecha_fin_vigencia_actual",
+      "no_temporario__tradicional": "no_temporario_tradicional",
+      "no_temporario__vip": "no_temporario_vip"
+    },
+
+    "columnas_necesarias": [
+                "registro",
+                "co_id", 
+                "genero", 
+                "nombre", 
+                "segundo_nombre", 
+                "apellido",
+                "segundo_apellido", 
+                "fecha_nacimiento", 
+                "placa", 
+                "cod_municipio",
+                "municipio", 
+                "cod_departamento", 
+                "departamento", 
+                "direccion",
+                "telefono1", 
+                "telefono2", 
+                "telefono3", 
+                "telefono4", 
+                "telefono5",
+                "fecha_fin_vigencia_actual", 
+                "modelo", 
+                "linea", 
+                "motor", 
+                "chasis",
+                "cod_fasecolda", 
+                "marca", 
+                "marca_y_linea", 
+                "tasa", 
+                "suma_asegurada",
+                "aseguradora_actual", 
+                "clase_vehiculo", 
+                "servicio", 
+                "email",
+                "no_temporario_plus", 
+                "prima_temporario_plus",
+                "prima_temporario_sin_iva_plus", 
+                "no_temporario_tradicional",
+                "prima_tradicional", 
+                "prima_tradicional_sin_iva", 
+                "no_temporario_vip",
+                "prima_temporario_vip", 
+                "prima_temporario_vip_sin_iva",
+                "no_temporario_nuevo_vip", 
+                "prima_nueva_vip", 
+                "prima_nueva_vip_sin_iva",
+                "no_temporario_esencial", 
+                "prima_temporario_esencial",
+                "prima_temporario_esencial_sin_iva", 
+                "no_temporario_nuevo_esencial",
+                "prima_nueva_esencial", 
+                "prima_nueva_esencial_sin_iva", 
+                "grupos_1_y_2",
+                "segmentacion_grupo_1_y_2_final",
+                "fecha_asignacion", 
+                "anio",
+                "periodo", 
+                "nombre_base"
+    ]
+  },
+
+  "axa_desertores_tradicional": {
+
+    "schema":"bbdd_cos_bog_grupo_axa",
+    "table":"tb_asignacion_desertores_tradicional_v2",
+
+    "nombre_asignacion": "asignacion_desertores_tradicional",
+
+    "telefonos": [
+            "telefono",  "telefono_contacto", "telefono_fijo", "telefono_correspondencia",
+            "telefono1", "telefono2", "telefono3", "telefono4", "telefono5",
+            "telefono6", "telefono7", "telefono8", "telefono9", "telefono10",
+            "telefono_1", "telefono_2", "telefono_3", "telefono_4", "telefono_5",
+            "telefono_6", "telefono_7", "telefono_8", "telefono_9", "telefono_10",
+            "tele_numb", "tele_numb_2", "tele_numb_3", "tele_numb_4", "tele_numb_5",
+            "celular", "celular_1", "celular_2", "celular_3", "celular_4", "celular_5",
+            "celular_6", "celular_7", "celular_8", "celular_9", "celular_10"
+            ],
+
+    "renombrar_columnas": {
+
+        "nombre_colectivo_doc_titular": "nombre_colectivo",
+        "tipo_identificacionbeneficiario": "tipo__identificacion_beneficiario",
+        "no__identificacion_colectivo": "no_identificacion_colectivo", 
+        "no__identificacion_contrante": "no_identificacion_contrante", 
+        "observacion_":"observacion"
+    },
+
+    "columnas_necesarias": [
+
+            "dia_de_gestion", 
+            "tipo_consulta", 
+            "sucursal", 
+            "mes_envio", 
+            "tipo",
+            "plan", 
+            "contrato", 
+            "frecuencia_de_pago", 
+            "tarifa", 
+            "nombre_colectivo",
+            "tipo__identificacion_beneficiario", 
+            "no_identificacion_colectivo",
+            "tipo_identificacion_contrante", 
+            "no_identificacion_contrante",
+            "primer_apellido", 
+            "segundo_apellido", 
+            "nombres", 
+            "correo_electronico",
+            "celular", 
+            "celular_2", 
+            "telefono_fijo", 
+            "clave", 
+            "asesor", 
+            "director",
+            "clave_director", 
+            "telefono_correspondencia",
+            "direccion_correspondencia", 
+            "cod_ciudad_correspondencia",
+            "mes_gestion_emermedica", 
+            "tipologia_contactabilidad", 
+            "observacion",
+            "telefono_3", 
+            "telefono_4", 
+            "telefono_5", 
+            "fecha_asignacion", 
+            "anio",
+            "periodo", 
+            "nombre_base",
+            "hoja"
+    ]
+  }
+}

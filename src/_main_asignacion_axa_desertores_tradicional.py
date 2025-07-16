@@ -33,7 +33,7 @@ class load_asignacion():
             'telefono_1', 'telefono_2', 'telefono_3', 'telefono_4', 'telefono_5',
             'telefono_6', 'telefono_7', 'telefono_8', 'telefono_9', 'telefono_10',
             'tele_numb', 'tele_numb_2', 'tele_numb_3', 'tele_numb_4', 'tele_numb_5',
-            'celular', 'celular_1', 'celular_2', 'celular_3', 'celular_4', 'celular_5'
+            'celular', 'celular_1', 'celular_2', 'celular_3', 'celular_4', 'celular_5',
             'celular_6', 'celular_7', 'celular_8', 'celular_9', 'celular_10'
         ]
 
@@ -65,7 +65,6 @@ class load_asignacion():
             print('columnas_antes')
             print(self.df.columns)
 
-            # Renombrar columnas clave
             self.df = self.df.rename(columns={   
 
             'nombre_colectivo_doc_titular': 'nombre_colectivo',

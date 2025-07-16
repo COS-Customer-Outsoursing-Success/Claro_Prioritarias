@@ -6,31 +6,62 @@ from datetime import datetime
 from conexiones_db._cls_sqlalchemy import MySQLConnector 
 from read_data._cls_read_data import *
 from load_data._cls_load_data import *
+import json
 
-class load_asignacion():
-    
+
+import os
+import json
+from datetime import datetime
+
+class load_asignacion:
+
     def __init__(self):
         self.fecha = datetime.now().strftime("%Y-%m-%d")
 
-        self.schema = 'bbdd_cos_bog_grupo_axa'
-        self.table = 'tb_asignacion_falabella_v2'
-
         self.current_folder = os.path.dirname(os.path.abspath(__file__))
         self.project_root = os.path.dirname(self.current_folder)
-        self.start_path =  os.path.join(self.project_root, 'data', 'asignacion','nueva','asignacion_falabella')
-        self.end_path = os.path.join(self.project_root, 'data', 'asignacion','cargado', 'asignacion_falabella')
+        self.config_path = os.path.join(self.project_root, 'config', 'config_asignacion.json')
+
+        with open(self.config_path, 'r', encoding='utf-8') as f:
+            self.config_asignacion = json.load(f)
+
+        self.campanas_disponibles = [key for key in self.config_asignacion.keys() if key not in ['schema', 'table']]
+        print("Campañas disponibles:")
+        for i, campaña in enumerate(self.campanas_disponibles, start=1):
+            print(f"{i}. {campaña}")
+
+        while True:
+            try:
+                seleccion = int(input("Ingrese el número de la campaña que desea ejecutar: "))
+                if 1 <= seleccion <= len(self.campanas_disponibles):
+                    self.campana_seleccionada = self.campanas_disponibles[seleccion - 1]
+                    break
+                else:
+                    print("Número inválido. Intente nuevamente.")
+            except ValueError:
+                print("Entrada no válida. Ingrese un número.")
+
+        self.campana_config = self.config_asignacion[self.campana_seleccionada]
+        self.nombre_asignacion = self.campaña_config['nombre_asignacion']
+
+        self.start_path = os.path.join(self.project_root, 'data', 'asignacion', 'nueva', self.nombre_asignacion)
+        self.end_path = os.path.join(self.project_root, 'data', 'asignacion', 'cargado', self.nombre_asignacion)
+
+        self.schema = self.campana_config['schema']
+        self.table = self.campana_config['table']
 
         self.engine = MySQLConnector().get_connection(database=self.schema)
         self.df = None
-        self.loader = MySQLLoader(self.engine,self.schema,self.table)
+        self.loader = MySQLLoader(self.engine, self.schema, self.table)
+
+        print(f"\n Campaña seleccionada: {self.campana_seleccionada}")
+        print(f" Ruta origen: {self.start_path}")
+        print(f" Ruta destino: {self.end_path}")
+
         
     def read_data(self):
 
-        telefonos = [
-            'telefono', 'tele_numb', 'tele_numb_3', 'tele_numb_4', 'telefono_contacto',
-            'telefono1', 'telefono2', 'telefono3', 'telefono4', 'telefono5',
-            'telefono6', 'telefono7', 'telefono8', 'telefono9', 'telefono10'
-        ]
+        telefonos = self.campana_config['telefonos']
 
         if not hasattr(self, 'start_path') or not os.path.exists(self.start_path):
             raise ValueError(f"Ruta no válida: {getattr(self, 'start_path', 'No definida')}")
@@ -59,86 +90,13 @@ class load_asignacion():
             print('columnas_antes')
             print(self.df.columns)
 
-            # Renombrar columnas clave
-            self.df = self.df.rename(columns={
-                'registerid': 'registro',
-                'codid': 'co_id',
-                'primernombre': 'nombre',
-                'segundonombre': 'segundo_nombre',
-                'primerapellido': 'apellido',
-                'segundoapellido': 'segundo_apellido',
-                'fechanacimiento': 'fecha_nacimiento',
-                'codmunicipio': 'cod_municipio',
-                'nommunicipio': 'municipio',
-                'coddpto': 'cod_departamento',
-                'nomdepto': 'departamento',
-                'fecha_fin_vigencia_actual_': 'fecha_fin_vigencia_actual',
-                'no_temporario__tradicional': 'no_temporario_tradicional',
-                'no_temporario__vip': 'no_temporario_vip'            
-            })
+            self.df = self.df.rename(columns={self.campana_config['renombrar_columnas']})
+
             self.df['nombre_base'] = nombre_base
             print('columnas_despues')
             print(self.df.columns)
 
-            columnas_necesarias = [
-                    'registro',
-                    'co_id', 
-                    'genero', 
-                    'nombre', 
-                    'segundo_nombre', 
-                    'apellido',
-                    'segundo_apellido', 
-                    'fecha_nacimiento', 
-                    'placa', 
-                    'cod_municipio',
-                    'municipio', 
-                    'cod_departamento', 
-                    'departamento', 
-                    'direccion',
-                    'telefono1', 
-                    'telefono2', 
-                    'telefono3', 
-                    'telefono4', 
-                    'telefono5',
-                    'fecha_fin_vigencia_actual', 
-                    'modelo', 
-                    'linea', 
-                    'motor', 
-                    'chasis',
-                    'cod_fasecolda', 
-                    'marca', 
-                    'marca_y_linea', 
-                    'tasa', 
-                    'suma_asegurada',
-                    'aseguradora_actual', 
-                    'clase_vehiculo', 
-                    'servicio', 
-                    'email',
-                    'no_temporario_plus', 
-                    'prima_temporario_plus',
-                    'prima_temporario_sin_iva_plus', 
-                    'no_temporario_tradicional',
-                    'prima_tradicional', 
-                    'prima_tradicional_sin_iva', 
-                    'no_temporario_vip',
-                    'prima_temporario_vip', 
-                    'prima_temporario_vip_sin_iva',
-                    'no_temporario_nuevo_vip', 
-                    'prima_nueva_vip', 
-                    'prima_nueva_vip_sin_iva',
-                    'no_temporario_esencial', 
-                    'prima_temporario_esencial',
-                    'prima_temporario_esencial_sin_iva', 
-                    'no_temporario_nuevo_esencial',
-                    'prima_nueva_esencial', 
-                    'prima_nueva_esencial_sin_iva', 
-                    'grupos_1_y_2',
-                    'segmentacion_grupo_1_y_2_final',
-                    'fecha_asignacion', 
-                    'anio',
-                    'periodo', 
-                    'nombre_base'
-            ]
+            columnas_necesarias = self.campana_config['columnas_necesarias']
 
             columnas_existentes = [col for col in columnas_necesarias if col in self.df.columns]
             self.df = self.df[columnas_existentes]
@@ -190,7 +148,6 @@ class load_asignacion():
             print(f"Error inesperado al leer datos: {str(e)}")
             return None
         
-        #reader.read_directory()
 
     def load_data(self):
         self.loader.upsert_into_table(self.df)

@@ -13,13 +13,12 @@ project_root = os.path.dirname(current_folder)
 sys.path.append(project_root)
 
 config_path = os.path.join(project_root, "config", "config_coalesce.json")
-with open(config_path, "r", encoding="utf-8") as f:
-    campaigns_config = json.load(f)
 
-ruta_sql = os.path.join(project_root, "sql")
+with open(config_path, "r", encoding="utf-8") as f:
+    config_campanas = json.load(f)
 
 def elegir_campania() -> str:
-    campaigns = list(campaigns_config.keys())
+    campaigns = list(config_campanas.keys())
 
     print("\nCampañas disponibles:")
     for idx, nombre in enumerate(campaigns, start=1):
@@ -30,15 +29,15 @@ def elegir_campania() -> str:
             choice = int(input("\nIngrese el número de la campaña a ejecutar: "))
             if 1 <= choice <= len(campaigns):
                 return campaigns[choice - 1]
-            print("❌ Selección fuera de rango. Intente de nuevo.")
+            print("Selección fuera de rango. Intente de nuevo.")
         except ValueError:
-            print("❌ Entrada no válida. Debe ser un número entero.")
+            print("Entrada no válida. Debe ser un número entero.")
 
 def main():
     try:
         campania = elegir_campania()
-        config = campaigns_config[campania]
-        sql_file = os.path.join(ruta_sql, config["sql_file_path"])
+        config = config_campanas[campania]
+        sql_file = os.path.join(project_root, "sql", config["sql_file_path"])
 
         procesador = EtlCoalesceTel(
             schema=config["schema"],
@@ -51,10 +50,10 @@ def main():
         procesador.coalesce_etl()
         procesador.load_data()
 
-        print(f"✅ Proceso de la campaña '{campania}' completado con éxito")
+        print(f"Proceso de la campaña '{campania}' completado con éxito")
 
     except Exception as error:
-        print(f"❌ Error en el proceso principal: {error}")
+        print(f"Error en el proceso principal: {error}")
 
 
 if __name__ == "__main__":
