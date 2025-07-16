@@ -45,7 +45,9 @@ class load_asignacion:
 
         self.start_path = os.path.join(self.project_root, 'data', 'asignacion', 'nueva', self.campana_config['nombre_asignacion'])
         self.end_path = os.path.join(self.project_root, 'data', 'asignacion', 'cargado', self.campana_config['nombre_asignacion'])
-
+        os.makedirs(self.start_path, exist_ok=True)
+        os.makedirs(self.end_path, exist_ok=True)
+        
         self.schema = self.campana_config['schema']
         self.table = self.campana_config['table']
 
@@ -81,7 +83,7 @@ class load_asignacion:
             nombre_archivo = os.path.basename(latest_file_path)
             nombre_base = os.path.splitext(nombre_archivo)[0]
             
-            hoja_cargar = 'Hoja1'
+            hoja_cargar = input("Ingrese el nombre de la hoja: ")
 
             self.df = reader.read_directory(latest_file_path, sheet_name = hoja_cargar)
             if self.df is None or self.df.empty:
