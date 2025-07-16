@@ -42,10 +42,9 @@ class load_asignacion:
                 print("Entrada no válida. Ingrese un número.")
 
         self.campana_config = self.config_asignacion[self.campana_seleccionada]
-        self.nombre_asignacion = self.campaña_config['nombre_asignacion']
 
-        self.start_path = os.path.join(self.project_root, 'data', 'asignacion', 'nueva', self.nombre_asignacion)
-        self.end_path = os.path.join(self.project_root, 'data', 'asignacion', 'cargado', self.nombre_asignacion)
+        self.start_path = os.path.join(self.project_root, 'data', 'asignacion', 'nueva', self.campana_config['nombre_asignacion'])
+        self.end_path = os.path.join(self.project_root, 'data', 'asignacion', 'cargado', self.campana_config['nombre_asignacion'])
 
         self.schema = self.campana_config['schema']
         self.table = self.campana_config['table']
@@ -82,8 +81,9 @@ class load_asignacion:
             nombre_archivo = os.path.basename(latest_file_path)
             nombre_base = os.path.splitext(nombre_archivo)[0]
             
-            
-            self.df = reader.read_directory( latest_file_path)
+            hoja_cargar = ''
+
+            self.df = reader.read_directory(latest_file_path, sheet_name = hoja_cargar)
             if self.df is None or self.df.empty:
                 print("Error: No se pudo leer el archivo o está vacío")
                 return None
@@ -93,6 +93,8 @@ class load_asignacion:
             self.df = self.df.rename(columns={self.campana_config['renombrar_columnas']})
 
             self.df['nombre_base'] = nombre_base
+            self.df['hoja'] = hoja_cargar
+
             print('columnas_despues')
             print(self.df.columns)
 
@@ -122,7 +124,7 @@ class load_asignacion:
                 if col in self.df.columns:
                     self.df[col] = self.df[col].apply(estandarizar_telefono)
 
-            cols_duplicados = ['co_id', 'anio']
+            cols_duplicados = self.campana_config['cols_duplicados']
 
             if all(col in self.df.columns for col in cols_duplicados):
                 filas_antes = len(self.df)

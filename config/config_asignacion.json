@@ -87,7 +87,9 @@
                 "anio",
                 "periodo", 
                 "nombre_base"
-    ]
+    ],
+    
+    "cols_duplicados": ["co_id", "anio"]
   },
 
   "axa_desertores_tradicional": {
@@ -158,6 +160,8 @@
             "periodo", 
             "nombre_base",
             "hoja"
-    ]
+    ],
+
+    "cols_duplicados": ["contrato", "anio"]
   }
 }
