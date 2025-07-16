@@ -1,0 +1,48 @@
+SELECT 
+    contrato,
+    anio,
+    periodo,
+    nombre_base,
+    fecha_asignacion,
+    fecha_de_asignacion,
+    descripcion,
+    compania,
+    ano,
+    numero_mes,
+    canal,
+    subcanal,
+    zona,
+    oficina,
+    lider_comercial,
+    clave_asesor,
+    nombre_asesor,
+    prod_tec_nivel_5,
+    prod_tec_nivel_4,
+    prod_tec_nivel_3,
+    prod_tec_nivel_2,
+    fecha_inicio_de_vigencia,
+    fecha_inicio_de_vigencia_1,
+    fecha_fin_de_vigencia,
+    descripcion_grupo_endoso,
+    tipo_linea,
+    tipo_pago,
+    prima,
+    valor_de_renovacion_anterior,
+    altura_de_la_poliza_anos,
+    altura_de_la_poliza_anos_2,
+    identificacion,
+    cliente,
+    fecha_de_nacimiento,
+    IF(celular REGEXP '^(3[0-9]{9}|60[0-9]{8})$', celular, NULL) AS celular,
+	IF(celular2 REGEXP '^(3[0-9]{9}|60[0-9]{8})$', celular2, NULL) AS celular2,
+    correo_electronico
+FROM
+    bbdd_cos_bog_grupo_axa.tb_asignacion_renovados_vida_v2
+    WHERE periodo = DATE_FORMAT('2025-07-01', '%%Y%%m');
+    
+    CREATE TABLE tb_asignacion_renovados_vida_v2_coalesce (
+    contrato VARCHAR(255),
+    anio VARCHAR(4),
+    phone VARCHAR(20),
+    tipo_phone VARCHAR(30),
+    PRIMARY KEY (contrato, anio, phone))

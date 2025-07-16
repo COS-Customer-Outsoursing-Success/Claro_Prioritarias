@@ -28,7 +28,7 @@ class load_asignacion():
 
         telefonos = [
             'telefono', 'tele_numb', 'tele_numb_3', 'tele_numb_4', 'telefono_contacto',
-            'telefono1', 'telefono2', 'telefono3', 'telefono4', 'telefono5','telefono_4'
+            'telefono1', 'telefono2', 'telefono3', 'telefono4', 'telefono5','telefono_4',
             'telefono6', 'telefono7', 'telefono8', 'telefono9', 'telefono10','Celular del tomador'
         ]
 

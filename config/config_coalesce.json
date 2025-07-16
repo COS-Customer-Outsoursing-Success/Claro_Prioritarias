@@ -20,5 +20,86 @@
         "telefono3", 
         "telefono_4"
     ]
+  },
+
+  "Desertores Tradicional": {
+    "schema": "bbdd_cos_bog_grupo_axa",
+    "table": "tb_asignacion_desertores_tradicional_v2_coalesce",
+    "cuenta": "contrato",
+    "sql_file_path": "_sql_coalesce_axa_desertores_tradicional.sql",
+    "phone_columns": [
+        "celular", 
+        "celular_2", 
+        "telefono_fijo", 
+        "telefono_3",
+        "telefono_4",
+        "telefono_5",
+        "telefono_correspondencia"
+    ]
+  },
+
+  "Desertores Whatsapp": {
+    "schema": "bbdd_cos_bog_grupo_axa",
+    "table": "tb_asignacion_desertores_whatsapp_v2_coalesce",
+    "cuenta": "numero_de_poliza_o_contrato",
+    "sql_file_path": "_sql_coalesce_axa_desertores_whatsapp.sql",
+    "phone_columns": [
+        "celular_del_tomador"
+    ]
+  },
+
+  "Falabella": {
+    "schema": "bbdd_cos_bog_grupo_axa",
+    "table": "tb_asignacion_falabella_v2_coalesce",
+    "cuenta": "co_id",
+    "sql_file_path": "_sql_coalesce_axa_falabella.sql",
+    "phone_columns": [
+        "telefono1",
+        "telefono2",
+        "telefono3",
+        "telefono4",
+        "telefono5"
+    ]
+  },
+
+  "Fincomercio": {
+    "schema": "bbdd_cos_bog_grupo_axa",
+    "table": "tb_asignacion_fincomercio_v2_coalesce",
+    "cuenta": "cedula",
+    "sql_file_path": "_sql_coalesce_axa_fincomercio.sql",
+    "phone_columns": [
+        "telefono1",
+        "telefono2",
+        "telefono3",
+        "telefono_4"
+      ]
+  },
+
+  "Renovados Vida": {
+    "schema": "bbdd_cos_bog_grupo_axa",
+    "table": "tb_asignacion_renovados_vida_v2_coalesce",
+    "cuenta": "contrato",
+    "sql_file_path": "_sql_coalesce_axa_renovados_vida.sql",
+    "phone_columns": [
+        "celular",
+        "celular2"
+        ]
+  },
+
+  "Scotiabank": {
+    "schema": "bbdd_cos_bog_grupo_axa",
+    "table": "tb_asignacion_scotiabank_v2_coalesce",
+    "cuenta": "codid",
+    "sql_file_path": "_sql_coalesce_axa_scotiabank.sql",
+    "phone_columns": [
+        "tel1",
+        "tel2",
+        "tel3",
+        "tel4",
+        "tel5",
+        "tel6",
+        "tel7",
+        "tel8"
+        ]
   }
 }

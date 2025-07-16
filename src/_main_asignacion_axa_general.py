@@ -81,7 +81,7 @@ class load_asignacion:
             nombre_archivo = os.path.basename(latest_file_path)
             nombre_base = os.path.splitext(nombre_archivo)[0]
             
-            hoja_cargar = ''
+            hoja_cargar = 'Hoja1'
 
             self.df = reader.read_directory(latest_file_path, sheet_name = hoja_cargar)
             if self.df is None or self.df.empty:
@@ -90,7 +90,7 @@ class load_asignacion:
             print('columnas_antes')
             print(self.df.columns)
 
-            self.df = self.df.rename(columns={self.campana_config['renombrar_columnas']})
+            self.df = self.df.rename(columns=self.campana_config['renombrar_columnas'])
 
             self.df['nombre_base'] = nombre_base
             self.df['hoja'] = hoja_cargar
