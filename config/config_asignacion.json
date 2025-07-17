@@ -1,5 +1,131 @@
 {
-  "axa_desertores_tradicional": {
+  "Axa Bienvenida Whatsapp": {
+
+    "schema":"bbdd_cos_bog_grupo_axa",
+    "table":"tb_asignacion_bienvenida_whatsapp_v2",
+
+    "nombre_asignacion": "asignacion_bienvenida_whatsapp",
+
+    "telefonos": [
+            "telefono", "tele_numb", "tele_numb_3", "tele_numb_4", "telefono_contacto",
+            "telefono1", "telefono2", "telefono3", "telefono4", "telefono5",
+            "telefono6", "telefono7", "telefono8", "telefono9", "telefono10","Celular del tomador"
+            ],
+
+    "renombrar_columnas": {
+      "motivo_de_cancelacion_":"motivo_de_cancelacion"
+    },
+
+    "columnas_necesarias": [
+      "numero_del_caso", 
+      "estado", 
+      "numero_de_poliza_o_contrato", 
+      "placa",     
+      "documento", 
+      "nombre_del_tomador", 
+      "apellido_del_tomador",
+      "celular_del_tomador", 
+      "correo_electronico_del_tomador", 
+      "clave",
+      "sucursal", 
+      "ramo", 
+      "tipo_de_tramite", 
+      "subtipologia",
+      "propietario_del_caso__nombre_completo", 
+      "cola_de_gestion",
+      "horaenproceso", 
+      "motivo_de_cancelacion",
+      "fecha_asignacion", 
+      "anio",
+      "periodo",
+      "nombre_base"
+    ],
+    
+    "cols_duplicados": ["numero_de_poliza_o_contrato", "anio"]
+  },
+
+    "Axa Coomeva": {
+
+    "schema":"bbdd_cos_bog_grupo_axa",
+    "table":"tb_asignacion_coomeva_v2",
+
+    "nombre_asignacion": "asignacion_coomeva",
+
+    "telefonos": [
+            "telefono", "tele_numb", "tele_numb_3", "tele_numb_4", "telefono_contacto",
+            "telefono1", "telefono2", "telefono3", "telefono4", "telefono5", "telefono_4",
+            "telefono6", "telefono7", "telefono8", "telefono9", "telefono10", "Celular del tomador"
+            ],
+
+    "renombrar_columnas": {
+
+      "fecha_fin_vigencia_actual_": "fecha_fin_vigencia_actual",
+      "no_temporario_tradicional___vip": "no_temporario_tradicional_vip",
+      "prima_tradicional___vip": "prima_tradicional_vip",
+      "prima_sin_iva_tradicional___vip": "prima_sin_iva_tradicional_vip"
+    },
+
+    "columnas_necesarias": [
+
+        "cedula", 
+        "genero", 
+        "nombre_y_apellido", 
+        "fechanacimiento", 
+        "placa",
+        "codmunicipio", 
+        "nommunicipio", 
+        "coddpto", 
+        "nomdepto", 
+        "direccion",
+        "telefono1", 
+        "telefono2", 
+        "telefono3", 
+        "telefono_4",
+        "fecha_fin_vigencia_actual", 
+        "modelo", 
+        "linea", 
+        "motor", 
+        "chasis",
+        "cod_fasecolda", 
+        "marca", 
+        "marca_y_linea", 
+        "tasa", 
+        "suma_asegurada",
+        "aseguradora_actual", 
+        "clase_vehiculo", 
+        "servicio", 
+        "email",
+        "no_temporario_plus_plus", 
+        "prima_plus_plus", 
+        "prima_sin_iva_plus_plus",
+        "no_temporario_vip_vip", 
+        "prima_vip_vip", 
+        "prima_sin_iva_vip_vip",
+        "no_temporario_tradicional_vip", 
+        "prima_tradicional_vip",
+        "prima_sin_iva_tradicional_vip", 
+        "no_temporario_esencial_esencial",
+        "prima_esencial_esencial", 
+        "prima_sin_iva_esencial_esencial",
+        "no_temporario_esencial_esencial_1", 
+        "prima_esencial_esencial_1",
+        "prima_sin_iva_esencial_esencial_1",
+        "no_temporario_esencial_esencial_2", 
+        "prima_esencial_esencial_2",
+        "prima_sin_iva_esencial_esencial_2", 
+        "grupo_perfil", 
+        "fecha_asignacion",
+        "anio", 
+        "periodo", 
+        "nombre_base", 
+        "hoja"
+
+    ],
+
+    "cols_duplicados": ["placa", "anio"]
+  },
+
+  "Axa Desertores Tradicional": {
 
     "schema":"bbdd_cos_bog_grupo_axa",
     "table":"tb_asignacion_desertores_tradicional_v2",
@@ -72,7 +198,53 @@
     "cols_duplicados": ["contrato", "anio"]
   },
 
-  "axa_falabella": {
+  "Axa Desertores Whatsapp": {
+
+    "schema":"bbdd_cos_bog_grupo_axa",
+    "table":"tb_asignacion_desertores_whatsapp_v2",
+
+    "nombre_asignacion": "asignacion_desertores_whatsapp",
+
+    "telefonos": [
+            "telefono", "tele_numb", "tele_numb_3", "tele_numb_4", "telefono_contacto",
+            "telefono1", "telefono2", "telefono3", "telefono4", "telefono5",
+            "telefono6", "telefono7", "telefono8", "telefono9", "telefono10","Celular del tomador"
+            ],
+
+    "renombrar_columnas": {
+            "motivo_de_cancelacion_":"motivo_de_cancelacion"
+    },
+
+    "columnas_necesarias": [
+
+            "numero_del_caso", 
+            "estado", 
+            "numero_de_poliza_o_contrato", 
+            "placa",     
+            "documento", 
+            "nombre_del_tomador", 
+            "apellido_del_tomador",
+            "celular_del_tomador", 
+            "correo_electronico_del_tomador", 
+            "clave",
+            "sucursal", 
+            "ramo", 
+            "tipo_de_tramite", 
+            "subtipologia",
+            "propietario_del_caso__nombre_completo", 
+            "cola_de_gestion",
+            "horaenproceso", 
+            "motivo_de_cancelacion", 
+            "fecha_asignacion", 
+            "anio",
+            "periodo", 
+            "nombre_base"
+    ],
+
+    "cols_duplicados": ["numero_de_poliza_o_contrato", "anio"]
+  },
+
+  "Axa Falabella": {
 
     "schema":"bbdd_cos_bog_grupo_axa",
     "table":"tb_asignacion_falabella_v2",
@@ -156,16 +328,17 @@
                 "prima_nueva_esencial_sin_iva", 
                 "grupos_1_y_2",
                 "segmentacion_grupo_1_y_2_final",
+                "prioridad",
                 "fecha_asignacion", 
                 "anio",
                 "periodo", 
                 "nombre_base"
     ],
     
-    "cols_duplicados": ["co_id", "anio"]
+    "cols_duplicados": ["placa", "anio"]
   },
 
-  "axa_fincomercio": {
+  "Axa Fincomercio": {
 
     "schema":"bbdd_cos_bog_grupo_axa",
     "table":"tb_asignacion_fincomercio_v2",
@@ -242,7 +415,7 @@
     "cols_duplicados": ["cedula", "anio"]
   },
 
-    "axa_occidente_endosos": {
+    "Axa Occidente Endosos": {
 
     "schema":"bbdd_cos_bog_grupo_axa",
     "table":"tb_asignacion_occidente_endosos_v2",

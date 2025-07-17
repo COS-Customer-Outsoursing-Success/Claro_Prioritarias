@@ -51,7 +51,7 @@
   "Falabella": {
     "schema": "bbdd_cos_bog_grupo_axa",
     "table": "tb_asignacion_falabella_v2_coalesce",
-    "cuenta": "co_id",
+    "cuenta": "placa",
     "sql_file_path": "_sql_coalesce_axa_falabella.sql",
     "phone_columns": [
         "telefono1",
@@ -100,6 +100,29 @@
         "tel6",
         "tel7",
         "tel8"
+        ]
+  },
+
+  "Occiente Endosos": {
+    "schema": "bbdd_cos_bog_grupo_axa",
+    "table": "tb_asignacion_occidente_endosos_v2_coalesce",
+    "cuenta": "placa",
+    "sql_file_path": "_sql_coalesce_axa_occidente_endosos.sql",
+    "phone_columns": [
+        "telefono"
+        ]
+  },
+
+  "Coomeva": {
+    "schema": "bbdd_cos_bog_grupo_axa",
+    "table": "tb_asignacion_coomeva_v2_coalesce",
+    "cuenta": "placa",
+    "sql_file_path": "_sql_coalesce_axa_coomeva.sql",
+    "phone_columns": [
+        "telefono1",
+        "telefono2",
+        "telefono3",
+        "telefono_4"
         ]
   }
 }

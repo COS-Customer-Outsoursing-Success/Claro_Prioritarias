@@ -89,7 +89,8 @@ class load_asignacion:
             if self.df is None or self.df.empty:
                 print("Error: No se pudo leer el archivo o está vacío")
                 return None
-            print('columnas_antes')
+            print(f"cantidad de registros antes: {len(self.df)}")
+            print("columnas_antes")
             print(self.df.columns)
 
             self.df = self.df.rename(columns=self.campana_config['renombrar_columnas'])
@@ -97,6 +98,7 @@ class load_asignacion:
             self.df['nombre_base'] = nombre_base
             self.df['hoja'] = hoja_cargar
 
+            print(f"cantidad de registros despues: {len(self.df)}")
             print('columnas_despues')
             print(self.df.columns)
 
@@ -137,6 +139,7 @@ class load_asignacion:
 
             print('Proceso de lectura completado exitosamente')
             print('Columnas Necesarias:', columnas_existentes)
+            print(f"cantidad de registros despues de duplicados: {len(self.df)}")
 
             for col in self.df.columns:
                 if self.df[col].dtype in ['float64', 'int64']:

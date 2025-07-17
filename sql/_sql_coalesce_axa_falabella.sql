@@ -56,7 +56,8 @@ SELECT
     prima_nueva_esencial,
     prima_nueva_esencial_sin_iva,
     grupos_1_y_2,
-    segmentacion_grupo_1_y_2_final
+    segmentacion_grupo_1_y_2_final,
+    prioridad
 FROM
     bbdd_cos_bog_grupo_axa.tb_asignacion_falabella_v2
-		WHERE periodo = DATE_FORMAT('2025-07-01','%%Y%%m')
+		WHERE periodo >= DATE_FORMAT('2025-03-01','%%Y%%m')
