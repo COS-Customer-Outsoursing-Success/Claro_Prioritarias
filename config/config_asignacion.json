@@ -168,7 +168,7 @@
   "axa_fincomercio": {
 
     "schema":"bbdd_cos_bog_grupo_axa",
-    "table":"tb_asignacion_fincomercio_v2_coalesce",
+    "table":"tb_asignacion_fincomercio_v2",
 
     "nombre_asignacion": "asignacion_fincomercio",
 
@@ -240,5 +240,86 @@
     ],
 
     "cols_duplicados": ["cedula", "anio"]
+  },
+
+    "axa_occidente_endosos": {
+
+    "schema":"bbdd_cos_bog_grupo_axa",
+    "table":"tb_asignacion_occidente_endosos_v2",
+
+    "nombre_asignacion": "asignacion_occidente_endosos",
+
+    "telefonos": [
+            "telefono", "tele_numb", "tele_numb_3", "tele_numb_4", "telefono_contacto",
+            "telefono1", "telefono2", "telefono3", "telefono4", "telefono5", "telefono_4",
+            "telefono6", "telefono7", "telefono8", "telefono9", "telefono10", "Celular del tomador"
+            ],
+
+    "renombrar_columnas": {
+
+        "nro_documento": "documento"
+    },
+
+    "columnas_necesarias": [
+
+        "nombre_sucursal", 
+        "poliza", 
+        "tipo_de_documento", 
+        "expedicion", 
+        "desde",
+        "hasta", 
+        "cod_asegurado", 
+        "nombre_asegurado", 
+        "tipo_documento",
+        "documento", 
+        "sexo_aseg", 
+        "direccion_asegurado", 
+        "telefono",
+        "zona_de_operacion", 
+        "estado_civil", 
+        "tipo_de_negocio",
+        "fecha_nacimiento", 
+        "edad", 
+        "cod_tomador", 
+        "nombre_tomador",
+        "tipo_documento_tomador", 
+        "nro_documento_tomador", 
+        "direccion_tomador",
+        "telefono_tomador", 
+        "ciudad_tomador", 
+        "cod_beneficiario",
+        "nombre_beneficiario", 
+        "tipo_documento_beneficiario",
+        "nro_documento_beneficiario", 
+        "clave_intermediario", 
+        "tipo", 
+        "marca",
+        "modelo", 
+        "tipo_servicio", 
+        "codigo_fasecolda", 
+        "anio_modelo", 
+        "color",
+        "placa", 
+        "motor", 
+        "chasis", 
+        "carroceria", 
+        "vr_asegurado_comercial",
+        "producto_cobertura", 
+        "total_a_pagar", 
+        "importe_resp_civil",
+        "tipo_poliza", 
+        "tipo_de_asistencia", 
+        "observaciones", 
+        "siniestros",
+        "fecha_asignacion", 
+        "anio", 
+        "periodo", 
+        "nombre_base", 
+        "hoja"
+
+
+    ],
+
+    "cols_duplicados": ["placa", "anio"]
   }
 }
