@@ -12,14 +12,12 @@ import os
 import json
 from datetime import datetime
 
-class LoadAsignacion:
+class Load_Asignacion:
 
-    def __init__(self):
+    def __init__(self, config_path=None, ):
+        
         self.fecha = datetime.now().strftime("%Y-%m-%d")
-
-        self.current_folder = os.path.dirname(os.path.abspath(__file__))
-        self.project_root = os.path.dirname(self.current_folder)
-        self.config_path = os.path.join(self.project_root, 'config', 'config_asignacion.json')
+        self.config_path = config_path
 
         with open(self.config_path, 'r', encoding='utf-8') as f:
             self.config_asignacion = json.load(f)
@@ -144,6 +142,7 @@ class LoadAsignacion:
                         
             self.duplicados = os.path.join(self.project_root, 'data', 'asignacion', 'duplicados', self.campana_config['nombre_asignacion'])
             os.makedirs(self.duplicados, exist_ok=True)
+
             cols_duplicados = self.campana_config['cols_duplicados']
 
             if all(col in self.df.columns for col in cols_duplicados):
@@ -152,8 +151,9 @@ class LoadAsignacion:
                 df_duplicados = self.df[self.df.duplicated(subset=cols_duplicados, keep=False)]
 
                 if not df_duplicados.empty:
-                    df_duplicados[['placa', 'periodo']].to_csv(self.duplicados, 'duplicados_detectados_periodo.csv', index=False)
-                    print(f"Archivo 'duplicados_detectados.csv' guardado con {len(df_duplicados)} registros duplicados.")
+                    archivo_duplicados = os.path.join(self.duplicados, 'duplicados_detectados_periodo.csv')
+                    df_duplicados[cols_duplicados].to_csv(archivo_duplicados, index=False)
+                    print(f"Archivo 'duplicados_detectados_periodo.csv' guardado con {len(df_duplicados)} registros duplicados.")
 
                 self.df.drop_duplicates(subset=cols_duplicados, inplace=True)
                 print(f"Duplicados eliminados: {filas_antes - len(self.df)}")
@@ -161,7 +161,6 @@ class LoadAsignacion:
                 print("Advertencia: Columnas para verificación de duplicados no encontradas")
 
             print(f"Cantidad de registros después de eliminar duplicados: {len(self.df)}")
-
 
             print('Proceso de lectura completado exitosamente')
             print('Columnas Necesarias:', columnas_existentes)
@@ -190,5 +189,5 @@ class LoadAsignacion:
         self.load_data()
 
 if __name__ == '__main__':
-    loader_asignacion = LoadAsignacion() 
+    loader_asignacion = Load_Asignacion() 
     loader_asignacion.main()

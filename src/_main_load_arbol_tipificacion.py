@@ -1,0 +1,37 @@
+"""""
+Created By Emerson Aguilar Cruz
+"""""
+
+import os
+import sys
+
+current_folder = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.dirname(current_folder)
+sys.path.append(current_folder)
+
+from arbol_tipificacion._cls_load_arbol_tipificacion import SubirInformacion
+    
+def main():
+    
+
+    schema = 'bbdd_cos_bog_grupo_axa'
+    table = 'tb_arb_tipificacion_v2'
+    archivo_excel = os.path.join(project_root, 'data', 'arbol_tipificacion')
+
+    
+    # -- Inicializador de clases -- 
+    processor_arbol = SubirInformacion(
+        schema = schema, 
+        table = table,
+        archivo_excel=archivo_excel,
+
+    )
+
+    try:
+        processor_arbol.main()
+    except Exception as e:
+        print(f"Error en el proceso principal: {str(e)}")
+
+if __name__ == '__main__':
+
+    main()

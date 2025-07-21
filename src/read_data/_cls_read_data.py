@@ -200,6 +200,20 @@ class FileReader:
         except Exception as e:
             print(f"No se pudo mover el archivo {file_name}: {e}")
 
+
+    def sheet_names(self, file_name):
+        try:
+            sheets = pd.ExcelFile(file_name).sheet_names
+            print(f"Hojas disponibles: {sheets}")
+            seleccion = input("Seleccione el nombre de la hoja que desea usar: ")
+            if seleccion not in sheets:
+                print("Nombre de hoja no válido.")
+                return sheets, None
+            return sheets, seleccion
+        except Exception as e:
+            print(f"Error al leer el archivo: {e}")
+            return [], None
+
     def _clean_headers(self, df):
         accents_map = {
             'á': 'a', 'é': 'e', 'í': 'i', 'ó': 'o', 'ú': 'u',
