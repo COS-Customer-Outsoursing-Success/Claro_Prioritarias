@@ -256,6 +256,8 @@
                 "telefono1", "telefono2", "telefono3", "telefono4", "telefono5",
                 "telefono6", "telefono7", "telefono8", "telefono9", "telefono10"
             ],
+    
+    "columnas_fecha": ["fecha_nacimiento", "fecha_fin_vigencia_actual"],
 
     "renombrar_columnas": {
       "registerid": "registro",
@@ -271,7 +273,8 @@
       "nomdepto": "departamento",
       "fecha_fin_vigencia_actual_": "fecha_fin_vigencia_actual",
       "no_temporario__tradicional": "no_temporario_tradicional",
-      "no_temporario__vip": "no_temporario_vip"
+      "no_temporario__vip": "no_temporario_vip",
+      "grupo": "prioridad"
     },
 
     "columnas_necesarias": [
@@ -294,7 +297,7 @@
                 "telefono3", 
                 "telefono4", 
                 "telefono5",
-                "fecha_fin_vigencia_actual", 
+                "fecha_fin_vigencia_actual",
                 "modelo", 
                 "linea", 
                 "motor", 

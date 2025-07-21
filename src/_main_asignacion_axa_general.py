@@ -128,18 +128,38 @@ class load_asignacion:
                 if col in self.df.columns:
                     self.df[col] = self.df[col].apply(estandarizar_telefono)
 
+            columnas_fecha = self.campana_config['columnas_fecha']
+
+            for col in columnas_fecha:
+                if col in self.df.columns:
+                    try:
+                        self.df[col] = pd.to_datetime(self.df[col], errors='coerce', dayfirst=True)
+                    except Exception as e:
+                        print(f"Error al convertir la columna {col} a fecha: {e}")
+                        
+            self.duplicados = os.path.join(self.project_root, 'data', 'asignacion', 'duplicados', self.campana_config['nombre_asignacion'])
+            os.makedirs(self.duplicados, exist_ok=True)
             cols_duplicados = self.campana_config['cols_duplicados']
 
             if all(col in self.df.columns for col in cols_duplicados):
                 filas_antes = len(self.df)
+
+                df_duplicados = self.df[self.df.duplicated(subset=cols_duplicados, keep=False)]
+
+                if not df_duplicados.empty:
+                    df_duplicados[['placa', 'periodo']].to_csv(self.duplicados, 'duplicados_detectados_periodo.csv', index=False)
+                    print(f"Archivo 'duplicados_detectados.csv' guardado con {len(df_duplicados)} registros duplicados.")
+
                 self.df.drop_duplicates(subset=cols_duplicados, inplace=True)
                 print(f"Duplicados eliminados: {filas_antes - len(self.df)}")
             else:
                 print("Advertencia: Columnas para verificación de duplicados no encontradas")
 
+            print(f"Cantidad de registros después de eliminar duplicados: {len(self.df)}")
+
+
             print('Proceso de lectura completado exitosamente')
             print('Columnas Necesarias:', columnas_existentes)
-            print(f"cantidad de registros despues de duplicados: {len(self.df)}")
 
             for col in self.df.columns:
                 if self.df[col].dtype in ['float64', 'int64']:
