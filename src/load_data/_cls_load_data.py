@@ -147,7 +147,7 @@ class MySQLLoader:
         for start in range(0, len(df), size):
             yield df.iloc[start:start + size]
 
-    def upsert_into_table(self, data):
+    def upsert_into_table(self, data, table_name=None, schema=None):
         """
         Realiza un INSERT INTO basado en la clave primaria.
         Si existe un conflicto en la clave primaria, actualiza solo las columnas proporcionadas en 'data'.
@@ -157,6 +157,10 @@ class MySQLLoader:
             print("No hay datos para insertar.")
             return
 
+        if table_name:
+            self.table_name = table_name
+        if schema:
+            self.schema = schema
         try:
             current_columns = self._get_current_columns()
             print(f"Columnas actuales en la tabla: {current_columns}")

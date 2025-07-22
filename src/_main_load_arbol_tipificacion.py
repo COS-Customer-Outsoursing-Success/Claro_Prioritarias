@@ -9,7 +9,7 @@ current_folder = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(current_folder)
 sys.path.append(current_folder)
 
-from arbol_tipificacion._cls_load_arbol_tipificacion import SubirInformacion
+from arbol_tipificacion._cls_load_arbol_tipificacion import LoadArbolTipificacion
     
 def main():
     
@@ -20,7 +20,7 @@ def main():
 
     
     # -- Inicializador de clases -- 
-    processor_arbol = SubirInformacion(
+    processor_arbol = LoadArbolTipificacion(
         schema = schema, 
         table = table,
         archivo_excel=archivo_excel,

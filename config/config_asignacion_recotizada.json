@@ -1,0 +1,65 @@
+{
+   "Axa Falabella Recotizada": {
+
+    "schema":"bbdd_cos_bog_grupo_axa",
+    "table":"tb_asignacion_falabella_recotizada_v2",
+
+    "nombre_asignacion": "asignacion_falabella_recotizada",
+
+    "telefonos": [
+                "telefono", "tele_numb", "tele_numb_3", "tele_numb_4", "telefono_contacto",
+                "telefono1", "telefono2", "telefono3", "telefono4", "telefono5",
+                "telefono6", "telefono7", "telefono8", "telefono9", "telefono10"
+            ],
+    
+    "columnas_fecha": ["fecha_nacimiento", "fecha_fin_vigencia_actual"],
+
+    "renombrar_columnas": {
+      "registerid": "registro",
+      "codid": "co_id",
+      "primernombre": "nombre",
+      "segundonombre": "segundo_nombre",
+      "primerapellido": "apellido",
+      "segundoapellido": "segundo_apellido",
+      "fechanacimiento": "fecha_nacimiento",
+      "codmunicipio": "cod_municipio",
+      "nommunicipio": "municipio",
+      "coddpto": "cod_departamento",
+      "nomdepto": "departamento",
+      "fecha_fin_vigencia_actual_": "fecha_fin_vigencia_actual",
+      "no_temporario__tradicional": "no_temporario_tradicional",
+      "no_temporario__vip": "no_temporario_vip",
+      "grupo": "prioridad"
+    },
+
+    "columnas_necesarias": [
+          "placa",
+          "periodo",
+          "tasa",
+          "suma_asegurada",
+          "prima_tradicional_sin_iva",
+          "prima_tradicional",
+          "prima_temporario_vip_sin_iva",
+          "prima_temporario_vip",
+          "prima_temporario_sin_iva_plus",
+          "prima_temporario_plus",
+          "prima_temporario_esencial_sin_iva",
+          "prima_temporario_esencial",
+          "prima_nueva_vip_sin_iva",
+          "prima_nueva_vip",
+          "prima_nueva_esencial_sin_iva",
+          "prima_nueva_esencial",
+          "no_temporario_vip",
+          "no_temporario_tradicional",
+          "no_temporario_plus",
+          "no_temporario_nuevo_vip",
+          "no_temporario_nuevo_esencial",
+          "no_temporario_esencial",
+          "fecha_asignacion",
+          "anio",
+          "nombre_base"
+    ],
+    
+    "cols_duplicados": ["placa", "periodo"]
+  }
+}
