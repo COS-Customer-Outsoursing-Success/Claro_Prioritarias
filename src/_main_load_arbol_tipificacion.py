@@ -12,11 +12,16 @@ sys.path.append(current_folder)
 from arbol_tipificacion._cls_load_arbol_tipificacion import LoadArbolTipificacion
     
 def main():
+       
+       
     
-
     schema = 'bbdd_cos_bog_grupo_axa'
     table = 'tb_arb_tipificacion_v2'
     archivo_excel = os.path.join(project_root, 'data', 'arbol_tipificacion')
+    
+#   schema =  "bbdd_cos_bog_colsubsidio_atraccion"
+#   table = 'tb_arbol_tipificacion_dts'
+#   archivo_excel = r'Z:\WORKFORCE\03. Mission\Emerson Aguilar\18. Colsubsidio\02. Atraccion'
 
     
     # -- Inicializador de clases -- 

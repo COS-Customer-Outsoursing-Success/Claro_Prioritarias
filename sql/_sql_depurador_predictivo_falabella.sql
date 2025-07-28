@@ -32,7 +32,7 @@ WHERE 1 = 1
   AND orden = 1
   AND exclusion_total = 0
   AND (
-        vicidial_calls <= 12
+        vicidial_calls <= 0
         OR tipificacion_mejor_gestion IS NULL
       )
   AND fecha_fin_vigencia_actual >= (CURDATE() + INTERVAL 1 DAY)

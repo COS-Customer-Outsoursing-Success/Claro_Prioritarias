@@ -1,21 +1,54 @@
+"""
+CREATED BY EMERSON AGUILAR CRUZ
+"""
+
 import fitz  # PyMuPDF
 import os
+import pandas as pd
 from datetime import datetime, timedelta
 from conexiones_db._cls_sqlalchemy import MySQLConnector
+from  load_data._cls_load_data import *
 
 class LeerPdf:
 
-    def __init__(self, rutas_pdf=None, ruta_pdf_dir=None, archivos_pdf=None):
-
-        self.rutas_pdf = rutas_pdf or []
-        self.ruta_pdf = None 
+    def __init__(self, ruta_pdf_dir=None, archivos_pdf=None, schema=None, table=None):
 
         self.ruta_pdf_dir = ruta_pdf_dir 
-        self.archivos_pdf = archivos_pdf
+        self.archivos_pdf = archivos_pdf or []
+
+        if self.ruta_pdf_dir and not self.archivos_pdf:
+            self.archivos_pdf = [
+                os.path.join(self.ruta_pdf_dir, f)
+                for f in os.listdir(self.ruta_pdf_dir)
+                if f.lower().endswith('.pdf') and os.path.isfile(os.path.join(self.ruta_pdf_dir, f))
+            ]
+
+        if not self.archivos_pdf:
+            print("No se encontraron archivos PDF en el directorio.")
+            return
+
+        self.ruta_pdf = None
+        self.df = None
+
+        self.schema = "bbdd_cos_bog_grupo_axa"
+        self.table =  "tb_asignacion_falabella_v2_temporarios"
+        self.engine = MySQLConnector().get_connection(database=self.schema)
+        self.loader = MySQLLoader(self.engine, self.schema, self.table) 
+
+#    def imprimir_lineas_pdf(self):
+#        if not self.ruta_pdf:
+#            raise ValueError("No se ha seleccionado ningún PDF.")
+#        with fitz.open(self.ruta_pdf) as doc:
+#            for page_num, page in enumerate(doc, start=1):
+#                print(f"\nPágina {page_num}")
+#                lines = page.get_text().splitlines()
+#                for i, line in enumerate(lines):
+#                    print(f"{i:02d}: {line}")
 
     def obtener_pdf(self):
         pdf_validos = []
-        for ruta in self.rutas_pdf:
+
+        for ruta in self.archivos_pdf:
             if os.path.exists(ruta) and ruta.lower().endswith('.pdf'):
                 pdf_validos.append(ruta)
             else:
@@ -47,6 +80,9 @@ class LeerPdf:
                 print("Entrada inválida. Debes ingresar un número.")
 
     def extraer_temporario_fecha_solicitud(self):
+
+        self.obtener_pdf()
+
         if not self.ruta_pdf:
             raise ValueError("No se ha seleccionado ningún PDF.")
         
@@ -72,6 +108,7 @@ class LeerPdf:
                         fecha_solicitud_str = f"{anio}-{int(mes):02}-{int(dia):02}"
                         fecha_solicitud = datetime.strptime(fecha_solicitud_str, '%Y-%m-%d')
                         fecha_vigencia = fecha_solicitud + timedelta(days=1)
+
                 except IndexError:
                     pass
 
@@ -95,19 +132,43 @@ class LeerPdf:
                             fecha_solicitud = datetime.strptime(fecha_solicitud_str, '%Y-%m-%d')
                             fecha_vigencia = fecha_solicitud + timedelta(days=1)
                             break
-
+                
+                
                 if temporario and fecha_solicitud and fecha_vigencia:
                     break
+                
+        temporario_3 = temporario[:3] if temporario else None
 
-        return temporario, fecha_solicitud, fecha_vigencia
+        print("Temporario Completo:", temporario)        
+        print("Temporario 3 Dijitos:", temporario_3)
+        print("Fecha Solicitud:", fecha_solicitud)
+        print("Fecha Vigencia:", fecha_vigencia)
 
-    def load_
-    def imprimir_lineas_pdf(self):
-        if not self.ruta_pdf:
-            raise ValueError("No se ha seleccionado ningún PDF.")
-        with fitz.open(self.ruta_pdf) as doc:
-            for page_num, page in enumerate(doc, start=1):
-                print(f"\nPágina {page_num}")
-                lines = page.get_text().splitlines()
-                for i, line in enumerate(lines):
-                    print(f"{i:02d}: {line}")
+        
+        self.df = pd.DataFrame([{
+
+            "temporario": temporario_3,
+            "fecha_solicitud": fecha_solicitud,
+            "fecha_vigencia": fecha_vigencia 
+        }])
+        
+        while True:
+
+            periodo = input("Colocar periodo del pdf elegido ej: 202504: ")
+            if periodo.isdigit() and len (periodo) == 6:
+                self.df["periodo"] = periodo
+                break
+            else: 
+                print("Formato de periodo invalido. Tiene que ser un numero de 6 dijitos ej: 202507")
+
+        print("------------- Data Final -------------:")
+        print(self.df)
+
+        return self.df
+
+    def load_data(self):
+        if self.df is None or self.df.empty:
+            print("No hay datos para cargar.")
+            return
+        self.loader.upsert_into_table(self.df)
+        print("Load Pdf Completado")
