@@ -19,7 +19,7 @@ class LoadAsignacion:
 
         self.current_folder = os.path.dirname(os.path.abspath(__file__))
         self.project_root = os.path.dirname(self.current_folder)
-        self.config_path = os.path.join(self.project_root, 'config', 'config_asignacion.json')
+        self.config_path = os.path.join(self.project_root, 'config', 'config_asignacion_inicial.json')
 
         with open(self.config_path, 'r', encoding='utf-8') as f:
             self.config_asignacion = json.load(f)

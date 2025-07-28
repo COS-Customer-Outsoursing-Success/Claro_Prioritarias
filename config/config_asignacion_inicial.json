@@ -497,6 +497,6 @@
 
     ],
 
-    "cols_duplicados": ["placa", "anio"]
+    "cols_duplicados": ["placa", "periodo"]
   }
 }
