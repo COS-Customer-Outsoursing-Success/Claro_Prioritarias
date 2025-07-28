@@ -1,18 +1,17 @@
 import fitz  # PyMuPDF
 import os
 from datetime import datetime, timedelta
-
+from conexiones_db._cls_sqlalchemy import MySQLConnector
 
 class LeerPdf:
 
-    def __init__(self, rutas_pdf=None, ruta_pdf=None, ruta_pdf_dir=None, archivos_pdf=None):
+    def __init__(self, rutas_pdf=None, ruta_pdf_dir=None, archivos_pdf=None):
 
-        
         self.rutas_pdf = rutas_pdf or []
-        self.ruta_pdf = None
+        self.ruta_pdf = None 
 
-        self.ruta_pdf_dir = r"Z:\WORKFORCE\03. Mission\Emerson Aguilar\19. Axa\pdf"
-        self.archivos_pdf = [os.path.join(self.ruta_pdf_dir, f) for f in os.listdir(self.ruta_pdf_dir) if f.endswith(".pdf")]
+        self.ruta_pdf_dir = ruta_pdf_dir 
+        self.archivos_pdf = archivos_pdf
 
     def obtener_pdf(self):
         pdf_validos = []
@@ -26,7 +25,6 @@ class LeerPdf:
             print("No se encontraron archivos PDF válidos.")
             return None
 
-        # Si solo hay un archivo PDF, lo seleccionamos automáticamente
         if len(pdf_validos) == 1:
             self.ruta_pdf = pdf_validos[0]
             print(f"\nSe encontró un solo archivo PDF. Seleccionado automáticamente: {self.ruta_pdf}")
@@ -48,19 +46,10 @@ class LeerPdf:
             except ValueError:
                 print("Entrada inválida. Debes ingresar un número.")
 
-    def imprimir_lineas_pdf(self):
-        if not self.ruta_pdf:
-            raise ValueError("No se ha seleccionado ningún PDF.")
-        with fitz.open(self.ruta_pdf) as doc:
-            for page_num, page in enumerate(doc, start=1):
-                print(f"\nPágina {page_num}")
-                lines = page.get_text().splitlines()
-                for i, line in enumerate(lines):
-                    print(f"{i:02d}: {line}")
-
     def extraer_temporario_fecha_solicitud(self):
         if not self.ruta_pdf:
             raise ValueError("No se ha seleccionado ningún PDF.")
+        
         temporario = None
         fecha_solicitud = None
         fecha_vigencia = None
@@ -112,14 +101,13 @@ class LeerPdf:
 
         return temporario, fecha_solicitud, fecha_vigencia
 
-
-if __name__ == '__main__':
-
-    lector = LeerPdf()
-    lector.obtener_pdf()
-
-    if lector.ruta_pdf:
-        temporario, fecha_solicitud, fecha_vigencia = lector.extraer_temporario_fecha_solicitud()
-        print("Temporario:", temporario)
-        print("Fecha Solicitud:", fecha_solicitud)
-        print("Fecha Vigencia:", fecha_vigencia)
+    def load_
+    def imprimir_lineas_pdf(self):
+        if not self.ruta_pdf:
+            raise ValueError("No se ha seleccionado ningún PDF.")
+        with fitz.open(self.ruta_pdf) as doc:
+            for page_num, page in enumerate(doc, start=1):
+                print(f"\nPágina {page_num}")
+                lines = page.get_text().splitlines()
+                for i, line in enumerate(lines):
+                    print(f"{i:02d}: {line}")
