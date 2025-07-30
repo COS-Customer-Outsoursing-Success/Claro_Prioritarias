@@ -2,7 +2,7 @@
 CREATED BY EMERSON AGUILAR CRUZ
 """
 
-from _cls_lector_pdf import LeerPdf
+from read_pdf._cls_lector_pdf import LeerPdf
 
 def main():
 
