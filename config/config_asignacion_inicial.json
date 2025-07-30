@@ -41,7 +41,7 @@
       "nombre_base"
     ],
     
-    "cols_duplicados": ["numero_de_poliza_o_contrato", "anio"]
+    "cols_duplicados": ["numero_de_poliza_o_contrato", "periodo"]
   },
 
     "Axa Coomeva": {
@@ -122,7 +122,7 @@
 
     ],
 
-    "cols_duplicados": ["placa", "anio"]
+    "cols_duplicados": ["placa", "periodo"]
   },
 
   "Axa Desertores Tradicional": {
@@ -195,7 +195,7 @@
             "hoja"
     ],
 
-    "cols_duplicados": ["contrato", "anio"]
+    "cols_duplicados": ["contrato", "periodo"]
   },
 
   "Axa Desertores Whatsapp": {
@@ -241,7 +241,7 @@
             "nombre_base"
     ],
 
-    "cols_duplicados": ["numero_de_poliza_o_contrato", "anio"]
+    "cols_duplicados": ["placa", "periodo"]
   },
 
   "Axa Falabella": {
@@ -416,7 +416,7 @@
                 "nombre_base"
     ],
 
-    "cols_duplicados": ["cedula", "anio"]
+    "cols_duplicados": ["placa", "anio"]
   },
 
     "Axa Occidente Endosos": {

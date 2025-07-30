@@ -200,7 +200,6 @@ class FileReader:
         except Exception as e:
             print(f"No se pudo mover el archivo {file_name}: {e}")
 
-
     def sheet_names(self, file_name):
         try:
             sheets = pd.ExcelFile(file_name).sheet_names
