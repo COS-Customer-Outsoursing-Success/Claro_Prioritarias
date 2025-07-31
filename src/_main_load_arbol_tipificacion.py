@@ -19,9 +19,9 @@ def main():
     table = 'tb_arb_tipificacion_v2'
     archivo_excel = os.path.join(project_root, 'data', 'arbol_tipificacion')
     
-#   schema =  "bbdd_cos_bog_colsubsidio_atraccion"
-#   table = 'tb_arbol_tipificacion_dts'
-#   archivo_excel = r'Z:\WORKFORCE\03. Mission\Emerson Aguilar\18. Colsubsidio\02. Atraccion'
+#    schema =  "bbdd_cos_bog_colsubsidio_atraccion"
+#    table = 'tb_arbol_tipificacion_soul_dts'
+#    archivo_excel = r'Z:\WORKFORCE\03. Mission\Emerson Aguilar\19. Axa\arbol_soul'
 
     
     # -- Inicializador de clases -- 
