@@ -8,19 +8,20 @@ from read_data._cls_read_data import *
 from load_data._cls_load_data import *
 import json
 
-
 import os
 import json
 from datetime import datetime
 
-class load_asignacion:
+class LoadAsignacion:
 
-    def __init__(self):
+    def __init__(self, config_path=None, ):
+        
         self.fecha = datetime.now().strftime("%Y-%m-%d")
-
+        self.config_path = config_path
+        
         self.current_folder = os.path.dirname(os.path.abspath(__file__))
         self.project_root = os.path.dirname(self.current_folder)
-        self.config_path = os.path.join(self.project_root, 'config', 'config_asignacion.json')
+        self.project_home = os.path.dirname(self.project_root)
 
         with open(self.config_path, 'r', encoding='utf-8') as f:
             self.config_asignacion = json.load(f)
@@ -43,8 +44,8 @@ class load_asignacion:
 
         self.campana_config = self.config_asignacion[self.campana_seleccionada]
 
-        self.start_path = os.path.join(self.project_root, 'data', 'asignacion', 'nueva', self.campana_config['nombre_asignacion'])
-        self.end_path = os.path.join(self.project_root, 'data', 'asignacion', 'cargado', self.campana_config['nombre_asignacion'])
+        self.start_path = os.path.join(self.project_home, 'data', 'asignacion', 'nueva', self.campana_config['nombre_asignacion'])
+        self.end_path = os.path.join(self.project_home, 'data', 'asignacion', 'cargado', self.campana_config['nombre_asignacion'])
         os.makedirs(self.start_path, exist_ok=True)
         os.makedirs(self.end_path, exist_ok=True)
         
@@ -83,20 +84,28 @@ class load_asignacion:
             nombre_archivo = os.path.basename(latest_file_path)
             nombre_base = os.path.splitext(nombre_archivo)[0]
             
-            hoja_cargar = input("Ingrese el nombre de la hoja: ")
+            hojas_disponibles, hoja_seleccionada = reader.sheet_names(latest_file_path)
+            print("Hojas encontradas:", hojas_disponibles)
+            print("Hoja seleccionada:", hoja_seleccionada)
 
-            self.df = reader.read_directory(latest_file_path, sheet_name = hoja_cargar)
+            if hoja_seleccionada:
+                self.df = reader.read_directory(latest_file_path, sheet_name=hoja_seleccionada)
+            else:
+                print("No se seleccionó una hoja válida. No se cargaron datos.")
+
             if self.df is None or self.df.empty:
                 print("Error: No se pudo leer el archivo o está vacío")
                 return None
-            print('columnas_antes')
+            print(f"cantidad de registros antes: {len(self.df)}")
+            print("columnas_antes")
             print(self.df.columns)
 
             self.df = self.df.rename(columns=self.campana_config['renombrar_columnas'])
 
             self.df['nombre_base'] = nombre_base
-            self.df['hoja'] = hoja_cargar
+            self.df['hoja'] = hoja_seleccionada
 
+            print(f"cantidad de registros despues: {len(self.df)}")
             print('columnas_despues')
             print(self.df.columns)
 
@@ -126,14 +135,41 @@ class load_asignacion:
                 if col in self.df.columns:
                     self.df[col] = self.df[col].apply(estandarizar_telefono)
 
+            columnas_fecha = self.campana_config['columnas_fecha']
+
+            for col in columnas_fecha:
+                if col in self.df.columns:
+                    try:
+                        self.df[col] = pd.to_datetime(self.df[col], errors='coerce', dayfirst=True)
+                    except Exception as e:
+                        print(f"Error al convertir la columna {col} a fecha: {e}")
+                        
+
             cols_duplicados = self.campana_config['cols_duplicados']
 
             if all(col in self.df.columns for col in cols_duplicados):
                 filas_antes = len(self.df)
+
+                df_duplicados = self.df[self.df.duplicated(subset=cols_duplicados, keep=False)]
+
+            if not df_duplicados.empty:
+                try:
+                    self.loader.table_name = self.campana_config['table_duplicados']
+                    self.loader.schema = self.schema
+                    
+                    self.loader.upsert_into_table(df_duplicados[cols_duplicados])
+
+                    print(f"Duplicados insertados/actualizados en tabla '{self.campana_config['table_duplicados']}': {len(df_duplicados)} registros.")
+                except Exception as e:
+                    print(f"Error al insertar duplicados en SQL con upsert_into_table: {str(e)}")
+
+
                 self.df.drop_duplicates(subset=cols_duplicados, inplace=True)
                 print(f"Duplicados eliminados: {filas_antes - len(self.df)}")
             else:
                 print("Advertencia: Columnas para verificación de duplicados no encontradas")
+
+            print(f"Cantidad de registros después de eliminar duplicados: {len(self.df)}")
 
             print('Proceso de lectura completado exitosamente')
             print('Columnas Necesarias:', columnas_existentes)
@@ -154,22 +190,18 @@ class load_asignacion:
         
 
     def load_data(self):
+        print(f"Datos cargados correctamente en la tabla '{self.campana_config['table']}'.")
         print('\n--- Simulación de carga ---')
-        print(f"Base de datos: {self.schema}")
-        print(f"Tabla destino: {self.table}")
+        print(f"Base de datos: {self.campana_config['schema']}")
+        print(f"Tabla destino: {self.campana_config['table']}")
         print("Primeras filas del DataFrame que se cargaría:")
         print(self.df.head(5))
         print(f"\nNúmero total de filas a cargar: {len(self.df)}")
         print(f"Columnas del DataFrame: {list(self.df.columns)}")
         print("\nEjemplo de instrucción que se usaría para upsert:")
-        print(f"INSERT INTO {self.schema}.{self.table} ({', '.join(self.df.columns)}) VALUES (...) ON DUPLICATE KEY UPDATE ...")
+        print(f"INSERT INTO {self.campana_config['schema']}.{self.campana_config['table']} ({', '.join(self.df.columns)}) VALUES (...) ON DUPLICATE KEY UPDATE ...")
         print('--- Fin de simulación ---\n')
 
-    
     def main(self):
         self.read_data()
         self.load_data()
-
-if __name__ == '__main__':
-    loader_asignacion = load_asignacion() 
-    loader_asignacion.main()

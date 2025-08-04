@@ -35,6 +35,7 @@ SELECT
     servicio,
     aseguradora_actual,
     fecha_fin_vigencia_actual,
+    DATE_FORMAT(fecha_fin_vigencia_actual, '%%Y%%m') AS periodo_vig,
     tasa,
     suma_asegurada,
     no_temporario_plus,
@@ -60,4 +61,4 @@ SELECT
     prioridad
 FROM
     bbdd_cos_bog_grupo_axa.tb_asignacion_falabella_v2
-		WHERE periodo >= DATE_FORMAT('2025-08-01','%%Y%%m')
+		WHERE periodo = DATE_FORMAT('2025-08-01','%%Y%%m')
