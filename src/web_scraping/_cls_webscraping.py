@@ -96,6 +96,93 @@ class WebScraping_Chrome:
         button.click()
     
     @staticmethod
+    def WebScraping_GetValueCSS(driver, css_selector):
+        elemento = driver.find_element(By.CSS_SELECTOR, css_selector)
+        return elemento.get_attribute("value")
+    # Uso:
+
+    # valor_nombre = WebScraping_GetValue(driver, 'input[formcontrolname="user"]')
+    # print(valor_nombre)
+
+    @staticmethod
+    def WebScraping_WaitCSS(driver, wait, css_selector):
+        WebDriverWait(driver, wait).until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, css_selector))
+        )
+    # Uso:
+
+    # Espera hasta que aparezca el input con formcontrolname="user"
+    # WebScraping_WaitCSS(driver, 10, 'input[formcontrolname="user"]')
+
+    @staticmethod
+    def WebScraping_SendKeysCSS(driver, css_selector, key):
+        elemento = driver.find_element(By.CSS_SELECTOR, css_selector)
+        elemento.clear()
+        elemento.send_keys(key)
+
+    # Uso: 
+    # WebScraping_SendKeysCSS(driver, 'input[formcontrolname="user"]', 'eaguilar84')
+
+    @staticmethod
+    def WebScraping_ClickCSS(driver, css_selector):
+        elemento = driver.find_element(By.CSS_SELECTOR, css_selector)
+        elemento.click()
+    
+    # Uso:
+    # WebScraping_ClickCSS(driver, 'button[type="submit"][color="primary"]')
+
+    @staticmethod
+    def WebScraping_WaitTextCSS(driver, wait, css_selector, hidden_text=None):
+        WebDriverWait(driver, wait).until(
+            lambda d: any(
+                hidden_text in el.get_attribute("textContent").strip()
+                if hidden_text else True
+                for el in d.find_elements(By.CSS_SELECTOR, css_selector)
+            )
+        )
+
+    # Uso:
+    # WebScraping_WaitLinkCSS(driver, 10, 'a.mat-list-item.mat-menu-trigger')
+    # WebScraping_WaitLinkCSS(driver, 10, 'a.mat-list-item.mat-menu-trigger', 'Gestor de turno')
+    # WebScraping_WaitLinkCSS(driver, 10, 'a.mat-list-item.mat-menu-trigger', 'Menú')
+
+    @staticmethod
+    def WebScraping_ClickByTextCSS(driver, css_selector, hidden_text=None):
+        elementos = driver.find_elements(By.CSS_SELECTOR, css_selector)
+        for el in elementos:
+            texto = el.get_attribute("textContent").strip()
+            if hidden_text is None or hidden_text in texto:
+                el.click()
+                return True
+        return False
+
+    # Uso:
+    # WebScraping_ClickByTextCSS(driver, 'a.mat-list-item.mat-menu-trigger')
+    # WebScraping_ClickByTextCSS(driver, 'a.mat-list-item.mat-menu-trigger', 'Gestor de turno')
+    # WebScraping_ClickByTextCSS(driver, 'a.mat-list-item.mat-menu-trigger', 'Menú')
+
+    @staticmethod
+    def WebScraping_WaitClickableCSS(driver, wait, css_selector):
+        WebDriverWait(driver, wait).until(
+            EC.element_to_be_clickable((By.CSS_SELECTOR, css_selector))
+        )
+    # Uso:
+    # WebScraping_Chrome.WebScraping_WaitClickableCSS(driver, 20, 'a.mat-list-item.mat-focus-indicator')
+    # WebScraping_Chrome.WebScraping_ClickByTextCSS(driver, 'a.mat-list-item.mat-focus-indicator', 'Formularios')
+
+    @staticmethod
+    def WebScraping_ScrollIntoViewCSS(driver, selector):
+        """
+        Hace scroll hasta que el elemento localizado por CSS selector esté en vista.
+        """
+        elem = driver.find_element(By.CSS_SELECTOR, selector)
+        driver.execute_script("arguments[0].scrollIntoView(true);", elem)
+        return elem
+    
+    # Uso:
+    # WebScraping_Chrome.WebScraping_ScrollIntoViewCSS(driver, 'mat-select')
+
+    @staticmethod
     def WebScraping_Wait(driver, wait, xpath_):
         wait_xpath = xpath_
         WebDriverWait(driver, wait).until(
