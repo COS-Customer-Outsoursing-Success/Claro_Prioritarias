@@ -20,11 +20,16 @@ class FormulariosSoul():
         )
 
         self.url = 'https://mysoul.groupcos.com/login'
-        self.usuario = 'eaguilar84'#usuario
-        self.contrasena = 'Bruno.1908+++++'#contrasena
-        self.crm = 'CRM' #'CRM2'
+        
+        self.usuario = 'eaguilar84' # usuario
+        self.contrasena = 'Bruno.1908+++++' # contrasena
+        
+        self.crm = 'CRM' # 'CRM2'
+        self.nombre_formulario = 'AXA Falabella V2'
+        
         self.archivo_excel = archivo_excel
 
+    
     def buscar_formulario(self):
 
         try:
@@ -70,8 +75,9 @@ class FormulariosSoul():
             time.sleep(1)
 
             WebScraping_Chrome.WebScraping_WaitCSS(driver, 150, 'input[formcontrolname="search"]')
-            WebScraping_Chrome.WebScraping_SendKeysCSS(driver, 'input[formcontrolname="search"]', 'AXA Falabella V2')
+            WebScraping_Chrome.WebScraping_SendKeysCSS(driver, 'input[formcontrolname="search"]', self.nombre_formulario)
             time.sleep(1)
+
         except Exception as e:
              print(f"Error: Error al buscar el formulario debido a {e}")
         
