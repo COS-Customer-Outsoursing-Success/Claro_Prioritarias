@@ -70,26 +70,15 @@ class WebScraping_Chrome:
     def WebScraping_Acces(driver, link):
         driver.get(link)
     
-    @staticmethod
-    def WebScraping_Keys(driver, xpath_, s_keys):
-        keys = driver.find_element(By.XPATH, xpath_)
-        keys.send_keys(s_keys)
+
     
     @staticmethod
     def WebScraping_KeysCSS(driver, xpath_, s_keys):
         keys = driver.find_element(By.CSS_SELECTOR, xpath_)
         keys.send_keys(s_keys)
     
-    @staticmethod
-    def WebScraping_Nav(driver, xpath_):
-        button = driver.find_element(By.XPATH, xpath_)
-        button.click()
+# -------------------------------------- CSS SELECTOR --------------------------------------    
 
-    @staticmethod
-    def WebScraping_Cle(driver, xpath_):
-        button = driver.find_element(By.XPATH, xpath_)
-        button.clear()
-    
     @staticmethod
     def WebScraping_NavCSS(driver, xpath_):
         button = driver.find_element(By.CSS_SELECTOR, xpath_)
@@ -115,6 +104,14 @@ class WebScraping_Chrome:
     # WebScraping_WaitCSS(driver, 10, 'input[formcontrolname="user"]')
 
     @staticmethod
+    def WebScraping_ClickCSS(driver, css_selector):
+        elemento = driver.find_element(By.CSS_SELECTOR, css_selector)
+        elemento.click()
+    
+    # Uso:
+    # WebScraping_ClickCSS(driver, 'button[type="submit"][color="primary"]')
+
+    @staticmethod
     def WebScraping_SendKeysCSS(driver, css_selector, key):
         elemento = driver.find_element(By.CSS_SELECTOR, css_selector)
         elemento.clear()
@@ -122,14 +119,6 @@ class WebScraping_Chrome:
 
     # Uso: 
     # WebScraping_SendKeysCSS(driver, 'input[formcontrolname="user"]', 'eaguilar84')
-
-    @staticmethod
-    def WebScraping_ClickCSS(driver, css_selector):
-        elemento = driver.find_element(By.CSS_SELECTOR, css_selector)
-        elemento.click()
-    
-    # Uso:
-    # WebScraping_ClickCSS(driver, 'button[type="submit"][color="primary"]')
 
     @staticmethod
     def WebScraping_WaitTextCSS(driver, wait, css_selector, hidden_text=None):
@@ -181,6 +170,23 @@ class WebScraping_Chrome:
     
     # Uso:
     # WebScraping_Chrome.WebScraping_ScrollIntoViewCSS(driver, 'mat-select')
+
+# -------------------------------------- XPATH --------------------------------------
+
+    @staticmethod
+    def WebScraping_Nav(driver, xpath_):
+        button = driver.find_element(By.XPATH, xpath_)
+        button.click()
+
+    @staticmethod
+    def WebScraping_Cle(driver, xpath_):
+        button = driver.find_element(By.XPATH, xpath_)
+        button.clear()
+
+    @staticmethod
+    def WebScraping_Keys(driver, xpath_, s_keys):
+        keys = driver.find_element(By.XPATH, xpath_)
+        keys.send_keys(s_keys)
 
     @staticmethod
     def WebScraping_Wait(driver, wait, xpath_):
