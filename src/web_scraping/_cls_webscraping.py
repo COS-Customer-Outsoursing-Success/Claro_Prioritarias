@@ -96,8 +96,9 @@ class WebScraping_Chrome:
     @staticmethod
     def WebScraping_WaitCSS(driver, wait, css_selector):
         WebDriverWait(driver, wait).until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, css_selector))
+            EC.element_to_be_clickable((By.CSS_SELECTOR, css_selector))
         )
+
     # Uso:
 
     # Espera hasta que aparezca el input con formcontrolname="user"
