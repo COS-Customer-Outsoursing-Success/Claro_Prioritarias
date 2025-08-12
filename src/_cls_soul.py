@@ -209,7 +209,7 @@ class FormulariosSoul():
         WebScraping_Chrome.WebScraping_ClickByTextCSS(self.driver, 'mat-radio-button .mat-radio-label-content', 'Reemplazar y actualizar')
         time.sleep(1)
 
-        WebScraping_Chrome.WebScraping_WaitCSS(self.driver, 10, 'button[type="button"][color="primary"].continue-button')
+        WebScraping_Chrome.WebScraping_WaitCSS(self.driver, 150, 'button[type="button"][color="primary"].continue-button')
         WebScraping_Chrome.WebScraping_ClickCSS(self.driver, 'button[type="button"][color="primary"].continue-button')
         time.sleep(1)
 
