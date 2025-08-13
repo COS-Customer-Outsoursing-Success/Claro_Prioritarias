@@ -1,5 +1,5 @@
 """
-CREATED BY Emerson Aguilar Cruz
+Created By Emerson Aguilar Cruz
 """
 import os
 import time
@@ -7,49 +7,6 @@ from pathlib import Path
 from selenium.webdriver.common.by import By
 from web_scraping._cls_webscraping import WebScraping_Chrome
 import json
-
-mapping = {
-"Primer Nombre": "Primer Nombre",
-"Segundo Nombre": "Segundo Nombre",
-"Primer Apellido": "Primer Apellido",
-"Segundo Apellido": "Segundo Apellido",
-"Tipo de documento": "Tipo de documento",
-"No. Documento": "No. Documento",
-"Teléfono": "Teléfono",
-"Correo electrónico": "Correo electrónico",
-"Fecha Nacimiento": "Fecha Nacimiento",
-"Cod Municipio": "Cod Municipio",
-"Departamento": "Departamento",
-"Ciudades": "Ciudades",
-"Cod Departamento": "Cod Departamento",
-"Genero": "Genero",
-"Dirección": "Dirección",
-"Teléfono 2": "Teléfono 2",
-"Teléfono 3": "Teléfono 3",
-"Placa": "Placa",
-"Fecha Fin vigencia Actual": "Fecha Fin vigencia Actual",
-"Fecha Inicio Nueva Vigencia": "Fecha Inicio nueva vigencia",
-"Modelo": "Modelo",
-"Línea": "Línea",
-"Cod Fasecolda": "Cod Fasecolda",
-"suma aseguadora": "Suma aseguradora",
-"Prima Plus": "Prima plus",
-"Prima sin IVA Plus": "Prima sin Iva Plus",
-"N° Temporario 1 plus": "N Temporario 1 plus",
-"Prima Tradicional": "Prima TRADICIONAL",
-"Prima sin IVA TRADICIONAL": "Prima Sin Iva TRADICIONAL",
-"N° Temporario 1 TRADICIONAL": "N° Temporario 1 TRADICIONAL",
-"Prima Autosuficiente": "Prima AUTOSUFICIENTE",
-"Prima sin IVA AUTOSUFICIENTE": "Prima sin Iva AUTOSUFICIENTE",
-"N° Temporario AUTOSUFICIENTE": "N Temporario AUTOSUFICIENTE",
-"Prima con IVA Aseguradora Actual": "Prima con IVA Aseguradora Actual",
-"Diferencia con la Aseguradora Actual": "Diferencia con la Aseguradora Actual",
-"Clase de vehiculo": "Clase de vehículo",
-"Servicio": "Servicio",
-"Marca": "Marca",
-"Aseguradora Actual": "Aseguradora Actual"
-
-    }
 
 class FormulariosSoul():
 
@@ -198,7 +155,7 @@ class FormulariosSoul():
                         select_elem.click()
                         time.sleep(0.5)
 
-                        option_text = mapping[label_text]
+                        option_text = self.campana_config['mapping'][label_text]
                         option_elem = self.driver.find_element(
                             By.XPATH,
                             f"//mat-option//span[normalize-space(text())='{option_text}']"
@@ -241,7 +198,7 @@ class FormulariosSoul():
 
         WebScraping_Chrome.WebScraping_WaitTextCSS(self.driver, 1000, 'button.swal2-confirm.swal2-styled', 'Aceptar')
         WebScraping_Chrome.WebScraping_ClickByTextCSS(self.driver, 'button.swal2-confirm.swal2-styled', 'Aceptar')
-        time.sleep(1)
+        time.sleep(10)
         print("Proceso SOUL Terminado")
 
 if __name__ == '__main__':
