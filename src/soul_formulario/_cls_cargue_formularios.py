@@ -12,7 +12,7 @@ class FormulariosSoul():
 
     def __init__(self, usuario=None, contrasena=None, archivo_excel=None):
 
-        self.current_folder = os.path.dirname(os.path.abspath(__file__))
+        self.current_folder = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         print(self.current_folder)
 
         self.project_root = os.path.dirname(self.current_folder)
@@ -50,8 +50,8 @@ class FormulariosSoul():
         
         self.url = 'https://mysoul.groupcos.com/login'
         
-        self.usuario = 'eaguilar84' # usuario
-        self.contrasena = 'Bruno.1908+++++' # contrasena
+        self.usuario = usuario
+        self.contrasena = contrasena
         
         self.crm = self.campana_config['crm']
         self.nombre_formulario = self.campana_config['nombre_formulario']
@@ -200,9 +200,3 @@ class FormulariosSoul():
         WebScraping_Chrome.WebScraping_ClickByTextCSS(self.driver, 'button.swal2-confirm.swal2-styled', 'Aceptar')
         time.sleep(10)
         print("Proceso SOUL Terminado")
-
-if __name__ == '__main__':
-
-    procesor = FormulariosSoul()
-    procesor.buscar_formulario()
-    procesor.cargar_formulario()
