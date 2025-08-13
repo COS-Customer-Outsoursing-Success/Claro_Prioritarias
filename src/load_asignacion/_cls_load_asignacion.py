@@ -17,12 +17,12 @@ class LoadAsignacion:
     def __init__(self, config_path=None, ):
         
         self.fecha = datetime.now().strftime("%Y-%m-%d")
-        self.config_path = config_path
         
         self.current_folder = os.path.dirname(os.path.abspath(__file__))
         self.project_root = os.path.dirname(self.current_folder)
         self.project_home = os.path.dirname(self.project_root)
 
+        self.config_path = config_path
         with open(self.config_path, 'r', encoding='utf-8') as f:
             self.config_asignacion = json.load(f)
 

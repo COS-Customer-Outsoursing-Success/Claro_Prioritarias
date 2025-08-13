@@ -4,10 +4,9 @@ CREATED BY Emerson Aguilar Cruz
 import os
 import time
 from pathlib import Path
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from web_scraping._cls_webscraping import WebScraping_Chrome
-
+import json
 
 mapping = {
 "Primer Nombre": "Primer Nombre",
@@ -69,15 +68,38 @@ class FormulariosSoul():
             'chromedriver.exe'
         )
 
+        self.config_json_path = os.path.join(self.project_root, 'config', 'config_formulario_soul.json')
+        with open(self.config_json_path, 'r', encoding='utf-8') as f:
+            self.config_soul = json.load(f)
+
+        self.campanas_disponibles = [key for key in self.config_soul.keys()]
+        print("Campañas Disponibles:")
+
+        for i, campana in enumerate(self.campanas_disponibles, start=1):
+            print(f"{i}. {campana}")
+
+        while True:
+            try:
+                seleccion = int(input("Ingrese el numero de la campaña que desea ejecutar: "))
+                if 1 <= seleccion <= len(self.campanas_disponibles):
+                    self.campana_seleccionada = self.campanas_disponibles[seleccion - 1]
+                    break
+                else: 
+                    print("Numero no valido, intente nuevamente")
+            except ValueError:
+                print("Entrada no valida. Ingrese un numero")
+
+        self.campana_config = self.config_soul[self.campana_seleccionada]
+        
         self.url = 'https://mysoul.groupcos.com/login'
         
         self.usuario = 'eaguilar84' # usuario
         self.contrasena = 'Bruno.1908+++++' # contrasena
         
-        self.crm = 'CRM' # 'CRM2'
-        self.nombre_formulario = 'AXA Falabella V2'
+        self.crm = self.campana_config['crm']
+        self.nombre_formulario = self.campana_config['nombre_formulario']
         
-        self.ruta_formulario = os.path.join(self.project_root, 'data', 'upload_soul', 'Falabella')
+        self.ruta_formulario = os.path.join(self.project_root, 'data', 'upload_soul', self.campana_config['campana'])
         os.makedirs(self.ruta_formulario, exist_ok=True)
 
         for archivo in os.listdir(self.ruta_formulario):
@@ -169,7 +191,7 @@ class FormulariosSoul():
                 label_elem = row.find_element(By.CSS_SELECTOR, '.col-4 .box__white')
                 label_text = label_elem.text.strip()
 
-                if label_text in mapping:
+                if label_text in self.campana_config['mapping']:
                     try:
                         select_elem = row.find_element(By.CSS_SELECTOR, 'mat-select')
                         self.driver.execute_script("arguments[0].scrollIntoView(true);", select_elem)
@@ -217,7 +239,7 @@ class FormulariosSoul():
         WebScraping_Chrome.WebScraping_ClickByTextCSS(self.driver, 'button.swal2-confirm.swal2-styled', 'Aceptar')
         time.sleep(1)
 
-        WebScraping_Chrome.WebScraping_WaitTextCSS(self.driver, 700, 'button.swal2-confirm.swal2-styled', 'Aceptar')
+        WebScraping_Chrome.WebScraping_WaitTextCSS(self.driver, 1000, 'button.swal2-confirm.swal2-styled', 'Aceptar')
         WebScraping_Chrome.WebScraping_ClickByTextCSS(self.driver, 'button.swal2-confirm.swal2-styled', 'Aceptar')
         time.sleep(1)
         print("Proceso SOUL Terminado")
