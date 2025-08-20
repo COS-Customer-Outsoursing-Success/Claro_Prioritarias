@@ -161,7 +161,7 @@ class FormulariosSoul():
                             f"//mat-option//span[normalize-space(text())='{option_text}']"
                         )
                         option_elem.click()
-                        time.sleep(0.3)
+                        time.sleep(0.5)
 
                     except Exception as e:
                         print(f"Error: No se pudo seleccionar opción para '{label_text}': {e}")
