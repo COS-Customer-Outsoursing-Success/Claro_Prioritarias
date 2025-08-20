@@ -193,7 +193,7 @@ class LoadAsignacion:
         self.loader.table_name = self.campana_config['table']
         try:
             self.loader.upsert_into_table(self.df)
-            print(f"Datos cargados correctamente en la tabla '{self.campana_config['table_asignacion']}'.")
+            print(f"Datos cargados correctamente en la tabla '{self.campana_config['table']}'.")
         except Exception as e:
             print(f"Error al insertar datos en la tabla de asignación: {str(e)}")
 
