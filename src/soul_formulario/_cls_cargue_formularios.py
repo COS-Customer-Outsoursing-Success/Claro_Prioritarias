@@ -197,6 +197,7 @@ class FormulariosSoul():
         time.sleep(1)
 
         WebScraping_Chrome.WebScraping_WaitTextCSS(self.driver, 1000, 'button.swal2-confirm.swal2-styled', 'Aceptar')
-        WebScraping_Chrome.WebScraping_ClickByTextCSS(self.driver, 'button.swal2-confirm.swal2-styled', 'Aceptar')
         time.sleep(10)
+        WebScraping_Chrome.WebScraping_ClickByTextCSS(self.driver, 'button.swal2-confirm.swal2-styled', 'Aceptar')
+        time.sleep(5)
         print("Proceso SOUL Terminado")
