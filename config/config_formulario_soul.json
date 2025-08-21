@@ -51,6 +51,37 @@
         }
     },
 
+   "Desertores WhatsApp" : {
+
+        "campana": "Desertores WhatsApp",
+
+        "crm": "CRM2",
+
+        "nombre_formulario" : "Desertores WhatsApp V2",
+        
+        "mapping": {
+
+            "Número del caso ": "Número del caso",
+            "Estado": "Estado",
+            "Número de póliza o Contrato": "Número de póliza o Contrato",
+            "Placa": "placa",
+            "Numero de documento del tomador": "documento",
+            "Nombre del tomador": "nombre_del_tomador",
+            "Apellido del tomador": "apellido_del_tomador",
+            "Celular del tomador": "celular_del_tomador",
+            "Correo electronico del tomador": "correo_electronico_del_tomador",
+            "Clave": "clave",
+            "Sucursal": "sucursal",
+            "Ramo": "ramo",
+            "Tipo de Tramite": "tipo_de_tramite",
+            "Subtipo logia": "subtipologia",
+            "Propietario del caso: Nombre completo": "propietario_del_caso__nombre_completo",
+            "Cola de Gestion": "cola_de_gestion",
+            "Hora En Proceso": "horaenproceso",
+            "Motivo de cancelacion": "motivo_de_cancelacion"
+        }
+    },
+
     "Axa Fincomercio": {
 
         "campana": "Axa Fincomercio",

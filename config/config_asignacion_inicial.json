@@ -211,6 +211,8 @@
             "telefono6", "telefono7", "telefono8", "telefono9", "telefono10","Celular del tomador"
             ],
 
+    "columnas_fecha": [],
+
     "renombrar_columnas": {
             "motivo_de_cancelacion_":"motivo_de_cancelacion"
     },
@@ -241,7 +243,7 @@
             "nombre_base"
     ],
 
-    "cols_duplicados": ["placa", "periodo"]
+    "cols_duplicados": ["numero_de_poliza_o_contrato", "periodo"]
   },
 
   "Axa Falabella": {
