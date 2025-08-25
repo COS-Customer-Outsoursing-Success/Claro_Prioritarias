@@ -36,19 +36,22 @@ WHERE exclusion_total = 0
 -- ---------------------------------------------------------------------------- --
 
 /*
-    AND vicidial_calls <= 1
+    AND vicidial_calls <= 5
 	AND (tipo_mejor_gestion = 'No Contacto'
 	OR tipificacion_mejor_gestion_soul IN ('No Contestan', 'Grabadora o Buzon', 'Cliente Cuelga La Llamada')
     )
-*/  
+
+	AND DATE_FORMAT(fecha_fin_vigencia_actual, '%m%d') 
+	BETWEEN  DATE_FORMAT(CURDATE() - INTERVAL 10 DAY, '%m%d') AND DATE_FORMAT(CURDATE(), '%m%d')
+*/
 
 -- ---------------------------------------------------------------------------- --
 -- Seguimientos: Descomentar colocando un # al inicio de los simbolos "/*" ---- --
 -- ---------------------------------------------------------------------------- --
 
 /*
-    AND vicidial_calls <= 1
-	AND (tipificacion_mejor_gestion_soul IN ('Volver a llamar')
+    AND vicidial_calls <= 10
+	AND (tipificacion_mejor_gestion_soul IN ('Cliente solicita envío de cotización', 'Llamar después')
     )
 */  
 
@@ -60,6 +63,7 @@ WHERE exclusion_total = 0
 	AND DATE_FORMAT(fecha_fin_vigencia_actual, '%%m%%d') 
 	BETWEEN  DATE_FORMAT(CURDATE() + INTERVAL 1 DAY, '%%m%%d') AND DATE_FORMAT(CURDATE() + INTERVAL 15 DAY, '%%m%%d')
 */
+
 -- ---------------------------------------------------------------------------- --
 -- No comentar esta parte, evita que se marquen registros marcados entre hoy y ayer
 -- ---------------------------------------------------------------------------- --
@@ -71,4 +75,4 @@ WHERE exclusion_total = 0
 		fecha_ultima_gestion IS NULL OR DATE(fecha_ultima_gestion) < CURDATE() - INTERVAL 1 DAY
 	)
 
-ORDER BY fecha_asignacion DESC, vicidial_calls ASC, tipo_phone ASC;
+ORDER BY fecha_fin_vigencia_actual DESC, vicidial_calls ASC, tipo_phone ASC;
