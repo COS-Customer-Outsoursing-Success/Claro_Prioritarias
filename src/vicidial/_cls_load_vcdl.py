@@ -44,21 +44,17 @@ class LoadListVcdl:
         self.archivos = os.listdir(self.ruta_cargue_vicidial)
         self.archivos_xlsx = [archivo for archivo in self.archivos if archivo.endswith(".csv")]
         self.ruta_img = os.path.join(project_root, 'data', 'img','load_vcdl')
+        os.makedirs(self.ruta_img, exist_ok=True)
 
         # -- Config campanas -- 
-        self.json_campanas = os.path.join(project_root, 'config', 'config_campanas.json')
+        self.json_campanas = os.path.join(project_root, 'config', 'config_load_vicidial.json')
         with open(self.json_campanas, "r") as file_json_campanas:
             self.config_campanas = json.load(file_json_campanas)
 
         # -- Config xpath --
-        self.json_xpaths = os.path.join(project_root, 'config', 'xpaths_config.json')
+        self.json_xpaths = os.path.join(project_root, 'config', 'xpath_load_vicidial.json')
         with open(self.json_xpaths, "r") as file_json_xpath:
             self.config_xpaths = json.load(file_json_xpath)
-
-        # -- Config campos personalizados --
-        self.json_custom_fields = os.path.join(project_root, 'config', 'custom_fields.json')
-        with open(self.json_custom_fields, "r") as file_json_custom_fields:
-            self.config_custom_fields = json.load(file_json_custom_fields)
         
         self.hoy = datetime.now().strftime('%Y-%m-%d') 
 
@@ -94,7 +90,8 @@ class LoadListVcdl:
                 if nombre_base not in self.config_campanas:
                     raise KeyError(f"Campaña '{nombre_base}' no configurada en config_campanas.json")
 
-                campana_config = self.config_campanas[nombre_base]
+                campana_config = self.config_campanas[nombre_base]["configuracion_listas"]
+
 
                 campos_requeridos = ['campana_vicidial', 'campaign_id', 'numero_maximo_listas']
                 for campo in campos_requeridos:
@@ -123,20 +120,20 @@ class LoadListVcdl:
                 f"ADD=34&campaign_id={campana_vicidial}"
             )
             
-            print(f"🎯 Configuración obtenida - Campaña: {campana_vicidial}")
-            print(f"🔗 URL generada: {url.split('@')[0]}*****@{url.split('@')[1]}")
+            print(f"Configuración obtenida - Campaña: {campana_vicidial}")
+            print(f"URL generada: {url.split('@')[0]}*****@{url.split('@')[1]}")
         
             try:
                 WebScraping_Chrome.WebScraping_Acces(driver, url)
                 WebScraping_Chrome.WebScraping_Wait(driver, 150, self.config_xpaths["xpath_campaign_cargada"])
-                print("✅ Página cargada correctamente")
+                print("Página cargada correctamente")
             
             except Exception as e:
                 print(f"Error al abrir url de vicidial debido a {e}")
                 continue
 
             try:
-                print("⏳ Esperando lista de cargue existente...")
+                print("Esperando lista de cargue existente...")
 
                 element = WebDriverWait(driver, 150).until(EC.presence_of_element_located((By.ID, "last_list_statuses")))
 
@@ -148,22 +145,22 @@ class LoadListVcdl:
                     raise ValueError("No se encontraron números en la lista de cargue.")
                 
                 max_list = max(list_numbers)                
-                print(f"🔢 Lista de cargue más alta detectada: {max_list}")
+                print(f"Lista de cargue más alta detectada: {max_list}")
                 lista_crear = max_list + 1
-                print(f"🔢 Lista de cargue a crear: {lista_crear}")
+                print(f"Lista de cargue a crear: {lista_crear}")
 
                 checkboxes = driver.find_elements(By.CSS_SELECTOR, 'input[name="list_active_change[]"]')
                 for checkbox in checkboxes:
                     if checkbox.is_selected():
                         list_id = checkbox.get_attribute('value')
-                        print(f"🔘 Checkbox con valor {list_id} está ACTIVO - Desactivando...")
+                        print(f"Checkbox con valor {list_id} está ACTIVO - Desactivando...")
                         
                         # Primero desmarcar (si es necesario)
                         checkbox.click()  # Esto cambia el estado checked
                         
                         # Verificar que realmente se desmarcó
                         if checkbox.is_selected():
-                            print(f"⚠️ El checkbox {list_id} no se desmarcó correctamente, usando JavaScript")
+                            print(f"El checkbox {list_id} no se desmarcó correctamente, usando JavaScript")
                             driver.execute_script("arguments[0].checked = false;", checkbox)
                         
                         # Luego deshabilitar
@@ -177,12 +174,12 @@ class LoadListVcdl:
                         WebScraping_Chrome.WebScraping_Nav(driver, self.config_xpaths["xpath_submit_enviar_cambios_lista"])
                         time.sleep(1)
                                 
-                        print(f"✅ Checkbox {list_id} desactivado y deshabilitado")
+                        print(f"Checkbox {list_id} desactivado y deshabilitado")
                     else:
-                        print(f"⚪ Checkbox con valor {checkbox.get_attribute('value')} ya está INACTIVO")
+                        print(f"Checkbox con valor {checkbox.get_attribute('value')} ya está INACTIVO")
 
             except Exception as e:
-                print(f"🚨 Ocurrió un error: {str(e)}")
+                print(f"Ocurrió un error: {str(e)}")
 
 
                 if max_list >= numero_maximo_listas:
@@ -212,14 +209,14 @@ class LoadListVcdl:
                 ]
 
                 for xpath, valor in campos:
-                    print(f"✍️ Llenando campo {xpath} con valor: {valor}")
+                    print(f"Llenando campo {xpath} con valor: {valor}")
                     WebScraping_Chrome.WebScraping_Wait(driver, 150, xpath)
                     WebScraping_Chrome.WebScraping_Keys(driver, xpath, valor)
                     time.sleep(1)
 
                 WebScraping_Chrome.WebScraping_Wait(driver, 150, self.config_xpaths["xpath_submit_crear"])
                 WebScraping_Chrome.WebScraping_Nav(driver, self.config_xpaths["xpath_submit_crear"])
-                print("📋 Lista creada exitosamente. Copiando Campos Personalizados")
+                print("Lista creada exitosamente. Copiando Campos Personalizados")
                 time.sleep(1)
                 
                 WebScraping_Chrome.WebScraping_Wait(driver, 150, self.config_xpaths["xpath_copiar_campos"])
@@ -242,7 +239,7 @@ class LoadListVcdl:
                 WebScraping_Chrome.WebScraping_Nav(driver, self.config_xpaths["xpath_submit_copiar"])
                 time.sleep(1)
 
-                print("📁 Iniciando carga de archivo...")
+                print("Iniciando carga de archivo...")
                 WebScraping_Chrome.WebScraping_Wait(driver, 150, self.config_xpaths["xpath_cargar_contactos"])
                 WebScraping_Chrome.WebScraping_Nav(driver, self.config_xpaths["xpath_cargar_contactos"])
                 time.sleep(1)
@@ -266,17 +263,16 @@ class LoadListVcdl:
                 WebScraping_Chrome.WebScraping_Wait(driver, 150, self.config_xpaths["xpath_submit_enviar_contactos"])
                 WebScraping_Chrome.WebScraping_Nav(driver, self.config_xpaths["xpath_submit_enviar_contactos"])
                 time.sleep(1)
-                print("🧬 Esperando tabla de campos personalizados...")
+                print("Esperando tabla de campos personalizados...")
 
                 tabla = WebScraping_Chrome.WebScraping_Wait(driver, 600, self.config_xpaths["xpath_tabla_campos_personalizados"])
-                print("✅ Tabla encontrada.")
-                
+                print("Tabla encontrada.")
                 time.sleep(3)
 
-                campos_campana = self.config_custom_fields.get(nombre_base, {})
+                campos_campana = self.config_campanas[nombre_base].get("custom_fields", {})
 
                 filas = driver.find_elements(By.XPATH, "//tr[@bgcolor='#69D3E0']")
-                print(f"📊 Total de filas de campos personalizados encontradas: {len(filas)}")
+                print(f"Total de filas de campos personalizados encontradas: {len(filas)}")
 
                 for i, fila in enumerate(filas):
                     columnas = fila.find_elements(By.TAG_NAME, "td")
@@ -305,35 +301,35 @@ class LoadListVcdl:
 
                 print("⏳ Esperando finalización de carga...")
                 WebScraping_Chrome.WebScraping_Wait(driver, 150, self.config_xpaths["xpath_cargado_final"])
-                print("✅ Lista Cargada Sin Problema")
+                print("Lista Cargada Sin Problema")
 
                 self.ruta_imagen = os.path.join(project_root, 'data', 'img', 'load_vcdl', f'{nombre_archivo_cargue}.png')
 
                 imagen = driver.get_screenshot_as_file(self.ruta_imagen)
-                print(f"📸 Captura guardada en: {self.ruta_imagen}")
+                print(f"Captura guardada en: {self.ruta_imagen}")
 
             except Exception as e:
-                print(f"❌ Error general durante el proceso: {e}")
+                print(f"Error general durante el proceso: {e}")
             
             time.sleep(5)
 
             try:
-                print("📁 Moviendo archivo procesado a la carpeta de 'Cargados'...")
+                print("Moviendo archivo procesado a la carpeta de 'Cargados'...")
                 target_folder = os.path.join(self.ruta_subida, "Cargado", campana_vicidial, self.hoy)
                 
                 if not os.path.exists(target_folder):
                     os.makedirs(target_folder)
-                    print(f"📂 Carpeta {target_folder} creada.")
+                    print(f"Carpeta {target_folder} creada.")
 
                 nueva_ruta = os.path.join(target_folder, nombre_archivo_cargue)
                 if not os.path.exists(nueva_ruta):
                     os.rename(ruta_archivo_cargue, nueva_ruta)
-                    print(f"✅ Archivo {nombre_archivo_cargue} movido a {nueva_ruta}")
+                    print(f"Archivo {nombre_archivo_cargue} movido a {nueva_ruta}")
                 else:
-                    print(f"⚠️ El archivo {nombre_archivo_cargue} ya existe en la carpeta de cargados.")
+                    print(f"El archivo {nombre_archivo_cargue} ya existe en la carpeta de cargados.")
 
             except Exception as e:
-                print(f"❌ Error al mover el archivo: {e}")
+                print(f"Error al mover el archivo: {e}")
             finally:
-                print("🚪 Cerrando navegador.")
+                print("Cerrando navegador.")
                 driver.quit()

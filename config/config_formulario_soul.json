@@ -55,7 +55,7 @@
 
         "campana": "Desertores WhatsApp",
 
-        "crm": "CRM",
+        "crm": "CRM2",
 
         "nombre_formulario" : "Desertores WhatsApp V2",
         
@@ -80,22 +80,6 @@
             "Hora En Proceso": "Hora En Proceso",
             "Motivo de cancelación": "Motivo de cancelación"
         }
-    },
-
-    "Axa Fincomercio": {
-
-        "campana": "Axa Fincomercio",
-
-        "crm": "CRM",
-
-        "nombre_formulario" : "AXA Falabella V2",
-        
-        "mapping": {
-        "Dep": "Departamento",
-        "Ci": "Ciudad",
-        "Tel": "Telefono"        
-        
-        }
-    }   
+    } 
 }
 

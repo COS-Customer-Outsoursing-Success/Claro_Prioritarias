@@ -1,0 +1,120 @@
+{
+
+"AXA_FA10": {
+
+  "configuracion_listas": {
+
+      "campana_vicidial": "AXA_FA10",
+      "campaign_id": "AXA_FA10 - 10",
+      "numero_maximo_listas": 437500
+  },
+
+  "custom_fields": {
+  
+      "VENDOR LEAD CODE:": "\"(none)\"",
+      "SOURCE ID:": "\" co_id\"",
+      "PHONE NUMBER:": "\" phone\"",
+      "TITLE:": "\"(none)\"",
+      "FIRST NAME:": "\" nombre_completo\"",
+      "MIDDLE INITIAL:": "\"(none)\"",
+      "LAST NAME:": "\"(none)\"",
+      "ADDRESS1:": "\"(none)\"",
+      "ADDRESS2:": "\"placa\"",
+      "ADDRESS3:": "\"(none)\"",
+      "CITY:": "\" departamento\"",
+      "STATE:": "\"(none)\"",
+      "PROVINCE:": "\"(none)\"",
+      "POSTAL CODE:": "\"(none)\"",
+      "COUNTRY CODE:": "\"(none)\"",
+      "GENDER:": "\"(none)\"",
+      "DATE OF BIRTH:": "\"(none)\"",
+      "ALT PHONE:": "\"(none)\"",
+      "EMAIL:": "\" email\"",
+      "SECURITY PHRASE:": "\"(none)\"",
+      "COMMENTS:": "\"(none)\"",
+      "RANK:": "\"(none)\"",
+      "OWNER:": "\"(none)\"",
+      "TIPO DOCUMENTO:": "\"(none)\"",
+      "DOCUMENTO:": "\" co_id\"",
+      "NOMBRE:": "\" nombre_completo\"",
+      "PLACA:": "\"placa\"",
+      "ASEGURADORA ACTUAL:": "\" aseguradora_actual\"",
+      "MARCA": "\" marca\"",
+      "TELEFONO1:": "\" phone\"",
+      "FECHA VIGENCIA:": "\" fecha_fin_vigencia_actual\"",
+      "NO TEMPORARIO:": "\"no_temporario_plus\"",
+      "NO TEMPORARIO PLUS": "\"no_temporario_plus\"",
+      "NO TEMPORARIO TRADICIONAL": "\" no_temporario_tradicional\"",
+      "PRIMA TEMPORARIO PLUS": "\" prima_temporario_plus\"",
+      "PRIMA SIN IVA TEMPORARIO PLUS": "\" prima_temporario_sin_iva_plus\"",
+      "PRIMA TRADICIONAL": "\" prima_tradicional\"",
+      "PRIMA SIN IVA TRADICIONAL": "\" prima_tradicional_sin_iva\"",
+      "NO TEMPORARIO VIP": "\" no_temporario_vip\"",
+      "PRIMA VIP": "\" prima_nueva_vip\"",
+      "PRIMA SIN IVA VIP": "\" prima_nueva_vip_sin_iva\"",
+      "TELFONO 2": "\"(none)\"",
+      "TELFONO 3": "\"(none)\"",
+      "SUMA ASEGURADA": "\" suma_asegurada\""
+
+    }
+},
+ 
+"AXA_FAL2": {
+
+  "configuracion_listas": {
+
+      "campana_vicidial": "AXA_FAL2",
+      "campaign_id": "AXA_FAL2 - 13",
+      "numero_maximo_listas": 437500
+  },
+
+  "custom_fields": {
+  
+      "VENDOR LEAD CODE:": "\"(none)\"",
+      "SOURCE ID:": "\" co_id\"",
+      "PHONE NUMBER:": "\" phone\"",
+      "TITLE:": "\"(none)\"",
+      "FIRST NAME:": "\" nombre_completo\"",
+      "MIDDLE INITIAL:": "\"(none)\"",
+      "LAST NAME:": "\"(none)\"",
+      "ADDRESS1:": "\"(none)\"",
+      "ADDRESS2:": "\"placa\"",
+      "ADDRESS3:": "\"(none)\"",
+      "CITY:": "\" departamento\"",
+      "STATE:": "\"(none)\"",
+      "PROVINCE:": "\"(none)\"",
+      "POSTAL CODE:": "\"(none)\"",
+      "COUNTRY CODE:": "\"(none)\"",
+      "GENDER:": "\"(none)\"",
+      "DATE OF BIRTH:": "\"(none)\"",
+      "ALT PHONE:": "\"(none)\"",
+      "EMAIL:": "\" email\"",
+      "SECURITY PHRASE:": "\"(none)\"",
+      "COMMENTS:": "\"(none)\"",
+      "RANK:": "\"(none)\"",
+      "OWNER:": "\"(none)\"",
+      "TIPO DOCUMENTO:": "\"(none)\"",
+      "DOCUMENTO:": "\" co_id\"",
+      "NOMBRE:": "\" nombre_completo\"",
+      "PLACA:": "\"placa\"",
+      "ASEGURADORA ACTUAL:": "\" aseguradora_actual\"",
+      "MARCA": "\" marca\"",
+      "TELEFONO1:": "\" phone\"",
+      "FECHA VIGENCIA:": "\" fecha_fin_vigencia_actual\"",
+      "NO TEMPORARIO:": "\"no_temporario_plus\"",
+      "NO TEMPORARIO PLUS": "\"no_temporario_plus\"",
+      "NO TEMPORARIO TRADICIONAL": "\" no_temporario_tradicional\"",
+      "PRIMA TEMPORARIO PLUS": "\" prima_temporario_plus\"",
+      "PRIMA SIN IVA TEMPORARIO PLUS": "\" prima_temporario_sin_iva_plus\"",
+      "PRIMA TRADICIONAL": "\" prima_tradicional\"",
+      "PRIMA SIN IVA TRADICIONAL": "\" prima_tradicional_sin_iva\"",
+      "NO TEMPORARIO VIP": "\" no_temporario_vip\"",
+      "PRIMA VIP": "\" prima_nueva_vip\"",
+      "PRIMA SIN IVA VIP": "\" prima_nueva_vip_sin_iva\"",
+      "TELFONO 2": "\"(none)\"",
+      "TELFONO 3": "\"(none)\"",
+      "SUMA ASEGURADA": "\" suma_asegurada\""
+
+    }
+  }
+}
