@@ -35,15 +35,15 @@ class LeerPdf:
         self.engine = MySQLConnector().get_connection(database=self.schema)
         self.loader = MySQLLoader(self.engine, self.schema, self.table) 
 
-#    def imprimir_lineas_pdf(self):
-#        if not self.ruta_pdf:
-#            raise ValueError("No se ha seleccionado ningún PDF.")
-#        with fitz.open(self.ruta_pdf) as doc:
-#            for page_num, page in enumerate(doc, start=1):
-#                print(f"\nPágina {page_num}")
-#                lines = page.get_text().splitlines()
-#                for i, line in enumerate(lines):
-#                    print(f"{i:02d}: {line}")
+    def imprimir_lineas_pdf(self):
+        if not self.ruta_pdf:
+            raise ValueError("No se ha seleccionado ningún PDF.")
+        with fitz.open(self.ruta_pdf) as doc:
+            for page_num, page in enumerate(doc, start=1):
+                print(f"\nPágina {page_num}")
+                lines = page.get_text().splitlines()
+                for i, line in enumerate(lines):
+                    print(f"{i:02d}: {line}")
 
     def obtener_pdf(self):
         pdf_validos = []

@@ -22,48 +22,72 @@ SELECT
 FROM consolidados
 WHERE exclusion_total = 0
 
--- ---------------------------------------------------------------------------- --
--- Sin gestion : Descomentar colocando un # al inicio de los simbolos "/*" ---- --
--- ---------------------------------------------------------------------------- --
+-- -----------------------------------------------------------------------------------------
+-- Predictivo Sin Gestion: Descomentar colocando un # al inicio de los simbolos "/*" ---- --
+-- -----------------------------------------------------------------------------------------
 
 /*
-	AND tipo_phone = 'telefono1'
+	AND tipo_phone IN ('telefono1') #,'telefono2'
 	AND (vicidial_calls = 0 OR vicidial_calls IS NULL)
+	AND DATE_FORMAT(fecha_fin_vigencia_actual, '%m%d') 
+	BETWEEN  DATE_FORMAT(CURDATE() + INTERVAL 1 DAY, '%m%d') AND DATE_FORMAT(CURDATE() + INTERVAL 15 DAY, '%m%d')
 */
 
--- ---------------------------------------------------------------------------- --
--- No Contacto : Descomentar colocando un # al inicio de los simbolos "/*" ---- --
--- ---------------------------------------------------------------------------- --
+-- -----------------------------------------------------------------------------------------
+-- Predictivo No Contacto: Descomentar colocando un # al inicio de los simbolos "/*" ---- --
+-- -----------------------------------------------------------------------------------------
 
 /*
+	AND tipo_phone IN ('telefono1') #,'telefono2'
+	AND vicidial_calls <= 5
+    AND vicidial_calls IS NOT NULL
+	AND tipificacion_mejor_gestion_soul IS NULL
+    
+#    AND tipificacion_mejor_gestion IN ('Agent Not Available', 'Agent Altnum', 'No Contacto','ADAIR')
+	AND prioridad IN ('ALTA PROPENSIoN', 'BUENA PROPENSIoN')
+    
+    AND DATE_FORMAT(fecha_fin_vigencia_actual, '%m%d') 
+	BETWEEN  DATE_FORMAT(CURDATE() + INTERVAL 1 DAY, '%m%d') AND DATE_FORMAT(CURDATE() + INTERVAL 15 DAY, '%m%d')
+*/
+
+-- -----------------------------------------------------------------------------------------
+-- Blaster : Descomentar colocando un # al inicio de los simbolos "/*" ---- --
+-- -----------------------------------------------------------------------------------------
+
+#/*
     AND vicidial_calls <= 5
 	AND (tipo_mejor_gestion = 'No Contacto'
 	OR tipificacion_mejor_gestion_soul IN ('No Contestan', 'Grabadora o Buzon', 'Cliente Cuelga La Llamada')
     )
-
+	AND tipificacion_mejor_gestion <> 'Contacto'
 	AND DATE_FORMAT(fecha_fin_vigencia_actual, '%m%d') 
-	BETWEEN  DATE_FORMAT(CURDATE() - INTERVAL 10 DAY, '%m%d') AND DATE_FORMAT(CURDATE(), '%m%d')
-*/
+	BETWEEN  DATE_FORMAT(CURDATE() - INTERVAL 15 DAY, '%m%d') AND DATE_FORMAT(CURDATE(), '%m%d')
+    AND tipo_ultima_gestion <> 'Blaster - Contacto'
+    AND tipo_mejor_gestion <> 'Blaster - Contacto'
+#*/
 
--- ---------------------------------------------------------------------------- --
--- Seguimientos: Descomentar colocando un # al inicio de los simbolos "/*" ---- --
--- ---------------------------------------------------------------------------- --
+-- -----------------------------------------------------------------------------------------
+-- Seguimientos Manuales: Descomentar colocando un # al inicio de los simbolos "/*" ---- --
+-- -----------------------------------------------------------------------------------------
 
 /*
     AND vicidial_calls <= 10
-	AND (tipificacion_mejor_gestion_soul IN ('Cliente solicita envío de cotización', 'Llamar después')
+	AND (tipificacion_ultima_gestion_soul IN ('Cliente solicita envío de cotización', 'Llamar después')
+	AND DATE_FORMAT(fecha_ultima_gestion_soul, '%m%d') 
+	BETWEEN  DATE_FORMAT(CURDATE() - INTERVAL 5 DAY, '%m%d') AND DATE_FORMAT(CURDATE(), '%m%d')
     )
 */  
 
--- ---------------------------------------------------------------------------- --
--- Fechas De Vigencia: Descomentar colocando un # al inicio de los simbolos "/*" -
--- ---------------------------------------------------------------------------- --
+-- -----------------------------------------------------------------------------------------
+-- SMS : Descomentar colocando un # al inicio de los simbolos "/*" ---- --
+-- -----------------------------------------------------------------------------------------
 
 /*
-	AND DATE_FORMAT(fecha_fin_vigencia_actual, '%%m%%d') 
-	BETWEEN  DATE_FORMAT(CURDATE() + INTERVAL 1 DAY, '%%m%%d') AND DATE_FORMAT(CURDATE() + INTERVAL 15 DAY, '%%m%%d')
+	AND tipo_phone IN ('telefono1') #,'telefono2'
+	AND (vicidial_calls = 0 OR vicidial_calls IS NULL)
+	AND DATE_FORMAT(fecha_fin_vigencia_actual, '%m%d') 
+	BETWEEN DATE_FORMAT('2025-09-11', '%m%d') AND DATE_FORMAT('2025-09-25', '%m%d')
 */
-
 -- ---------------------------------------------------------------------------- --
 -- No comentar esta parte, evita que se marquen registros marcados entre hoy y ayer
 -- ---------------------------------------------------------------------------- --
@@ -75,4 +99,4 @@ WHERE exclusion_total = 0
 		fecha_ultima_gestion IS NULL OR DATE(fecha_ultima_gestion) < CURDATE() - INTERVAL 1 DAY
 	)
 
-ORDER BY fecha_fin_vigencia_actual DESC, vicidial_calls ASC, tipo_phone ASC;
+ORDER BY DATE_FORMAT(fecha_fin_vigencia_actual, '%m%d') ASC, vicidial_calls ASC, tipo_phone ASC, prioridad ASC;

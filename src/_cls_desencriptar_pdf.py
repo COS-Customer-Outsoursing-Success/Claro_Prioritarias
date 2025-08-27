@@ -11,7 +11,7 @@ def procesar_archivo_falabella():
     usuario = "laura.castrob"
     password = "KgkY9f8jX4e6"
     ruta_remota = "/Entrada/Autos Falabella"
-    archivo_pgp = "73698_03072025 101624027.zip.pgp"
+    archivo_pgp = "FALABELLA CALL VIP-VIP_3_75198.zip.pgp"
     
     # RUTA DE DESTINO
     directorio_destino = r"C:\Users\emerson.aguilar\Documents\git_hub\Axa\data\pdf"
