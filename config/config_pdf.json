@@ -1,0 +1,50 @@
+{
+
+"Falabella": {
+
+    "campana": "Falabella",
+
+    "schema": "bbdd_cos_bog_grupo_axa",
+    "table": "tb_asignacion_falabella_v2_temporarios",
+
+    "mapeo_campos": {
+        "(1, 6)": "temporario",
+        "(1, 16)": "dia_solicitud",
+        "(1, 17)": "mes_solicitud",
+        "(1, 18)": "anho_solicitud",
+        "(1, 74)": "nombre_asegurado",
+        "(1, 72)": "cedula",
+        "(1, 94)": "placa",
+        "(1, 104)": "edad",
+        "(1, 105)": "zona_de_tarificacion",
+        "(1, 112)": "genero",
+        "(1, 159)": "prima_plus_sin_iva",
+        "(1, 170)": "prima_plus",
+        "(1, 135)": "suma_asegurada"
+        }
+    },
+
+"Renovaciones Occidente": {
+
+    "campana": "Renovaciones Occidente",
+
+    "schema": "bbdd_cos_bog_grupo_axa",
+    "table": "tb_asignacion_renovaciones_occidente_v2_temporarios",
+
+    "mapeo_campos": {
+        "(1, 6)": "temporario",
+        "(1, 16)": "dia_solicitud",
+        "(1, 17)": "mes_solicitud",
+        "(1, 18)": "anho_solicitud",
+        "(1, 74)": "nombre_asegurado",
+        "(1, 72)": "cedula",
+        "(1, 94)": "placa",
+        "(1, 104)": "edad",
+        "(1, 105)": "zona_de_tarificacion",
+        "(1, 112)": "genero",
+        "(1, 159)": "prima_plus_sin_iva",
+        "(1, 170)": "prima_plus",
+        "(1, 135)": "suma_asegurada"
+        }
+    }
+}

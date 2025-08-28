@@ -39,11 +39,9 @@ class EtlCoalesceTelChubb:
             try:
                 self.df = pd.read_sql(query_coalesce, self.engine)
 
-                # Copia de las columnas telefónicas para agregar luego
                 phone_cols = self.phone_columns.copy()
                 df_original = self.df.copy()
 
-                # Despivotar columnas de teléfono
                 df_melted = self.df.melt(
                     id_vars=[col for col in self.df.columns if col not in self.phone_columns],
                     value_vars=self.phone_columns,
@@ -59,24 +57,18 @@ class EtlCoalesceTelChubb:
                     .str.replace(r'\D', '', regex=True)
                 )
 
-                # Filtrar solo teléfonos de 10 dígitos
                 df_melted = df_melted[df_melted['phone'].str.len() == 10]
 
-                # Eliminar duplicados
                 df_melted = df_melted.drop_duplicates(subset=[self.cuenta, 'phone'])
 
-                # Agregar fecha de carga
                 df_melted['upload_date'] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
-                # Traer de vuelta las columnas telefónicas originales
-                # Usamos join con las columnas telefónicas y el id principal
                 df_final = df_melted.merge(
                     df_original[[self.cuenta] + phone_cols],
                     on=self.cuenta,
                     how='left'
                 )
 
-                # Limpiar valores nulos
                 df_final = df_final.where(pd.notnull(df_final), None)
                 df_final = df_final.replace({np.nan: None})
 
