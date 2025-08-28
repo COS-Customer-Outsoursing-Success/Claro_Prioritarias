@@ -5,12 +5,12 @@ WITH base AS (
               OR placa IN (
                   SELECT placa 
                   FROM bbdd_cos_bog_grupo_axa.tb_asignacion_falabella_v2_no_aptos 
-                  WHERE periodo = 202508
+                  WHERE periodo = 202509
               )
             THEN 1 ELSE 0 
         END AS exclusiones_general
     FROM bbdd_cos_bog_grupo_axa.tb_asignacion_falabella_v2_coalesce
-    WHERE periodo = 202508
+    WHERE periodo = 202509
 )
 , consolidados AS (
     SELECT *,
@@ -30,7 +30,8 @@ WHERE exclusion_total = 0
 	AND tipo_phone IN ('telefono1') #,'telefono2'
 	AND (vicidial_calls = 0 OR vicidial_calls IS NULL)
 	AND DATE_FORMAT(fecha_fin_vigencia_actual, '%m%d') 
-	BETWEEN  DATE_FORMAT(CURDATE() + INTERVAL 1 DAY, '%m%d') AND DATE_FORMAT(CURDATE() + INTERVAL 15 DAY, '%m%d')
+	BETWEEN  DATE_FORMAT('2025-09-01', '%m%d') AND DATE_FORMAT('2025-09-06', '%m%d')
+#	BETWEEN  DATE_FORMAT(CURDATE() + INTERVAL 1 DAY, '%m%d') AND DATE_FORMAT(CURDATE() + INTERVAL 15 DAY, '%m%d')
 */
 
 -- -----------------------------------------------------------------------------------------
@@ -39,12 +40,13 @@ WHERE exclusion_total = 0
 
 /*
 	AND tipo_phone IN ('telefono1') #,'telefono2'
-	AND vicidial_calls <= 5
+	AND vicidial_calls <= 2
     AND vicidial_calls IS NOT NULL
 	AND tipificacion_mejor_gestion_soul IS NULL
     
 #    AND tipificacion_mejor_gestion IN ('Agent Not Available', 'Agent Altnum', 'No Contacto','ADAIR')
-	AND prioridad IN ('ALTA PROPENSIoN', 'BUENA PROPENSIoN')
+        AND tipificacion_mejor_gestion NOT IN ('Agent Not Available', 'Agent Altnum', 'No Contacto','ADAIR')
+#	AND prioridad IN ('ALTA PROPENSIoN', 'BUENA PROPENSIoN')
     
     AND DATE_FORMAT(fecha_fin_vigencia_actual, '%m%d') 
 	BETWEEN  DATE_FORMAT(CURDATE() + INTERVAL 1 DAY, '%m%d') AND DATE_FORMAT(CURDATE() + INTERVAL 15 DAY, '%m%d')
@@ -54,12 +56,13 @@ WHERE exclusion_total = 0
 -- Blaster : Descomentar colocando un # al inicio de los simbolos "/*" ---- --
 -- -----------------------------------------------------------------------------------------
 
-#/*
+/*
     AND vicidial_calls <= 5
 	AND (tipo_mejor_gestion = 'No Contacto'
 	OR tipificacion_mejor_gestion_soul IN ('No Contestan', 'Grabadora o Buzon', 'Cliente Cuelga La Llamada')
     )
 	AND tipificacion_mejor_gestion <> 'Contacto'
+    AND tipificacion_mejor_gestion_soul IS NULL
 	AND DATE_FORMAT(fecha_fin_vigencia_actual, '%m%d') 
 	BETWEEN  DATE_FORMAT(CURDATE() - INTERVAL 15 DAY, '%m%d') AND DATE_FORMAT(CURDATE(), '%m%d')
     AND tipo_ultima_gestion <> 'Blaster - Contacto'
