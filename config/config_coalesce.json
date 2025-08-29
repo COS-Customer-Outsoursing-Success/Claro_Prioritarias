@@ -65,7 +65,7 @@
   "Fincomercio": {
     "schema": "bbdd_cos_bog_grupo_axa",
     "table": "tb_asignacion_fincomercio_v2_coalesce",
-    "cuenta": "cedula",
+    "cuenta": "placa",
     "sql_file_path": "_sql_coalesce_axa_fincomercio.sql",
     "phone_columns": [
         "telefono1",

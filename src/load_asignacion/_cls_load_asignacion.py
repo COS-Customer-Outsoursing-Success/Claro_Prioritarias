@@ -140,7 +140,7 @@ class LoadAsignacion:
             for col in columnas_fecha:
                 if col in self.df.columns:
                     try:
-                        self.df[col] = pd.to_datetime(self.df[col], errors='coerce', dayfirst=True)
+                        self.df[col] = pd.to_datetime(self.df[col], errors='coerce')
                     except Exception as e:
                         print(f"Error al convertir la columna {col} a fecha: {e}")
                         

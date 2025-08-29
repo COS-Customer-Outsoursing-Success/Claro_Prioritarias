@@ -6,12 +6,12 @@ SELECT
     fecha_asignacion,
     genero,
     nombre_y_apellido,
-    fechanacimiento,
+    fecha_nacimiento,
     email,
-    coddpto,
-    nomdepto,
-    codmunicipio,
-    nommunicipio,
+    cod_dpto,
+    nom_depto,
+    cod_municipio,
+    nom_municipio,
     direccion,
     IF(telefono1 REGEXP '^(3[0-9]{9}|60[0-9]{8})$', telefono1, NULL) AS telefono1,
     IF(telefono2 REGEXP '^(3[0-9]{9}|60[0-9]{8})$', telefono2, NULL) AS telefono2,
@@ -49,4 +49,4 @@ SELECT
     observaciones_2
 FROM
     bbdd_cos_bog_grupo_axa.tb_asignacion_fincomercio_v2
-    WHERE periodo = DATE_FORMAT('2025-07-01', '%%Y%%m');
+    WHERE periodo = DATE_FORMAT('2025-09-01', '%%Y%%m');
