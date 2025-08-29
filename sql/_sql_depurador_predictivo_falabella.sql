@@ -5,12 +5,12 @@ WITH base AS (
               OR placa IN (
                   SELECT placa 
                   FROM bbdd_cos_bog_grupo_axa.tb_asignacion_falabella_v2_no_aptos 
-                  WHERE periodo = 202509
+                  WHERE periodo = 202508
               )
             THEN 1 ELSE 0 
         END AS exclusiones_general
     FROM bbdd_cos_bog_grupo_axa.tb_asignacion_falabella_v2_coalesce
-    WHERE periodo = 202509
+    WHERE periodo = 202508
 )
 , consolidados AS (
     SELECT *,
@@ -45,8 +45,8 @@ WHERE exclusion_total = 0
 	AND tipificacion_mejor_gestion_soul IS NULL
     
 #    AND tipificacion_mejor_gestion IN ('Agent Not Available', 'Agent Altnum', 'No Contacto','ADAIR')
-        AND tipificacion_mejor_gestion NOT IN ('Agent Not Available', 'Agent Altnum', 'No Contacto','ADAIR')
-#	AND prioridad IN ('ALTA PROPENSIoN', 'BUENA PROPENSIoN')
+	 AND tipificacion_mejor_gestion NOT IN ('Agent Not Available', 'Agent Altnum', 'No Contacto','ADAIR')
+#	 AND prioridad IN ('ALTA PROPENSIoN', 'BUENA PROPENSIoN')
     
     AND DATE_FORMAT(fecha_fin_vigencia_actual, '%m%d') 
 	BETWEEN  DATE_FORMAT(CURDATE() + INTERVAL 1 DAY, '%m%d') AND DATE_FORMAT(CURDATE() + INTERVAL 15 DAY, '%m%d')
@@ -57,7 +57,7 @@ WHERE exclusion_total = 0
 -- -----------------------------------------------------------------------------------------
 
 /*
-    AND vicidial_calls <= 5
+    AND vicidial_calls <= 3
 	AND (tipo_mejor_gestion = 'No Contacto'
 	OR tipificacion_mejor_gestion_soul IN ('No Contestan', 'Grabadora o Buzon', 'Cliente Cuelga La Llamada')
     )
@@ -67,7 +67,7 @@ WHERE exclusion_total = 0
 	BETWEEN  DATE_FORMAT(CURDATE() - INTERVAL 15 DAY, '%m%d') AND DATE_FORMAT(CURDATE(), '%m%d')
     AND tipo_ultima_gestion <> 'Blaster - Contacto'
     AND tipo_mejor_gestion <> 'Blaster - Contacto'
-#*/
+*/
 
 -- -----------------------------------------------------------------------------------------
 -- Seguimientos Manuales: Descomentar colocando un # al inicio de los simbolos "/*" ---- --

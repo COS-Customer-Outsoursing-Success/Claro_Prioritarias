@@ -19,7 +19,7 @@ current_folder = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(os.path.dirname(current_folder))
 
 class LoadListVcdl:
-    def __init__(self, ruta_cargue_vicidial=None, user_vcdl=None, pass_vcdl=None, server_vcdl=None, activo=None, opcion_copiado=None, 
+    def __init__(self, ruta_cargue_vicidial=None, user_vcdl=None, pass_vcdl=None, activo=None, opcion_copiado=None, 
                  indicativo_pais=None):
 
         # -- Config driver path -- 
@@ -33,7 +33,6 @@ class LoadListVcdl:
         # -- Config Vicidial -- 
         self.user_vcdl = user_vcdl 
         self.pass_vcdl = pass_vcdl
-        self.server_vcdl = server_vcdl
         self.activo = activo
         self.opcion_copiado = opcion_copiado
         self.indicativo_pais = indicativo_pais 
@@ -89,6 +88,14 @@ class LoadListVcdl:
 
                 if nombre_base not in self.config_campanas:
                     raise KeyError(f"Campaña '{nombre_base}' no configurada en config_campanas.json")
+                
+                if '-' in nombre_archivo_cargue:
+                    nombre_despues = nombre_archivo_cargue.split('-')[1].strip()
+                elif ' -' in nombre_archivo_cargue:
+                    nombre_despues = nombre_archivo_cargue.split(' -')[1].strip()
+                else:
+                    nombre_despues = None
+
 
                 campana_config = self.config_campanas[nombre_base]["configuracion_listas"]
 
@@ -116,7 +123,7 @@ class LoadListVcdl:
 
             url = (
                 f"http://{self.user_vcdl}:{self.pass_vcdl}@"
-                f"{self.server_vcdl}/vicidial/admin.php?"
+                f"{self.config_campanas[nombre_base]['server_vcdl']}/vicidial/admin.php?"
                 f"ADD=34&campaign_id={campana_vicidial}"
             )
             
@@ -155,10 +162,8 @@ class LoadListVcdl:
                         list_id = checkbox.get_attribute('value')
                         print(f"Checkbox con valor {list_id} está ACTIVO - Desactivando...")
                         
-                        # Primero desmarcar (si es necesario)
-                        checkbox.click()  # Esto cambia el estado checked
+                        checkbox.click()
                         
-                        # Verificar que realmente se desmarcó
                         if checkbox.is_selected():
                             print(f"El checkbox {list_id} no se desmarcó correctamente, usando JavaScript")
                             driver.execute_script("arguments[0].checked = false;", checkbox)
@@ -203,7 +208,7 @@ class LoadListVcdl:
                 campos = [
                     (self.config_xpaths["xpath_lista_id"], lista_crear),
                     (self.config_xpaths["xpath_name"], f"{lista_crear} - {campana_vicidial}"),
-                    (self.config_xpaths["xpath_list_description"], f"{lista_crear} - {campana_vicidial}"),
+                    (self.config_xpaths["xpath_list_description"], f"{lista_crear} - {nombre_despues}"),
                     (self.config_xpaths["xpath_campaign"], campaign_id),
                     (self.config_xpaths["xpath_active"], self.activo)
                 ]

@@ -16,20 +16,18 @@ def main():
     # -- Config Vcdl --
     user_vcdl = '1031120694'
     pass_vcdl = '1031120694'
-    server_vcdl = 'soulphone-nine.groupcos.com.co'
     activo = 'Y'
     opcion_copiado = 'APPEND'
     indicativo_pais = '57 - COL'
 
     # -- Config Excel --
-    ruta_cargue_vicidial = os.path.join(project_root, 'data', 'upload_vicidial')
+    ruta_cargue_vicidial = os.path.join(project_root, 'data', 'upload_vcdl')
     
     # -- Inicializador de clases -- 
     processor_load_vcdl = LoadListVcdl(
 
         user_vcdl=user_vcdl,
         pass_vcdl=pass_vcdl,
-        server_vcdl=server_vcdl,
         activo=activo,
         opcion_copiado=opcion_copiado,
         ruta_cargue_vicidial=ruta_cargue_vicidial,
