@@ -56,7 +56,8 @@ class FileReader:
             raise ValueError(f"Formato de archivo {file_extension} no soportado.")
 
         # Agregar las columnas de fecha y año-mes al DataFrame
-        df['fecha_asignacion'] = creation_time
+        fecha_asignacion = self.get_creation_time(file_path) #'2025-07-01 00:00:00' '2025-03-01 00:00:00' 
+        df['fecha_asignacion'] = fecha_asignacion
         df['anio'] = year
         df['periodo'] = int(year_month)
 
