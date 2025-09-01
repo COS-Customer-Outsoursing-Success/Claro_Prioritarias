@@ -6,6 +6,7 @@ import time
 import os
 import glob
 import json
+import shutil
 from pathlib import Path
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.by import By
@@ -38,8 +39,8 @@ class LoadListVcdl:
         self.indicativo_pais = indicativo_pais 
 
         # -- Config Rutas -- 
-        self.ruta_cargue_vicidial = ruta_cargue_vicidial
-        self.ruta_subida = os.path.dirname(self.ruta_cargue_vicidial)
+        self.ruta_cargue_vicidial = os.path.join(project_root, 'data', 'upload_vcdl', 'nuevo')
+        self.ruta_cargado_vicidial = os.path.join(project_root, 'data', 'upload_vcdl', 'cargado')
         self.archivos = os.listdir(self.ruta_cargue_vicidial)
         self.archivos_xlsx = [archivo for archivo in self.archivos if archivo.endswith(".csv")]
         self.ruta_img = os.path.join(project_root, 'data', 'img','load_vcdl')
@@ -71,11 +72,11 @@ class LoadListVcdl:
         self.delete_img_load()
         
         if not self.archivos_xlsx:
-            print("⚠️ No se encontró ningún archivo .csv en la carpeta")
+            print("Error: Error No se encontró ningún archivo .csv en la carpeta")
             return
 
         for nombre_archivo_cargue in self.archivos_xlsx:
-            print(f"\n📦 Procesando archivo: {nombre_archivo_cargue}")
+            print(f"\n Procesando archivo: {nombre_archivo_cargue}")
             ruta_archivo_cargue = os.path.join(self.ruta_cargue_vicidial, nombre_archivo_cargue)
             
             driver = WebScraping_Chrome.Webdriver_ChrDP(self.driver_path)
@@ -87,7 +88,7 @@ class LoadListVcdl:
                     nombre_base = nombre_archivo_cargue.split(' -')[0].strip()
 
                 if nombre_base not in self.config_campanas:
-                    raise KeyError(f"Campaña '{nombre_base}' no configurada en config_campanas.json")
+                    raise KeyError(f"Campana '{nombre_base}' no configurada en config_campanas.json")
                 
                 if '-' in nombre_archivo_cargue:
                     nombre_despues = nombre_archivo_cargue.split('-')[1].strip()
@@ -133,10 +134,10 @@ class LoadListVcdl:
             try:
                 WebScraping_Chrome.WebScraping_Acces(driver, url)
                 WebScraping_Chrome.WebScraping_Wait(driver, 150, self.config_xpaths["xpath_campaign_cargada"])
-                print("Página cargada correctamente")
+                print("Pagina cargada correctamente")
             
             except Exception as e:
-                print(f"Error al abrir url de vicidial debido a {e}")
+                print(f"Error: Error al abrir url de vicidial debido a {e}")
                 continue
 
             try:
@@ -189,14 +190,14 @@ class LoadListVcdl:
 
                 if max_list >= numero_maximo_listas:
                     for _ in range(7):
-                        print("⚠️ Advertencia: El número de lista excede el máximo asignado. Validar con telecomunicaciones.")
+                        print("Error: Error El número de lista excede el máximo asignado. Validar con telecomunicaciones.")
                     driver.quit()
             except Exception as e:        
-                print(f"⚠️ Error al crear lista ya que excede el numero de listas permitidas")
+                print(f"Error: Error al crear lista ya que excede el numero de listas permitidas")
                 continue
 
             try:    
-                print("📝 Creando nueva lista...")
+                print("Creando nueva lista...")
                 WebScraping_Chrome.WebScraping_Wait(driver, 150, self.config_xpaths["xpath_boton_listas"])
                 WebScraping_Chrome.WebScraping_Nav(driver, self.config_xpaths["xpath_boton_listas"])
                 time.sleep(1)
@@ -295,16 +296,16 @@ class LoadListVcdl:
                         else:
                             print(f'⚠️ {clave} no está en el mapping para {nombre_base}, se deja vacío.')
                     except NoSuchElementException:
-                        print(f'⚠️ Campo {clave} no tiene elemento select, se omite')
+                        print(f'Advertencia: Campo {clave} no tiene elemento select, se omite')
                     except Exception as e:
-                        print(f'❌ Error en asignación del campo {clave}: {str(e)}')
+                        print(f'Error: Error en asignación del campo {clave}: {str(e)}')
 
-                print("📤 Enviando para el cargue final...")
+                print("Enviando para el cargue final...")
                 WebScraping_Chrome.WebScraping_Wait(driver, 150, self.config_xpaths["xpath_submit_cargar_final"])
                 WebScraping_Chrome.WebScraping_Nav(driver, self.config_xpaths["xpath_submit_cargar_final"])
                 time.sleep(1)
 
-                print("⏳ Esperando finalización de carga...")
+                print("Esperando finalización de carga...")
                 WebScraping_Chrome.WebScraping_Wait(driver, 150, self.config_xpaths["xpath_cargado_final"])
                 print("Lista Cargada Sin Problema")
 
@@ -320,21 +321,27 @@ class LoadListVcdl:
 
             try:
                 print("Moviendo archivo procesado a la carpeta de 'Cargados'...")
-                target_folder = os.path.join(self.ruta_subida, "Cargado", campana_vicidial, self.hoy)
-                
+                target_folder = os.path.join(self.ruta_cargado_vicidial, nombre_base)
+                print("Moviendo Archivo Cargado a ruta:", target_folder)
+
                 if not os.path.exists(target_folder):
                     os.makedirs(target_folder)
                     print(f"Carpeta {target_folder} creada.")
 
                 nueva_ruta = os.path.join(target_folder, nombre_archivo_cargue)
+
                 if not os.path.exists(nueva_ruta):
-                    os.rename(ruta_archivo_cargue, nueva_ruta)
-                    print(f"Archivo {nombre_archivo_cargue} movido a {nueva_ruta}")
+                    try:
+                        shutil.move(ruta_archivo_cargue, nueva_ruta)
+                        print(f"Archivo {nombre_archivo_cargue} movido a {nueva_ruta}")
+                    except Exception as e:
+                        print(f"Error: Error moviendo el archivo: {e}")
                 else:
-                    print(f"El archivo {nombre_archivo_cargue} ya existe en la carpeta de cargados.")
+                    print(f"Advertencia: El archivo {nombre_archivo_cargue} ya existe en la carpeta de cargados.")
 
             except Exception as e:
-                print(f"Error al mover el archivo: {e}")
+                print(f"Error: Error al mover el archivo: {e}")
+
             finally:
                 print("Cerrando navegador.")
                 driver.quit()

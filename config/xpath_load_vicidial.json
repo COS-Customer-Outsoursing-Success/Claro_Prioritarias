@@ -22,7 +22,7 @@
   "xpath_tabla_final_vicidial": "/html/body/table[2]/tbody/tr/td/form/table/tbody/tr",
   "xpath_tabla_campos_personalizados": "/html/body/table[2]/tbody/tr/td/form/table/tbody/tr",
   "xpath_submit_cargar_final": "//input[@value='OK TO PROCESS']",
-  "xpath_cargado_final": "/html/body/table[2]/tbody/tr/td/table/tbody/tr[9]/td/form/font",
+  "xpath_cargado_final": "/html/body/table[2]/tbody/tr/td/table/tbody/tr[1]/td[1]/b/font",
   "xpath_submit_enviar_cambios_lista": "//input[@value='SUBMIT ACTIVE LIST CHANGES']"
   
 }

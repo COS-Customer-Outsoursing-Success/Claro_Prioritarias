@@ -15,13 +15,11 @@ def main():
     
     # -- Config Vcdl --
     user_vcdl = '1031120694'
+#    pass_vcdl = '1031120694'
     pass_vcdl = 'wfm1031120694'
     activo = 'Y'
     opcion_copiado = 'APPEND'
     indicativo_pais = '57 - COL'
-
-    # -- Config Excel --
-    ruta_cargue_vicidial = os.path.join(project_root, 'data', 'upload_vcdl')
     
     # -- Inicializador de clases -- 
     processor_load_vcdl = LoadListVcdl(
@@ -30,7 +28,6 @@ def main():
         pass_vcdl=pass_vcdl,
         activo=activo,
         opcion_copiado=opcion_copiado,
-        ruta_cargue_vicidial=ruta_cargue_vicidial,
         indicativo_pais=indicativo_pais
 
     )
