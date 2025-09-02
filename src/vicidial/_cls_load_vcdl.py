@@ -42,7 +42,10 @@ class LoadListVcdl:
         self.ruta_cargue_vicidial = os.path.join(project_root, 'data', 'upload_vcdl', 'nuevo')
         self.ruta_cargado_vicidial = os.path.join(project_root, 'data', 'upload_vcdl', 'cargado')
         self.archivos = os.listdir(self.ruta_cargue_vicidial)
-        self.archivos_xlsx = [archivo for archivo in self.archivos if archivo.endswith(".csv")]
+        self.archivos_xlsx = [
+            archivo for archivo in self.archivos if archivo.endswith((".csv", ".xlsx"))
+        ]
+
         self.ruta_img = os.path.join(project_root, 'data', 'img','load_vcdl')
         os.makedirs(self.ruta_img, exist_ok=True)
 

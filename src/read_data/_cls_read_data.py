@@ -56,10 +56,18 @@ class FileReader:
             raise ValueError(f"Formato de archivo {file_extension} no soportado.")
 
         # Agregar las columnas de fecha y año-mes al DataFrame
-        fecha_asignacion = self.get_creation_time(file_path) #'2025-07-01 00:00:00' '2025-03-01 00:00:00' 
-        df['fecha_asignacion'] = fecha_asignacion
+        df['fecha_asignacion'] = creation_time
         df['anio'] = year
-        df['periodo'] = int(year_month)
+
+        self.periodo = ""
+        while True:
+            self.periodo = input("Escribe el periodo al cual corresponden los PDF (ej: 202508): ")
+            if self.periodo.isdigit() and len(self.periodo) == 6:
+                break
+            else:
+                print("Ingresa un periodo valido de 6 dígitos (ej: 202508).")
+
+        df['periodo'] = self.periodo
 
         # Limpiar los datos (eliminar tildes, punto y coma, y comas)
         df = self._clean_data(df)

@@ -5,6 +5,7 @@ CREATED BY EMERSON AGUILAR CRUZ
 from read_pdf._cls_lector_pdf import LeerPdf
 
 def main():
+
     try:
         periodo = ""
         while True:
