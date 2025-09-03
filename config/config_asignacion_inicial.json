@@ -13,7 +13,10 @@
             ],
 
     "renombrar_columnas": {
-      "motivo_de_cancelacion_":"motivo_de_cancelacion"
+
+      "motivo_de_cancelacion_":"motivo_de_cancelacion",
+      "horaenproceso": "hora_en_proceso"
+
     },
 
     "columnas_necesarias": [
