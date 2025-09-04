@@ -1,4 +1,73 @@
 {
+
+  
+  "Axa Bienvenida Tradicional": {
+
+    "schema":"bbdd_cos_bog_grupo_axa",
+    "table":"tb_asignacion_bienvenida_tradicional_v2",
+
+    "nombre_asignacion": "asignacion_bienvenida_tradicional",
+
+    "telefonos": [
+                "telefono", "tele_numb", "tele_numb_3", "tele_numb_4", "telefono_contacto",
+                "telefono1", "telefono2", "telefono3", "telefono4", "telefono5",
+                "telefono6", "telefono7", "telefono8", "telefono9", "telefono10", 
+                "celular", "celular_1", "telefono_correspondencia"
+            ],
+    
+    "columnas_fecha": [],
+
+    "renombrar_columnas": {
+
+      "no__identificacion_colectivo": "no_identificacion_colectivo",
+      "no__identificacion_contrante": "no_identificacion_contrante",
+      "solicitud_no_": "solicitud_no"
+
+    },
+
+    "columnas_necesarias": [
+
+        "mes_de_gestion", 
+        "sucursal", 
+        "regional", 
+        "tipo", 
+        "plan", 
+        "contrato",
+        "cruce_domiciliacion", 
+        "frecuencia_de_pago", 
+        "nombre_colectivo",
+        "tipo_identificacion", 
+        "no_identificacion_colectivo",
+        "tipo_identificacion_contrante", 
+        "no_identificacion_contrante",
+        "nombres", 
+        "correo_electronico", 
+        "celular", 
+        "celular_1", 
+        "parentesco",
+        "fecha_inicio", 
+        "fecha_fin", 
+        "clave", 
+        "asesor", 
+        "director",
+        "clave_director", 
+        "telefono_correspondencia",
+        "direccion_correspondencia", 
+        "cod_ciudad_correspondencia",
+        "ciudad_correspondencia", 
+        "solicitud_no", 
+        "fecha_asignacion", 
+        "anio",
+        "periodo", 
+        "nombre_base", 
+        "hoja"
+
+    ],
+    
+    "table_duplicados": "tb_asignacion_bienvenida_tradicional_v2_duplicados",
+    "cols_duplicados": ["contrato", "periodo"]
+  },
+
   "Axa Bienvenida Whatsapp": {
 
     "schema":"bbdd_cos_bog_grupo_axa",

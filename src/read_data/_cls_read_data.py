@@ -34,7 +34,7 @@ class FileReader:
         print(f"Leyendo archivo: {file_path}")
         
         # Obtener la fecha de creación
-        creation_time = '2025-08-27 00:00:00'#self.get_creation_time(file_path) #'2025-07-01 00:00:00' '2025-03-01 00:00:00' 
+        creation_time = '2025-08-29 00:00:00'#self.get_creation_time(file_path) #'2025-07-01 00:00:00' '2025-03-01 00:00:00' 
         creation_date = datetime.strptime(creation_time, '%Y-%m-%d %H:%M:%S')
         year_month = creation_date.strftime('%Y%m')
         year = creation_date.strftime('%Y')
@@ -61,7 +61,7 @@ class FileReader:
 
         self.periodo = ""
         while True:
-            self.periodo = input("Escribe el periodo al cual corresponden los PDF (ej: 202508): ")
+            self.periodo = input("Escribe el periodo al cual corresponde la informacion a cargar (ej: 202508): ")
             if self.periodo.isdigit() and len(self.periodo) == 6:
                 break
             else:
