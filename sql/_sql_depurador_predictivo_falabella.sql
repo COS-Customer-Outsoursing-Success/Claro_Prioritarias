@@ -46,29 +46,30 @@ WHERE exclusion_total = 0
 	AND tipificacion_mejor_gestion_soul IS NULL
     
 #     AND tipificacion_mejor_gestion IN ('Agent Not Available', 'Agent Altnum', 'No Contacto','ADAIR')
-	 AND tipificacion_mejor_gestion NOT IN ('Agent Not Available', 'Agent Altnum', 'No Contacto','ADAIR')
+#	 AND tipificacion_mejor_gestion NOT IN ('Agent Not Available', 'Agent Altnum', 'No Contacto','ADAIR')
 #	 AND prioridad IN ('ALTA PROPENSIoN', 'BUENA PROPENSIoN')
     
     AND DATE_FORMAT(fecha_fin_vigencia_actual, '%m%d') 
-	BETWEEN  DATE_FORMAT('2025-09-01', '%m%d') AND DATE_FORMAT('2025-09-05', '%m%d')
+	BETWEEN  DATE_FORMAT('2025-09-06', '%m%d') AND DATE_FORMAT('2025-09-12', '%m%d')
 */
 
 -- -----------------------------------------------------------------------------------------
 -- Blaster : Descomentar colocando un # al inicio de los simbolos "/*" ---- --
 -- -----------------------------------------------------------------------------------------
 
-/*
-    AND vicidial_calls <= 3
-	AND (tipo_mejor_gestion = 'No Contacto'
-	OR tipificacion_mejor_gestion_soul IN ('No Contestan', 'Grabadora o Buzon', 'Cliente Cuelga La Llamada')
-    )
-	AND tipificacion_mejor_gestion <> 'Contacto'
+#/*
+    AND vicidial_calls <= 4
+    AND tipificacion_mejor_gestion IS NOT NULL
+    
+	AND tipo_mejor_gestion = 'No Contacto'
     AND tipificacion_mejor_gestion_soul IS NULL
+
 	AND DATE_FORMAT(fecha_fin_vigencia_actual, '%m%d') 
 	BETWEEN  DATE_FORMAT(CURDATE() - INTERVAL 15 DAY, '%m%d') AND DATE_FORMAT(CURDATE(), '%m%d')
+
     AND tipo_ultima_gestion <> 'Blaster - Contacto'
     AND tipo_mejor_gestion <> 'Blaster - Contacto'
-*/
+#*/
 
 -- -----------------------------------------------------------------------------------------
 -- Seguimientos Manuales: Descomentar colocando un # al inicio de los simbolos "/*" ---- --

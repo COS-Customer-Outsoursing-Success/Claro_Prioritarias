@@ -19,9 +19,9 @@ SELECT
     sucursal,
     propietario_del_caso__nombre_completo,
     cola_de_gestion,
-    horaenproceso,
+    hora_en_proceso,
     motivo_de_cancelacion,
     fecha_asignacion
 FROM
     bbdd_cos_bog_grupo_axa.tb_asignacion_desertores_whatsapp_v2
-		WHERE periodo = DATE_FORMAT('2025-07-01','%%Y%%m')
+		WHERE periodo = DATE_FORMAT('2025-08-01','%%Y%%m')

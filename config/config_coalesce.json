@@ -1,4 +1,19 @@
 {
+
+    "Bienvenida Tradicional": {
+    "schema": "bbdd_cos_bog_grupo_axa",
+    "table": "tb_asignacion_bienvenida_tradicional_v2_coalesce",
+    "cuenta": "contrato",
+    "sql_file_path": "_sql_coalesce_axa_bienvenida_tradicional.sql",
+    "phone_columns": [
+
+      "celular",
+      "celular_1",
+      "telefono_correspondencia"
+
+    ]
+  },
+
   "Bienvenida Whatsapp": {
     "schema": "bbdd_cos_bog_grupo_axa",
     "table": "tb_asignacion_bienvenida_whatsapp_v2_coalesce",
@@ -44,6 +59,7 @@
     "cuenta": "numero_de_poliza_o_contrato",
     "sql_file_path": "_sql_coalesce_axa_desertores_whatsapp.sql",
     "phone_columns": [
+      
         "celular_del_tomador"
     ]
   },

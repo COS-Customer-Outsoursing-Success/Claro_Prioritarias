@@ -286,7 +286,9 @@
     "columnas_fecha": [],
 
     "renombrar_columnas": {
-            "motivo_de_cancelacion_":"motivo_de_cancelacion"
+
+            "motivo_de_cancelacion_":"motivo_de_cancelacion",
+            "horaenproceso": "hora_en_proceso"
     },
 
     "columnas_necesarias": [
@@ -307,7 +309,7 @@
             "subtipologia",
             "propietario_del_caso__nombre_completo", 
             "cola_de_gestion",
-            "horaenproceso", 
+            "hora_en_proceso", 
             "motivo_de_cancelacion", 
             "fecha_asignacion", 
             "anio",
@@ -315,6 +317,7 @@
             "nombre_base"
     ],
 
+    "table_duplicados": "tb_asignacion_desertores_whatsapp_v2_duplicados",    
     "cols_duplicados": ["numero_de_poliza_o_contrato", "periodo"]
   },
 
