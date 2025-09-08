@@ -17,6 +17,7 @@ SELECT
     frecuencia_de_pago,
     fecha_inicio,
     fecha_fin,
+    CONCAT(fecha_inicio, fecha_fin) AS llave_fecha_ini_fin,
     nombre_colectivo,
     tipo_identificacion,
     no_identificacion_colectivo,

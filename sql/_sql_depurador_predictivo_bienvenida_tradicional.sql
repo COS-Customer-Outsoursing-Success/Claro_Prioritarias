@@ -2,24 +2,24 @@ WITH base AS (
     SELECT *,
         CASE 
             WHEN excluir = 1
-              OR placa IN (
-					SELECT placa 
-					FROM bbdd_cos_bog_grupo_axa.tb_asignacion_falabella_v2_no_aptos 
+              OR contrato IN (
+					SELECT contrato 
+					FROM bbdd_cos_bog_grupo_axa.tb_asignacion_bienvenida_tradicional_v2_no_aptos 
 					WHERE periodo = 202509
               )
               OR phone IN ( 
 					SELECT phone_number_dialed 
                     FROM bbdd_cos_bog_grupo_axa.tb_markings_2300_daily
-					WHERE campana = 'Falabella'
+					WHERE campana = 'bienvenida_tradicional'
                     )
             THEN 1 ELSE 0 
         END AS exclusiones_general
-    FROM bbdd_cos_bog_grupo_axa.tb_asignacion_falabella_v2_coalesce
+    FROM bbdd_cos_bog_grupo_axa.tb_asignacion_bienvenida_tradicional_v2_coalesce
     WHERE periodo = 202509
 )
 , consolidados AS (
     SELECT *,
-           MAX(exclusiones_general) OVER(PARTITION BY placa) AS exclusion_total
+           MAX(exclusiones_general) OVER(PARTITION BY contrato) AS exclusion_total
     FROM base
 )
 SELECT 
@@ -31,14 +31,12 @@ WHERE exclusion_total = 0
 -- Predictivo Sin Gestion: Descomentar colocando un # al inicio de los simbolos "/*" ---- --
 -- -----------------------------------------------------------------------------------------
 
-/*
-	AND tipo_phone IN ('telefono1') #,'telefono2'
+#/*
+	AND tipo_phone IN ('celular') #,'telefono2'
 	AND (vicidial_calls = 0 OR vicidial_calls IS NULL)
     AND tipificacion_mejor_gestion_soul IS NULL
-	AND DATE_FORMAT(fecha_fin_vigencia_actual, '%m%d') 
-	BETWEEN  DATE_FORMAT('2025-09-13', '%m%d') AND DATE_FORMAT('2025-09-15', '%m%d')
 #	BETWEEN  DATE_FORMAT(CURDATE() + INTERVAL 1 DAY, '%m%d') AND DATE_FORMAT(CURDATE() + INTERVAL 15 DAY, '%m%d')
-*/
+#*/
 
 -- -----------------------------------------------------------------------------------------
 -- Predictivo No Contacto: Descomentar colocando un # al inicio de los simbolos "/*" ---- --
@@ -109,4 +107,4 @@ WHERE exclusion_total = 0
 		fecha_ultima_gestion IS NULL OR DATE(fecha_ultima_gestion) < CURDATE() - INTERVAL 1 DAY
 	)
 
-ORDER BY DATE_FORMAT(fecha_fin_vigencia_actual, '%m%d') ASC, vicidial_calls ASC, tipo_phone ASC, prioridad ASC;
+ORDER BY vicidial_calls ASC, tipo_phone ASC;
