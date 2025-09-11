@@ -26,14 +26,18 @@ WHERE exclusion_total = 0
 -- Predictivo Sin Gestion: Descomentar colocando un # al inicio de los simbolos "/*" ---- --
 -- -----------------------------------------------------------------------------------------
 
-/*
+#/*
 	AND tipo_phone IN ('telefono1') #,'telefono2'
-	AND (vicidial_calls = 0 OR vicidial_calls IS NULL)
+	AND (
+    vicidial_calls = 0 
+    OR 
+    vicidial_calls IS NULL
+    )
     AND tipificacion_mejor_gestion_soul IS NULL
-	AND DATE_FORMAT(fecha_fin_vigencia_actual, '%m%d') 
-	BETWEEN  DATE_FORMAT('2025-09-06', '%m%d') AND DATE_FORMAT('2025-09-12', '%m%d')
+#	AND DATE_FORMAT(fecha_fin_vigencia_actual, '%m%d') 
+#	BETWEEN  DATE_FORMAT('2025-09-10', '%m%d') AND DATE_FORMAT('2025-09-20', '%m%d')
 #	BETWEEN  DATE_FORMAT(CURDATE() + INTERVAL 1 DAY, '%m%d') AND DATE_FORMAT(CURDATE() + INTERVAL 15 DAY, '%m%d')
-*/
+#*/
 
 -- -----------------------------------------------------------------------------------------
 -- Predictivo No Contacto: Descomentar colocando un # al inicio de los simbolos "/*" ---- --
@@ -41,15 +45,29 @@ WHERE exclusion_total = 0
 
 /*
 	AND tipo_phone IN ('telefono1') #,'telefono2'
-	AND vicidial_calls <= 2
-    AND vicidial_calls IS NOT NULL
-	AND tipificacion_mejor_gestion_soul IS NULL
-#	AND tipificacion_mejor_gestion IN ('Agent Not Available', 'Agent Altnum', 'ADAIR')
-	AND tipificacion_mejor_gestion NOT IN ('Agent Not Available', 'Agent Altnum','ADAIR')
-#	 AND prioridad IN ('ALTA PROPENSIoN', 'BUENA PROPENSIoN')
+	AND ( 
+    vicidial_calls <= 5
+    AND 
+    vicidial_calls IS NOT NULL 
+    )
+#	AND (
+#    tipificacion_mejor_gestion_soul IS NULL 
+#    AND 
+#    tipificacion_ultima_gestion_soul IS NULL
+#    )
+
+    AND (
+    tipificacion_mejor_gestion_soul = 'No Contestan' 
+    OR 
+    tipificacion_mejor_gestion_soul IS NULL
+    )
+
+#	AND tipificacion_mejor_gestion IN ('Agent Not Available', 'Agent Altnum', 'No Contacto','ADAIR')
+    
+#	AND tipificacion_mejor_gestion NOT IN ('Agent Not Available', 'Agent Altnum', 'No Contacto','ADAIR')
     
     AND DATE_FORMAT(fecha_fin_vigencia_actual, '%m%d') 
-	BETWEEN  DATE_FORMAT('2025-09-01', '%m%d') AND DATE_FORMAT('2025-09-05', '%m%d')
+	BETWEEN  DATE_FORMAT('2025-09-10', '%m%d') AND DATE_FORMAT('2025-09-13', '%m%d')
 */
 
 -- -----------------------------------------------------------------------------------------
@@ -102,4 +120,5 @@ WHERE exclusion_total = 0
 		fecha_ultima_gestion IS NULL OR DATE(fecha_ultima_gestion) < CURDATE() - INTERVAL 1 DAY
 	)
 
-ORDER BY DATE_FORMAT(fecha_fin_vigencia_actual, '%m%d') ASC, vicidial_calls ASC, tipo_phone ASC;
+ORDER BY DATE_FORMAT(fecha_fin_vigencia_actual, '%m%d') ASC, vicidial_calls ASC, tipo_phone ASC
+;

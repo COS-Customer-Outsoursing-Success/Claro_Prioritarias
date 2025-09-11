@@ -1,3 +1,7 @@
+"""
+Created By Emerson Aguilar Cruz
+"""
+
 import paramiko  # Librería para conexiones SSH/SFTP
 import subprocess  # Para ejecutar comandos del sistema (GPG)
 import zipfile  # Para extraer archivos ZIP
@@ -13,8 +17,10 @@ def procesar_archivo_falabella():
     3. Lo descifra usando GPG
     4. Extrae los PDFs del archivo ZIP resultante
     """
-    
+    # ====================================================
     # ========== CONFIGURACIÓN DE CONEXIÓN SFTP ==========
+    # ====================================================
+        
     servidor = "172.17.8.199"  # IP del servidor SFTP de Falabella
     puerto = 22  # Puerto estándar SSH/SFTP
     usuario = "laura.castrob"  # Nombre de usuario para autenticación
@@ -22,7 +28,10 @@ def procesar_archivo_falabella():
     ruta_remota = "/Entrada/Autos Falabella"  # Directorio en el servidor donde están los archivos
     archivo_pgp = "FALABELLA CALL VIP-VIP_3_75198.zip.pgp"  # Nombre del archivo a descargar
     
-    # ========== CONFIGURACIÓN LOCAL ==========
+    # ====================================================    
+    # ========== CONFIGURACIÓN LOCAL =====================
+    # ====================================================
+        
     directorio_destino = r"C:\Users\Emerson.Aguilar\Documents\git_hub\Axa\data\pdf\nuevo\Falabella"  # Carpeta local donde guardar PDFs
     
     # Crear el directorio de destino si no existe
@@ -33,14 +42,20 @@ def procesar_archivo_falabella():
     sftp = None  # Canal SFTP para transferencia de archivos
     
     try:
-        # ========== ESTABLECER CONEXIÓN SFTP ==========
+        # ====================================================        
+        # ========== ESTABLECER CONEXIÓN SFTP ================
+        # ====================================================
+            
         print(f"Conectando SFTP a: {servidor}:{puerto}")
         
         # Crear cliente SSH con política de aceptar cualquier host
         ssh = paramiko.SSHClient()
         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())  # Acepta hosts desconocidos automáticamente
-        
-        # ========== VERIFICAR CONECTIVIDAD BÁSICA ==========
+
+        # ====================================================        
+        # ========== VERIFICAR CONECTIVIDAD BÁSICA ===========
+        # ====================================================
+                
         print("Probando conectividad...")
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # Crear socket TCP
         sock.settimeout(10)  # Timeout de 10 segundos
@@ -54,7 +69,10 @@ def procesar_archivo_falabella():
         
         print("Conectividad OK, intentando SSH...")
         
+        # ======================================================        
         # ========== ESTABLECER CONEXIÓN SSH COMPLETA ==========
+        # ======================================================
+                
         ssh.connect(
             hostname=servidor, 
             port=puerto, 
@@ -72,8 +90,11 @@ def procesar_archivo_falabella():
         # Abrir canal SFTP para transferencia de archivos
         sftp = ssh.open_sftp()
         print("Canal SFTP abierto!")
-        
-        # ========== NAVEGAR AL DIRECTORIO REMOTO ==========
+
+        # ======================================================        
+        # ========== NAVEGAR AL DIRECTORIO REMOTO ==============
+        # ======================================================        
+
         try:
             print(f"Navegando a: {ruta_remota}")
             sftp.chdir(ruta_remota)  # Cambiar al directorio objetivo
@@ -83,7 +104,10 @@ def procesar_archivo_falabella():
             print(f"Error navegando al directorio {ruta_remota}: {e}")
             print("Intentando con ruta completa...")
             
+        # ======================================================            
         # ========== LISTAR ARCHIVOS EN EL DIRECTORIO ==========
+        # ======================================================
+                
         try:
             archivos = sftp.listdir('.')  # Listar archivos en directorio actual
             print(f"Archivos encontrados: {archivos}")
@@ -93,7 +117,10 @@ def procesar_archivo_falabella():
             archivos = sftp.listdir('/')
             print(f"Archivos en directorio raíz: {archivos}")
         
-        # ========== BUSCAR EL ARCHIVO OBJETIVO ==========
+        # ======================================================        
+        # ========== BUSCAR EL ARCHIVO OBJETIVO ================
+        # ======================================================
+                
         archivo_encontrado = False
         archivo_remoto = None
         
@@ -117,8 +144,10 @@ def procesar_archivo_falabella():
         if not archivo_encontrado:
             print("No se pudo encontrar el archivo. Terminando.")
             return
-        
-        # ========== DESCARGAR ARCHIVO PGP ==========
+        # ======================================================        
+        # ========== DESCARGAR ARCHIVO PGP =====================
+        # ======================================================
+                
         archivo_local_pgp = os.path.join(directorio_destino, archivo_pgp)  # Ruta local completa
         print(f"Descargando {archivo_remoto} a {archivo_local_pgp}...")
         
@@ -132,8 +161,10 @@ def procesar_archivo_falabella():
         else:
             print("Error: El archivo no se descargó correctamente")
             return
+    # ======================================================        
+    # ========== MANEJO DE ERRORES DE CONEXIÓN =============
+    # ======================================================
         
-    # ========== MANEJO DE ERRORES DE CONEXIÓN ==========
     except paramiko.AuthenticationException:
         print("Error de autenticación - Verifica usuario y contraseña")
         return
@@ -151,7 +182,10 @@ def procesar_archivo_falabella():
         print(f"Error: {type(e).__name__}: {e}")
         return
     finally:
-        # ========== CERRAR CONEXIONES ==========
+        # ======================================================        
+        # ========== CERRAR CONEXIONES =========================
+        # ======================================================
+                
         # Siempre cerrar las conexiones, sin importar si hubo errores
         if sftp:
             sftp.close()  # Cerrar canal SFTP
@@ -186,7 +220,10 @@ def procesar_archivo_falabella():
         
         print("Descifrado exitoso!")
         
+    # ======================================================        
     # ========== MANEJO DE ERRORES DE DESCIFRADO ==========
+    # ======================================================    
+
     except FileNotFoundError:
         print("Error: GPG no encontrado. Verifica que Kleopatra/GPG esté instalado")
         return
@@ -194,7 +231,10 @@ def procesar_archivo_falabella():
         print(f"Error en descifrado: {e}")
         return
     
-    # ========== EXTRAER PDFS DEL ARCHIVO ZIP ==========
+    # ======================================================    
+    # ========== EXTRAER PDFS DEL ARCHIVO ZIP ==============
+    # ======================================================
+            
     try:
         print(f"Extrayendo PDFs en: {directorio_destino}")
         
@@ -204,13 +244,19 @@ def procesar_archivo_falabella():
         
         print("Extracción completada!")
         
-        # ========== LIMPIAR ARCHIVOS TEMPORALES ==========
+        # ======================================================
+        # ========== LIMPIAR ARCHIVOS TEMPORALES ===============
+        # ======================================================
+
         # Eliminar archivo PGP original (ya no se necesita)
         os.remove(archivo_local_pgp)
         # Eliminar archivo ZIP descifrado (ya no se necesita)
         os.remove(archivo_local_zip)
         
-        # ========== MOSTRAR RESULTADOS FINALES ==========
+        # ======================================================        
+        # ========== MOSTRAR RESULTADOS FINALES ================
+        # ======================================================
+                
         print(f"¡Completado! Los PDFs están ahora en: {directorio_destino}")
         
         # Listar todos los archivos PDF extraídos
@@ -218,14 +264,16 @@ def procesar_archivo_falabella():
         print(f"PDFs extraídos: {len(archivos_pdf)} archivos")
         for pdf in archivos_pdf:
             print(f"  - {pdf}")
-        
+
+    # ======================================================        
     # ========== MANEJO DE ERRORES DE EXTRACCIÓN ==========
+    # ======================================================
+
     except zipfile.BadZipFile:
         print("Error: El archivo descifrado no es un ZIP válido")
     except Exception as e:
         print(f"Error extrayendo ZIP: {e}")
 
-# ========== PUNTO DE ENTRADA DEL PROGRAMA ==========
 if __name__ == "__main__":
     """
     Punto de entrada: ejecuta la función principal solo si el script
