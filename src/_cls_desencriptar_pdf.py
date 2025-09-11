@@ -26,7 +26,7 @@ def procesar_archivo_falabella():
     usuario = "laura.castrob"  # Nombre de usuario para autenticación
     password = "KgkY9f8jX4e6"  # Contraseña del usuario
     ruta_remota = "/Entrada/Autos Falabella"  # Directorio en el servidor donde están los archivos
-    archivo_pgp = "FALABELLA CALL VIP-VIP_3_75198.zip.pgp"  # Nombre del archivo a descargar
+    archivo_pgp = "FALABELLA CALL TRAD-VIP_1_76468.zip.pgp"  # Nombre del archivo a descargar
     
     # ====================================================    
     # ========== CONFIGURACIÓN LOCAL =====================
