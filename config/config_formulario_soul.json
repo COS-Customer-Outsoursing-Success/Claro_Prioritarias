@@ -80,6 +80,52 @@
             "Hora En Proceso": "Hora En Proceso",
             "Motivo de cancelación": "Motivo de cancelación"
         }
-    } 
+    },
+
+    "Fincomercio" : {
+
+        "campana": "Fincomercio",
+
+        "crm": "CRM2",
+
+        "nombre_formulario" : "AXA FINCOMERCIO",
+        
+        "mapping": {
+
+            "cedula": "Cédula",
+            "placa": "Placa",
+            "genero": "Genero",
+            "nombre_y_apellido": "Nombre y Apellido",
+            "fecha_nacimiento": "FechaNacimiento",
+            "edad": "Edad",
+            "codmunicipio": "CodMunicipio",
+            "nommunicipio": "NomMunicipio",
+            "coddpto": "CodDpto",
+            "nomdepto": "NomDepto",
+            "direccion": "Direccion",
+            "phone": "Telefono1",
+            "telefono3": "Telefono3",
+            "fecha_fin_vigencia_actual": "Fecha Fin Vigencia actual",
+            "linea": "Linea",
+            "motor": "Motor",
+            "chasis": "Chasis",
+            "cod_fasecolda": "Cod Fasecolda",
+            "marca": "Marca",
+            "marca_y_linea": "Marca y linea",
+            "tasa": "Tasa",
+            "suma_asegurada": "Suma asegurada",
+            "aseguradora_actual": "Aseguradora actual",
+            "clase_vehiculo": "CLASE VEHICULO",
+            "servicio": "Servicio",
+            "email": "EMAIL",
+            "no_temporario_plus_plus": "No Temporario PLUS-PLUS",
+            "prima_plus_plus": "Prima PLUS-PLUS",
+            "prima_sin_iva_plus_plus": "Prima Sin IVA PLUS-PLUS",
+            "no_temporario_plus_vip": "No Temporario VIP-VIP",
+            "prima_plus_vip": "Prima VIP-VIP",
+            "prima_sin_iva_plus_vip": "Prima Sin IVA VIP-VIP"
+
+        }
+    }  
 }
 
