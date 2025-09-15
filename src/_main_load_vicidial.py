@@ -15,8 +15,8 @@ def main():
     
     # -- Config Vcdl --
     user_vcdl = '1031120694'
-    pass_vcdl = '1031120694'
-#    pass_vcdl = 'wfm1031120694'
+#    pass_vcdl = '1031120694'
+    pass_vcdl = 'wfm1031120694'
     activo = 'Y'
     opcion_copiado = 'APPEND'
     indicativo_pais = '57 - COL'

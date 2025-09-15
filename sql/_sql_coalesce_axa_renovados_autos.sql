@@ -1,0 +1,38 @@
+SELECT 
+    placa,
+    periodo,
+    anio,
+    fecha_asignacion,
+    fecha_de_asignacion,
+    tipo_identificacion,
+    no_identificacion,
+    nombre,
+    nombre_base,
+    fecha_de_nacimiento,
+    IF(no_celular REGEXP '^(3[0-9]{9}|60[0-9]{8})$', no_celular, NULL) AS no_celular,
+	IF(no_telefono2 REGEXP '^(3[0-9]{9}|60[0-9]{8})$', no_telefono2, NULL) AS no_telefono2,
+    IF(telefono_actualizado REGEXP '^(3[0-9]{9}|60[0-9]{8})$', telefono_actualizado, NULL) AS telefono_actualizado,
+    correo_electronico,
+    correo_electronico_actualizado,
+    ciudad,
+    sucursal,
+    chasis,
+    motor,
+    plan,
+    tipo_de_vehiculo,
+    no_poliza,
+    inicio_renovacion,
+    DATE_FORMAT(inicio_renovacion, '%%Y%%m') AS periodo_renovacion,
+    valor_asegurado,
+    valor_prima,
+    oneroso,
+    perfil,
+    nombre_agente,
+    clave_agente,
+    sarlaft_tomador,
+    sarlaft_asegurado,
+    hoja
+FROM
+    bbdd_cos_bog_grupo_axa.tb_asignacion_renovados_autos_v2
+WHERE periodo >= DATE_FORMAT('2025-06-01', '%%Y%%m')
+;

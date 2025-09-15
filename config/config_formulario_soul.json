@@ -103,7 +103,8 @@
             "coddpto": "CodDpto",
             "nomdepto": "NomDepto",
             "direccion": "Direccion",
-            "phone": "Telefono1",
+            "telefono1": "Telefono1",
+            "telefono2": "Telefono2",
             "telefono3": "Telefono3",
             "fecha_fin_vigencia_actual": "Fecha Fin Vigencia actual",
             "linea": "Linea",
@@ -126,6 +127,42 @@
             "prima_sin_iva_plus_vip": "Prima Sin IVA VIP-VIP"
 
         }
-    }  
+    },
+
+    "Renovados Autos" : {
+
+        "campana": "Renovados Autos",
+
+        "crm": "CRM2",
+
+        "nombre_formulario" : "Renovados Autos",
+        
+        "mapping": {
+
+            "placa": "Placa",
+            "fecha_de_asignacion": "Fecha_Asignacion",
+            "tipo_identificacion": "Tipo identificación",
+            "no_identificacion": "Número identificación",
+            "nombre": "Nombre",
+            "fecha_de_nacimiento": "Fecha de nacimiento",
+            "no_celular": "No. Telefono",
+            "no_telefono2": "No Telefono2",
+            "telefono_actualizado": "Telefono actualizado",
+            "correo_electronico": "Correo electrónico",
+            "correo_electronico_actualizado": "Correo electronico Actualizado",
+            "chasis": "Chasis",
+            "motor": "Motor",
+            "plan": "Plan",
+            "no_poliza": "No. Poliza",
+            "inicio_renovacion": "Inicio renovación",
+            "valor_asegurado": "Valor asegurado",
+            "valor_prima": "Valor Prima",
+            "oneroso": "No oneroso",
+            "nombre_agente": "Nombre agente",
+            "sarlaft_tomador": "SARLAFT_TOMADOR",
+            "sarlaft_asegurado": "SARLAFT_ASEGURADO"
+
+        }
+    }   
 }
 

@@ -31,14 +31,14 @@ WHERE exclusion_total = 0
 -- Predictivo Sin Gestion: Descomentar colocando un # al inicio de los simbolos "/*" ---- --
 -- -----------------------------------------------------------------------------------------
 
-#/*
+/*
 	AND tipo_phone IN ('telefono1') #,'telefono2'
 	AND (vicidial_calls = 0 OR vicidial_calls IS NULL)
     AND tipificacion_mejor_gestion_soul IS NULL
 	AND DATE_FORMAT(fecha_fin_vigencia_actual, '%m%d') 
-	BETWEEN  DATE_FORMAT('2025-09-10', '%m%d') AND DATE_FORMAT('2025-09-20', '%m%d')
+	BETWEEN  DATE_FORMAT('2025-09-20', '%m%d') AND DATE_FORMAT('2025-09-21', '%m%d')
 #	BETWEEN  DATE_FORMAT(CURDATE() + INTERVAL 1 DAY, '%m%d') AND DATE_FORMAT(CURDATE() + INTERVAL 15 DAY, '%m%d')
-#*/
+*/
 
 -- -----------------------------------------------------------------------------------------
 -- Predictivo No Contacto: Descomentar colocando un # al inicio de los simbolos "/*" ---- --
@@ -47,7 +47,7 @@ WHERE exclusion_total = 0
 /*
 	AND tipo_phone IN ('telefono1') #,'telefono2'
 	AND ( 
-    vicidial_calls <= 5
+    vicidial_calls <= 3
     AND 
     vicidial_calls IS NOT NULL 
     )
@@ -68,7 +68,7 @@ WHERE exclusion_total = 0
 #	AND tipificacion_mejor_gestion NOT IN ('Agent Not Available', 'Agent Altnum', 'No Contacto','ADAIR')
     
     AND DATE_FORMAT(fecha_fin_vigencia_actual, '%m%d') 
-	BETWEEN  DATE_FORMAT('2025-09-10', '%m%d') AND DATE_FORMAT('2025-09-13', '%m%d')
+	BETWEEN  DATE_FORMAT('2025-09-15', '%m%d') AND DATE_FORMAT('2025-09-20', '%m%d')
 */
 
 -- -----------------------------------------------------------------------------------------
@@ -76,14 +76,21 @@ WHERE exclusion_total = 0
 -- -----------------------------------------------------------------------------------------
 
 /*
-    AND vicidial_calls <= 4
-    AND tipificacion_mejor_gestion IS NOT NULL
-    
-	AND tipo_mejor_gestion = 'No Contacto'
-    AND tipificacion_mejor_gestion_soul IS NULL
+	AND tipo_phone IN ('telefono1') #,'telefono2'
+	AND ( 
+    vicidial_calls <= 3
+    AND 
+    vicidial_calls IS NOT NULL 
+    )
 
-	AND DATE_FORMAT(fecha_fin_vigencia_actual, '%m%d') 
-	BETWEEN  DATE_FORMAT(CURDATE() - INTERVAL 15 DAY, '%m%d') AND DATE_FORMAT(CURDATE(), '%m%d')
+    AND (
+    tipificacion_mejor_gestion_soul = 'No Contestan' 
+    OR 
+    tipificacion_mejor_gestion_soul IS NULL
+    )
+    
+    AND DATE_FORMAT(fecha_fin_vigencia_actual, '%m%d') 
+	BETWEEN  DATE_FORMAT('2025-09-01', '%m%d') AND DATE_FORMAT('2025-09-14', '%m%d')
 
     AND tipo_ultima_gestion <> 'Blaster - Contacto'
     AND tipo_mejor_gestion <> 'Blaster - Contacto'

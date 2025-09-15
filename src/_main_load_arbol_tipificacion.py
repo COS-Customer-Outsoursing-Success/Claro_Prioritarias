@@ -18,7 +18,7 @@ def main():
     schema = 'bbdd_cos_bog_grupo_axa'
 #    table = 'tb_arb_tipificacion_v2'
 #    archivo_excel = os.path.join(project_root, 'data', 'arbol_tipificacion')
-    table = 'tb_arb_tipificacion_soul_v2'
+    table = 'tb_arb_tipificacion_soul_renovaciones_autos_v2'
     archivo_excel = os.path.join(project_root, 'data', 'arbol_tipificacion_soul')    
     
 #    schema =  "bbdd_cos_bog_colsubsidio_atraccion"

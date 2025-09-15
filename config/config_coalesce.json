@@ -140,5 +140,17 @@
         "telefono3",
         "telefono_4"
         ]
+  },
+
+  "Renovados Autos": {
+    "schema": "bbdd_cos_bog_grupo_axa",
+    "table": "tb_asignacion_renovados_autos_v2_coalesce",
+    "cuenta": "placa",
+    "sql_file_path": "_sql_coalesce_axa_renovados_autos.sql",
+    "phone_columns": [
+        "no_celular",
+        "no_telefono2",
+        "telefono_actualizado"
+    ]
   }
 }
