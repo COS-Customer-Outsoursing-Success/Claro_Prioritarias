@@ -2,6 +2,8 @@
 
 "AXA_FA10": {
 
+  "campana": "falabella",
+
   "server_vcdl": "soulphone-nine.groupcos.com.co",
 
   "configuracion_listas": {
@@ -60,6 +62,8 @@
 },
  
 "AXA_FA11": {
+
+  "campana": "falabella",
 
   "server_vcdl": "soulphone-nine.groupcos.com.co",
 
@@ -120,6 +124,7 @@
 
   "AXA_FAL2": {
 
+  "campana": "falabella",
   
   "server_vcdl": "soulphone-nine.groupcos.com.co",
 
@@ -180,6 +185,8 @@
   
 "AXA_FAL3": {
 
+  "campana": "falabella",
+
   "server_vcdl": "soulphone-nine.groupcos.com.co",
 
   "configuracion_listas": {
@@ -238,6 +245,8 @@
 },
   
 "AXA_FAL4": {
+
+  "campana": "falabella",
 
   "server_vcdl": "soulphone-nine.groupcos.com.co",
 
@@ -298,6 +307,8 @@
   
 "AXA_FAL5": {
 
+  "campana": "falabella",
+
   "server_vcdl": "soulphone-nine.groupcos.com.co",
 
   "configuracion_listas": {
@@ -355,6 +366,8 @@
 },
   
 "AUTAXAFA": {
+
+  "campana": "falabella",
 
   "server_vcdl": "10.57.250.101",
 
