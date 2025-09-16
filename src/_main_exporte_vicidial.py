@@ -55,7 +55,7 @@ class ExporteFormulario:
                 folder_salida=folder_salida,
                 nombre_archivo=nombre_archivo
             )
-            processor.exportar_excel()
+            processor.exportar_csv()
 
         except Exception as e:
             print(f"Error: Error al exportar debido a {e}")
