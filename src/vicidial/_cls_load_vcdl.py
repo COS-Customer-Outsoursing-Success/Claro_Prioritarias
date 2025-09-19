@@ -20,7 +20,7 @@ current_folder = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(os.path.dirname(current_folder))
 
 class LoadListVcdl:
-    def __init__(self, ruta_cargue_vicidial=None, user_vcdl=None, pass_vcdl=None, activo=None, opcion_copiado=None, 
+    def __init__(self, ruta_cargue_vicidial=None, user_vcdl=None, activo=None, opcion_copiado=None, 
                  indicativo_pais=None):
 
         # -- Config driver path -- 
@@ -31,12 +31,6 @@ class LoadListVcdl:
         'chromedriver.exe'
         )
       
-        # -- Config Vicidial -- 
-        self.user_vcdl = user_vcdl 
-        self.pass_vcdl = pass_vcdl
-        self.activo = activo
-        self.opcion_copiado = opcion_copiado
-        self.indicativo_pais = indicativo_pais 
 
         # -- Config Rutas -- 
         self.ruta_cargue_vicidial = os.path.join(project_root, 'data', 'upload_vcdl', 'nuevo')
@@ -60,6 +54,12 @@ class LoadListVcdl:
             self.config_xpaths = json.load(file_json_xpath)
         
         self.hoy = datetime.now().strftime('%Y-%m-%d') 
+
+                # -- Config Vicidial -- 
+        self.user_vcdl = user_vcdl 
+        self.activo = activo
+        self.opcion_copiado = opcion_copiado
+        self.indicativo_pais = indicativo_pais 
 
     def delete_img_load(self):
         if os.path.exists(self.ruta_img):
@@ -103,7 +103,6 @@ class LoadListVcdl:
 
                 campana_config = self.config_campanas[nombre_base]["configuracion_listas"]
 
-
                 campos_requeridos = ['campana_vicidial', 'campaign_id', 'numero_maximo_listas']
                 for campo in campos_requeridos:
                     if campo not in campana_config:
@@ -126,7 +125,7 @@ class LoadListVcdl:
                 continue 
 
             url = (
-                f"http://{self.user_vcdl}:{self.pass_vcdl}@"
+                f"http://{self.user_vcdl}:{self.config_campanas[nombre_base]['pass_vcdl']}@"
                 f"{self.config_campanas[nombre_base]['server_vcdl']}/vicidial/admin.php?"
                 f"ADD=34&campaign_id={campana_vicidial}"
             )

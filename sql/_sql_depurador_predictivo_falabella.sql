@@ -45,8 +45,12 @@ WHERE exclusion_total = 0
     AND tipificacion_mejor_gestion_soul IS NULL
     
 	AND DATE_FORMAT(fecha_fin_vigencia_actual, '%%m%%d') 
-	BETWEEN  DATE_FORMAT('2025-09-23', '%%m%%d') AND DATE_FORMAT('2025-09-30', '%%m%%d')
-    AND prioridad <> 'POTENCIAL PREMIUM'
+	BETWEEN  DATE_FORMAT('2025-09-22', '%%m%%d') AND DATE_FORMAT('2025-09-25', '%%m%%d')
+    
+#    AND prioridad = 'POTENCIAL PREMIUM'
+#    AND prioridad IN ('ALTA GAMA BUEN POTENCIAL', 'ALTO POTENCIAL')
+    AND prioridad = 'NORMAL'
+    
 */
 
 -- -----------------------------------------------------------------------------------------
@@ -57,29 +61,27 @@ WHERE exclusion_total = 0
 	AND tipo_phone IN ('telefono1') #,'telefono2'
     
 	AND ( 
-    vicidial_calls <= 50
+    vicidial_calls <= 10
     AND 
     vicidial_calls IS NOT NULL 
     )
-#	AND (
-#    tipificacion_mejor_gestion_soul IS NULL 
-#    AND 
-#    tipificacion_ultima_gestion_soul IS NULL
-#    )
 
     AND (
-    tipificacion_mejor_gestion_soul = 'No Contestan' 
+    tipificacion_mejor_gestion_soul IN ('No Contestan')#, 'Cliente Cuelga La Llamada')
     OR 
     tipificacion_mejor_gestion_soul IS NULL
     )
 
-#	AND tipificacion_mejor_gestion IN ('Agent Not Available', 'Agent Altnum', 'No Contacto','ADAIR')
+	AND DATE_FORMAT(fecha_fin_vigencia_actual, '%%m%%d') 
+	BETWEEN  DATE_FORMAT('2025-09-01', '%%m%%d') AND DATE_FORMAT('2025-09-19', '%%m%%d')
     
+#	AND tipificacion_mejor_gestion IN ('Agent Not Available', 'Agent Altnum', 'No Contacto','ADAIR')    
 #	AND tipificacion_mejor_gestion NOT IN ('Agent Not Available', 'Agent Altnum', 'No Contacto','ADAIR')
     
-    AND DATE_FORMAT(fecha_fin_vigencia_actual, '%%m%%d') 
-	BETWEEN  DATE_FORMAT('2025-09-01', '%%m%%d') AND DATE_FORMAT('2025-09-15', '%%m%%d')
     AND prioridad = 'POTENCIAL PREMIUM'
+#	 AND prioridad IN ('ALTA GAMA BUEN POTENCIAL', 'ALTO POTENCIAL')
+#    AND prioridad = 'NORMAL'
+    
 #*/
 
 -- -----------------------------------------------------------------------------------------
@@ -114,9 +116,18 @@ WHERE exclusion_total = 0
 /*
     AND vicidial_calls <= 10
 	AND (tipificacion_ultima_gestion_soul IN ('Cliente solicita envío de cotización', 'Llamar después')
-	AND DATE_FORMAT(fecha_ultima_gestion_soul, '%%m%%d') 
+	
+    AND DATE_FORMAT(fecha_ultima_gestion_soul, '%%m%%d') 
 	BETWEEN  DATE_FORMAT(CURDATE() - INTERVAL 5 DAY, '%%m%%d') AND DATE_FORMAT(CURDATE(), '%%m%%d')
     )
+	
+    AND (
+		fecha_ultima_gestion IS NULL OR DATE(fecha_ultima_gestion) < CURDATE() - INTERVAL 2 DAY
+	)
+	AND (
+		fecha_ultima_gestion_soul IS NULL OR DATE(fecha_ultima_gestion_soul) < CURDATE() - INTERVAL 2 DAY
+	)
+    
 */  
 
 -- -----------------------------------------------------------------------------------------
@@ -137,7 +148,7 @@ WHERE exclusion_total = 0
 		fecha_ultima_gestion IS NULL OR DATE(fecha_ultima_gestion) < CURDATE() - INTERVAL 1 DAY
 	)
 	AND (
-		fecha_ultima_gestion IS NULL OR DATE(fecha_ultima_gestion) < CURDATE() - INTERVAL 1 DAY
+		fecha_ultima_gestion_soul IS NULL OR DATE(fecha_ultima_gestion_soul) < CURDATE() - INTERVAL 1 DAY
 	)
 
 ORDER BY DATE_FORMAT(fecha_fin_vigencia_actual, '%%m%%d') ASC, vicidial_calls ASC, tipo_phone ASC, prioridad ASC

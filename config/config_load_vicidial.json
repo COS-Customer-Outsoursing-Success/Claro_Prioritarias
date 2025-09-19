@@ -2,6 +2,8 @@
 
 "AXA_FA10": {
 
+  "pass_vcdl": "1031120694",  
+
   "campana": "falabella",
 
   "server_vcdl": "soulphone-nine.groupcos.com.co",
@@ -62,6 +64,8 @@
 },
  
 "AXA_FA11": {
+
+  "pass_vcdl": "1031120694",  
 
   "campana": "falabella",
 
@@ -124,6 +128,8 @@
 
   "AXA_FAL2": {
 
+  "pass_vcdl": "1031120694",    
+
   "campana": "falabella",
   
   "server_vcdl": "soulphone-nine.groupcos.com.co",
@@ -184,6 +190,8 @@
 },
   
 "AXA_FAL3": {
+
+  "pass_vcdl": "1031120694",
 
   "campana": "falabella",
 
@@ -246,6 +254,8 @@
   
 "AXA_FAL4": {
 
+  "pass_vcdl": "1031120694",
+
   "campana": "falabella",
 
   "server_vcdl": "soulphone-nine.groupcos.com.co",
@@ -307,6 +317,8 @@
   
 "AXA_FAL5": {
 
+  "pass_vcdl": "1031120694",
+
   "campana": "falabella",
 
   "server_vcdl": "soulphone-nine.groupcos.com.co",
@@ -367,6 +379,8 @@
   
 "AUTAXAFA": {
 
+  "pass_vcdl": "wfm1031120694",
+
   "campana": "falabella",
 
   "server_vcdl": "10.57.250.101",
@@ -390,6 +404,8 @@
   },
   
 "AXA_FINC": {
+
+  "pass_vcdl": "1031120694",
 
   "server_vcdl": "soulphone-nine.groupcos.com.co",
 

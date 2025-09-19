@@ -15,8 +15,6 @@ def main():
     
     # -- Config Vcdl --
     user_vcdl = '1031120694'
-#    pass_vcdl = '1031120694'
-#    pass_vcdl = 'wfm1031120694'
     activo = 'Y'
     opcion_copiado = 'APPEND'
     indicativo_pais = '57 - COL'
@@ -25,7 +23,6 @@ def main():
     processor_load_vcdl = LoadListVcdl(
 
         user_vcdl=user_vcdl,
-        pass_vcdl=pass_vcdl,
         activo=activo,
         opcion_copiado=opcion_copiado,
         indicativo_pais=indicativo_pais
