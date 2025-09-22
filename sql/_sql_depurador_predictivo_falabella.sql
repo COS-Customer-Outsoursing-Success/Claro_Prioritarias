@@ -34,7 +34,7 @@ WHERE exclusion_total = 0
 -- Predictivo Sin Gestion: Descomentar colocando un # al inicio de los simbolos "/*" ---- --
 -- -----------------------------------------------------------------------------------------
 
-/*
+#/*
 	AND tipo_phone IN ('telefono1') #,'telefono2'
 	AND (
 		vicidial_calls = 0 
@@ -45,19 +45,19 @@ WHERE exclusion_total = 0
     AND tipificacion_mejor_gestion_soul IS NULL
     
 	AND DATE_FORMAT(fecha_fin_vigencia_actual, '%%m%%d') 
-	BETWEEN  DATE_FORMAT('2025-09-22', '%%m%%d') AND DATE_FORMAT('2025-09-25', '%%m%%d')
+	BETWEEN  DATE_FORMAT('2025-09-01', '%%m%%d') AND DATE_FORMAT('2025-09-30', '%%m%%d')
     
 #    AND prioridad = 'POTENCIAL PREMIUM'
-#    AND prioridad IN ('ALTA GAMA BUEN POTENCIAL', 'ALTO POTENCIAL')
-    AND prioridad = 'NORMAL'
+#	 AND prioridad IN ('ALTA GAMA BUEN POTENCIAL', 'ALTO POTENCIAL')
+#    AND prioridad = 'NORMAL'
     
-*/
+#*/
 
 -- -----------------------------------------------------------------------------------------
 -- Predictivo No Contacto: Descomentar colocando un # al inicio de los simbolos "/*" ---- --
 -- -----------------------------------------------------------------------------------------
 
-#/*
+/*
 	AND tipo_phone IN ('telefono1') #,'telefono2'
     
 	AND ( 
@@ -73,16 +73,16 @@ WHERE exclusion_total = 0
     )
 
 	AND DATE_FORMAT(fecha_fin_vigencia_actual, '%%m%%d') 
-	BETWEEN  DATE_FORMAT('2025-09-01', '%%m%%d') AND DATE_FORMAT('2025-09-19', '%%m%%d')
+	BETWEEN  DATE_FORMAT('2025-09-22', '%%m%%d') AND DATE_FORMAT('2025-09-30', '%%m%%d')
     
 #	AND tipificacion_mejor_gestion IN ('Agent Not Available', 'Agent Altnum', 'No Contacto','ADAIR')    
 #	AND tipificacion_mejor_gestion NOT IN ('Agent Not Available', 'Agent Altnum', 'No Contacto','ADAIR')
     
-    AND prioridad = 'POTENCIAL PREMIUM'
+     AND prioridad = 'POTENCIAL PREMIUM'
 #	 AND prioridad IN ('ALTA GAMA BUEN POTENCIAL', 'ALTO POTENCIAL')
 #    AND prioridad = 'NORMAL'
     
-#*/
+*/
 
 -- -----------------------------------------------------------------------------------------
 -- Blaster : Descomentar colocando un # al inicio de los simbolos "/*" ---- --

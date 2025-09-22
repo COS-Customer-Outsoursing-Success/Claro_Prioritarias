@@ -152,5 +152,17 @@
         "no_telefono2",
         "telefono_actualizado"
     ]
+  },
+
+  "Multicampanas Matyoga": {
+    "schema": "bbdd_cos_bog_grupo_axa",
+    "table": "tb_asignacion_matyoga_v2_coalesce",
+    "cuenta": "plan",
+    "sql_file_path": "_sql_coalesce_axa_multicampanas_matyoga.sql",
+    "phone_columns": [
+        "telefono_1",
+        "telefono_2",
+        "telefono_3"
+    ]
   }
 }

@@ -34,5 +34,5 @@ SELECT
     hoja
 FROM
     bbdd_cos_bog_grupo_axa.tb_asignacion_renovados_autos_v2
-WHERE periodo >= DATE_FORMAT('2025-06-01', '%%Y%%m')
+WHERE periodo = DATE_FORMAT('2025-10-01', '%%Y%%m')
 ;
