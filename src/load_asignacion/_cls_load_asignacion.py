@@ -140,10 +140,11 @@ class LoadAsignacion:
             for col in columnas_fecha:
                 if col in self.df.columns:
                     try:
-                        self.df[col] = pd.to_datetime(self.df[col], errors='coerce')
+                        self.df[col] = pd.to_datetime(self.df[col], errors='coerce')  # normaliza a datetime
+                        self.df[col] = self.df[col].astype(object)                    # <- paso clave
+                        self.df[col] = self.df[col].where(self.df[col].notna(), None) # NaT -> None
                     except Exception as e:
-                        print(f"Error al convertir la columna {col} a fecha: {e}")
-                        
+                        print(f"Error al convertir la columna {col} a fecha: {e}")                    
 
             cols_duplicados = self.campana_config['cols_duplicados']
 

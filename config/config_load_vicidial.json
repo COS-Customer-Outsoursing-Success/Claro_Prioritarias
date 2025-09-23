@@ -462,6 +462,67 @@
       "SUMA ASEGURADA:": "\"suma_asegurada\""
 
     } 
+},
+  
+"AXA_RENO": {
+
+  "pass_vcdl": "1031120694",
+
+  "server_vcdl": "soulphone-nine.groupcos.com.co",
+
+  "configuracion_listas": {
+
+      "campana_vicidial": "AXA_RENO",
+      "campaign_id": "AXA_RENO - 13",
+      "numero_maximo_listas": 9500000
+  },
+
+  "custom_fields": {
+  
+      "VENDOR LEAD CODE:": "(none)",
+      "SOURCE ID:": "(none)",
+      "PHONE NUMBER:": "\"phone\"",
+      "TITLE:": "\"placa\"",
+      "FIRST NAME:": "\"cedula\"",
+      "MIDDLE INITIAL:": "(none)",
+      "LAST NAME:": "(none)",
+      "ADDRESS1:": "\"cedula\"",
+      "ADDRESS2:": "\"placa\"",
+      "ADDRESS3:": "(none)",
+      "CITY:": "\"nom_depto\"",
+      "STATE:": "(none)",
+      "PROVINCE:": "(none)",
+      "POSTAL CODE:": "(none)",
+      "COUNTRY CODE:": "(none)",
+      "GENDER:": "\"genero\"", 
+      "DATE OF BIRTH:": "(none)",
+      "ALT PHONE:": "(none)",
+      "EMAIL:": "\"email\"",
+      "SECURITY PHRASE:": "(none)",
+      "COMMENTS:": "(none)",
+      "RANK:": "(none)",
+      "OWNER:": "(none)",
+      "DOCUMENTO:": "\"cedula\"",
+      "NOMBRE:": "\"nombre_completo\"",
+      "PLACA:": "\"placa\"",
+      "TELEFONO 1:": "\"phone\"",
+      "FECHA VIGENCIA:": "\"fecha_fin_vigencia_actual\"",
+      "NO TEMPORARIO PLUS PLUS:": "\"no_temporario_plus_plus\"",
+      "PRIMA PLUS PLUS:": "\"prima_plus_plus\"",
+      "PRIMA SIN IVA PLUS PLUS:": "\"prima_sin_iva_plus_plus\"",
+      "ASEGURADORA ACTUAL:": "\"aseguradora_actual\"",
+      "NO TEMPORARIO PLUS VIP:": "\"no_temporario_plus_vip\"",
+      "PRIMA PLUS VIP:": "\"prima_plus_vip\"",
+      "PRIMA SIN IVA PLUS VIP:": "\"prima_sin_iva_plus_vip\"",
+      "NO TEMPORARIO MOTO PLUS:": "\"no_temporario_moto_plus\"",
+      "PRIMA MOTO PLUS:": "\"prima_moto_plus\"",
+      "PRIMA SIN IVA MOTO PLUS:": "\"prima_sin_iva_moto_plus\"",
+      "NO TEMPORARIO MOTO ESENCIAL:": "\"no_temporario_moto_esencial\"",
+      "PRIMA MOTO ESENCIAL:": "\"prima_moto_esencial\"",
+      "PRIMA SIN IVA MOTO ESENCIAL:": "\"prima_sin_iva_moto_esencial\"",
+      "SUMA ASEGURADA:": "\"suma_asegurada\""
+
+    } 
 }
 
   

@@ -156,8 +156,32 @@
 
   "Multicampanas Matyoga": {
     "schema": "bbdd_cos_bog_grupo_axa",
-    "table": "tb_asignacion_matyoga_v2_coalesce",
-    "cuenta": "plan",
+    "table": "tb_asignacion_multicampanas_matyoga_v2_coalesce",
+    "cuenta": "no_poliza",
+    "sql_file_path": "_sql_coalesce_axa_multicampanas_matyoga.sql",
+    "phone_columns": [
+        "telefono_1",
+        "telefono_2",
+        "telefono_3"
+    ]
+  },
+
+  "Multicampanas Herramientas": {
+    "schema": "bbdd_cos_bog_grupo_axa",
+    "table": "tb_asignacion_multicampanas_herramientas_v2_coalesce",
+    "cuenta": "no_poliza",
+    "sql_file_path": "_sql_coalesce_axa_multicampanas_matyoga.sql",
+    "phone_columns": [
+        "telefono_1",
+        "telefono_2",
+        "telefono_3"
+    ]
+  },
+
+   "Multicampanas Salud": {
+    "schema": "bbdd_cos_bog_grupo_axa",
+    "table": "tb_asignacion_multicampanas_salud_v2_coalesce",
+    "cuenta": "no_poliza",
     "sql_file_path": "_sql_coalesce_axa_multicampanas_matyoga.sql",
     "phone_columns": [
         "telefono_1",

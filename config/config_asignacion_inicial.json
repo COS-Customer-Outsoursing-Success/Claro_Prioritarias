@@ -351,7 +351,8 @@
       "fecha_fin_vigencia_actual_": "fecha_fin_vigencia_actual",
       "no_temporario__tradicional": "no_temporario_tradicional",
       "no_temporario__vip": "no_temporario_vip",
-      "grupo": "prioridad"
+      "grupo": "prioridad",
+      "prima_temporario_sin_iva_plus_r1": "prima_temporario_sin_iva_plus"
     },
 
     "columnas_necesarias": [
@@ -721,7 +722,7 @@
   "Axa Multicampanas Matyoga": {
 
     "schema":"bbdd_cos_bog_grupo_axa",
-    "table":"tb_asignacion_matyoga_v2",
+    "table":"tb_asignacion_herramientas_matyoga_v2",
 
     "nombre_asignacion": "asignacion_muticampanas_matyoga",
 
@@ -747,7 +748,7 @@
     ],
     
     "table_duplicados": "tb_asignacion_multicampanas_matyoga_v2_duplicados",
-    "cols_duplicados": ["plan", "periodo"]
+    "cols_duplicados": ["no_poliza", "periodo"]
   },
   
   "Axa Multicampanas Herramientas": {
@@ -768,16 +769,56 @@
     "columnas_fecha": ["fecha_de_asignacion", "inicio_renovacion", "fecha_de_nacimiento"],
 
     "renombrar_columnas": {
-      "_documento": "documento", "ciudad_": "ciudad", "no__poliza": "no_poliza"
+
+      "_documento": "documento", 
+      "ciudad_": "ciudad", 
+      "no__poliza": "no_poliza"
+
     },
 
     "columnas_necesarias": [
       "_documento", "nombre", "placa", "cobertura", "plan", "no__poliza",
        "clave_asesor", "nombre_asesor", "telefono_1", "ciudad_",
-       "correo_electronico"
-    ],
+       "correo_electronico", "fecha_asignacion", "anio", "periodo", "nombre_base", "hoja"
+
+      ],
     
     "table_duplicados": "tb_asignacion_renovados_autos_v2_duplicados",
-    "cols_duplicados": ["placa", "periodo"]
+    "cols_duplicados": ["no_poliza", "periodo"]
+  },
+
+  "Axa Multicampanas Salud": {
+
+    "schema":"bbdd_cos_bog_grupo_axa",
+    "table":"tb_asignacion_multicampanas_salud_v2",
+
+    "nombre_asignacion": "asignacion_multicampanas_salud",
+
+    "telefonos": [
+
+                "telefono", "tele_numb", "tele_numb_3", "tele_numb_4", "telefono_contacto",
+                "telefono1", "telefono2", "telefono3", "telefono4", "telefono5",
+                "telefono6", "telefono7", "telefono8", "telefono9", "telefono10", "no_celular",
+                "no_telefono2"
+            ],
+    
+    "columnas_fecha": [],
+
+    "renombrar_columnas": {
+      
+      "no__poliza": "no_poliza", 
+      "no__documento": "no_documento"
+    },
+
+    "columnas_necesarias": [
+       "no_documento", "nombre", "plan", "no_poliza", "clave_asesor",
+       "nombre_asesor", "telefono_1", "direccion", "correo_electronico",
+       "tipificacion", "subtipificacion", "fecha_asignacion", "anio", "periodo", "nombre_base", "hoja"
+      ],
+    
+    "table_duplicados": "tb_asignacion_renovados_autos_v2_duplicados",
+    "cols_duplicados": ["no_poliza", "periodo"]
   }
 }
+
+
