@@ -5,6 +5,7 @@ Created By Emerson Aguilar Cruz
 import os
 from exporte_sql._cls_exporte_sql import ExportarSql
 import json
+1
 
 current_folder = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -47,7 +48,7 @@ class ExporteFormulario:
                 folder_salida=folder_salida,
                 nombre_archivo=nombre_archivo
             )
-            processor.exportar_csv()
+            processor.exportar_excel()
 
         except Exception as e:
             print(f"Error: Error al exportar csv debido a {e}")

@@ -15,7 +15,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-usuario_red = 'Emerson.Aguilar'
+usuario_red = 'Alvaro.Chaparro'
 xpath_buscar_chats = '//*[@id="side"]/div[1]/div/div[2]/div/div/div[1]/p'
 xpath_boton_adjun = '//*[@id="main"]/footer/div[1]/div/span/div/div[2]/div/div[1]/button'
 xpath_input_img = '//input[@accept="image/*,video/mp4,video/3gpp,video/quicktime"]'

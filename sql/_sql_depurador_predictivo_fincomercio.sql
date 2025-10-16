@@ -5,12 +5,12 @@ WITH base AS (
               OR placa IN (
                   SELECT placa 
                   FROM bbdd_cos_bog_grupo_axa.tb_asignacion_fincomercio_v2_no_aptos 
-                  WHERE periodo = 202509
+                  WHERE periodo = 202510
               )
             THEN 1 ELSE 0 
         END AS exclusiones_general
     FROM bbdd_cos_bog_grupo_axa.tb_asignacion_fincomercio_v2_coalesce
-    WHERE periodo = 202509
+    WHERE periodo = 202510
 )
 , consolidados AS (
     SELECT *,
@@ -26,7 +26,7 @@ WHERE exclusion_total = 0
 -- Predictivo Sin Gestion: Descomentar colocando un # al inicio de los simbolos "/*" ---- --
 -- -----------------------------------------------------------------------------------------
 
-#/*
+/*
 	AND tipo_phone IN ('telefono1') #,'telefono2'
 	AND (
     vicidial_calls = 0 
@@ -34,9 +34,9 @@ WHERE exclusion_total = 0
     vicidial_calls IS NULL
     )
     AND tipificacion_mejor_gestion_soul IS NULL
-#	AND DATE_FORMAT(fecha_fin_vigencia_actual, '%m%d') 
-#	BETWEEN  DATE_FORMAT('2025-09-10', '%m%d') AND DATE_FORMAT('2025-09-20', '%m%d')
-#	BETWEEN  DATE_FORMAT(CURDATE() + INTERVAL 1 DAY, '%m%d') AND DATE_FORMAT(CURDATE() + INTERVAL 15 DAY, '%m%d')
+#	AND DATE_FORMAT(fecha_fin_vigencia_actual, '%%m%%d') 
+#	BETWEEN  DATE_FORMAT('2025-09-10', '%%m%%d') AND DATE_FORMAT('2025-09-20', '%%m%%d')
+#	BETWEEN  DATE_FORMAT(CURDATE() + INTERVAL 1 DAY, '%%m%%d') AND DATE_FORMAT(CURDATE() + INTERVAL 15 DAY, '%%m%%d')
 #*/
 
 -- -----------------------------------------------------------------------------------------
@@ -66,8 +66,8 @@ WHERE exclusion_total = 0
     
 #	AND tipificacion_mejor_gestion NOT IN ('Agent Not Available', 'Agent Altnum', 'No Contacto','ADAIR')
     
-    AND DATE_FORMAT(fecha_fin_vigencia_actual, '%m%d') 
-	BETWEEN  DATE_FORMAT('2025-09-10', '%m%d') AND DATE_FORMAT('2025-09-13', '%m%d')
+    AND DATE_FORMAT(fecha_fin_vigencia_actual, '%%m%%d') 
+	BETWEEN  DATE_FORMAT('2025-09-10', '%%m%%d') AND DATE_FORMAT('2025-09-13', '%%m%%d')
 */
 
 -- -----------------------------------------------------------------------------------------
@@ -81,8 +81,8 @@ WHERE exclusion_total = 0
     )
 	AND tipificacion_mejor_gestion <> 'Contacto'
     AND tipificacion_mejor_gestion_soul IS NULL
-	AND DATE_FORMAT(fecha_fin_vigencia_actual, '%m%d') 
-	BETWEEN  DATE_FORMAT(CURDATE() - INTERVAL 15 DAY, '%m%d') AND DATE_FORMAT(CURDATE(), '%m%d')
+	AND DATE_FORMAT(fecha_fin_vigencia_actual, '%%m%%d') 
+	BETWEEN  DATE_FORMAT(CURDATE() - INTERVAL 15 DAY, '%%m%%d') AND DATE_FORMAT(CURDATE(), '%%m%%d')
     AND tipo_ultima_gestion <> 'Blaster - Contacto'
     AND tipo_mejor_gestion <> 'Blaster - Contacto'
 */
@@ -94,8 +94,8 @@ WHERE exclusion_total = 0
 /*
     AND vicidial_calls <= 10
 	AND (tipificacion_ultima_gestion_soul IN ('Cliente solicita envío de cotización', 'Llamar después')
-	AND DATE_FORMAT(fecha_ultima_gestion_soul, '%m%d') 
-	BETWEEN  DATE_FORMAT(CURDATE() - INTERVAL 5 DAY, '%m%d') AND DATE_FORMAT(CURDATE(), '%m%d')
+	AND DATE_FORMAT(fecha_ultima_gestion_soul, '%%m%%d') 
+	BETWEEN  DATE_FORMAT(CURDATE() - INTERVAL 5 DAY, '%%m%%d') AND DATE_FORMAT(CURDATE(), '%%m%%d')
     )
 */  
 
@@ -106,19 +106,22 @@ WHERE exclusion_total = 0
 /*
 	AND tipo_phone IN ('telefono1') #,'telefono2'
 	AND (vicidial_calls = 0 OR vicidial_calls IS NULL)
-	AND DATE_FORMAT(fecha_fin_vigencia_actual, '%m%d') 
-	BETWEEN DATE_FORMAT('2025-09-11', '%m%d') AND DATE_FORMAT('2025-09-25', '%m%d')
+	AND DATE_FORMAT(fecha_fin_vigencia_actual, '%%m%%d') 
+	BETWEEN DATE_FORMAT('2025-09-11', '%%m%%d') AND DATE_FORMAT('2025-09-25', '%%m%%d')
 */
 -- ---------------------------------------------------------------------------- --
 -- No comentar esta parte, evita que se marquen registros marcados entre hoy y ayer
 -- ---------------------------------------------------------------------------- --
 
-    AND (
-		fecha_ultima_gestion IS NULL OR DATE(fecha_ultima_gestion) < CURDATE() - INTERVAL 1 DAY
-	)
-	AND (
-		fecha_ultima_gestion IS NULL OR DATE(fecha_ultima_gestion) < CURDATE() - INTERVAL 1 DAY
-	)
+#    AND (
+#		fecha_ultima_gestion IS NULL OR DATE(fecha_ultima_gestion) < CURDATE() - INTERVAL 1 DAY
+#	)
+#	AND (
+#		fecha_ultima_gestion IS NULL OR DATE(fecha_ultima_gestion) < CURDATE() - INTERVAL 1 DAY
+#	)
 
-ORDER BY DATE_FORMAT(fecha_fin_vigencia_actual, '%m%d') ASC, vicidial_calls ASC, tipo_phone ASC
+#ORDER BY DATE_FORMAT(fecha_fin_vigencia_actual, '%%m%%d') ASC, vicidial_calls ASC, tipo_phone ASC
 ;
+
+CALL bbdd_cos_bog_grupo_axa.sp_01_soul_desgloce_asignacion_fincomercio_v2(1);
+CALL bbdd_cos_bog_grupo_axa.sp_02_distribution_fincomercio_v2(2025,10);

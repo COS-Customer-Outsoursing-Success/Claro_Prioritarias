@@ -9,14 +9,14 @@ SELECT
     IF(telefono_3 REGEXP '^(3[0-9]{9}|60[0-9]{8})$', telefono_3, NULL) AS telefono_3,
     direccion,
     correo_electronico,
-    tipificacion,
+    ciudad,
     subtipificacion,
     fecha_asignacion,
     anio,
     nombre_base,
     hoja
 FROM
-    bbdd_cos_bog_grupo_axa.tb_asignacion_matyoga_v2
+    bbdd_cos_bog_grupo_axa.tb_asignacion_multicampanas_matyoga_v2
 WHERE
-    periodo = DATE_FORMAT('2025-09-01', '%%Y%%m')
+    periodo = DATE_FORMAT('2025-10-01', '%%Y%%m')
 ;

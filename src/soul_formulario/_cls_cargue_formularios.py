@@ -176,8 +176,8 @@ class FormulariosSoul():
         WebScraping_Chrome.WebScraping_ClickCSS(self.driver, 'button[type="submit"][color="primary"]')
         time.sleep(1)
 
-        WebScraping_Chrome.WebScraping_WaitCSS(self.driver, 150, 'mat-radio-button[value="false"]')
-        WebScraping_Chrome.WebScraping_ClickCSS(self.driver, 'mat-radio-button[value="false"]')
+        WebScraping_Chrome.WebScraping_WaitTextCSS(self.driver, 150, 'mat-radio-button .mat-radio-label-content', 'No asignar registros a asesores en específico (Solo cargar la base).')
+        WebScraping_Chrome.WebScraping_ClickByTextCSS(self.driver, 'mat-radio-button .mat-radio-label-content', 'No asignar registros a asesores en específico (Solo cargar la base).')
         time.sleep(1)
 
         WebScraping_Chrome.WebScraping_WaitCSS(self.driver, 10, 'button[type="submit"][color="primary"].continue-button')

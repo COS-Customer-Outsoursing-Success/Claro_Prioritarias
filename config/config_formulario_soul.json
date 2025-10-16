@@ -3,9 +3,9 @@
 
         "campana": "Axa Falabella",
 
-        "crm": "CRM",
+        "crm": "CRM2",
 
-        "nombre_formulario" : "AXA Falabella V2",
+        "nombre_formulario" : "AXA Falabella V2 CRM2",
         
         "mapping": {
 
@@ -13,7 +13,7 @@
             "Segundo Nombre": "Segundo Nombre",
             "Primer Apellido": "Primer Apellido",
             "Segundo Apellido": "Segundo Apellido",
-            "Tipo de documento": "Tipo de documento",
+            "Tipo de Documento": "Tipo de Documento",
             "No. Documento": "No. Documento",
             "Teléfono": "Teléfono",
             "Correo electrónico": "Correo electrónico",
@@ -28,7 +28,7 @@
             "Teléfono 3": "Teléfono 3",
             "Placa": "Placa",
             "Fecha Fin vigencia Actual": "Fecha Fin vigencia Actual",
-            "Fecha Inicio Nueva Vigencia": "Fecha Inicio nueva vigencia",
+            "Fecha Inicio vigencia Actual": "Fecha Inicio nueva vigencia",
             "Modelo": "Modelo",
             "Línea": "Línea",
             "Cod Fasecolda": "Cod Fasecolda",
@@ -43,13 +43,14 @@
             "Prima sin IVA AUTOSUFICIENTE": "Prima sin Iva AUTOSUFICIENTE",
             "N° Temporario AUTOSUFICIENTE": "N Temporario AUTOSUFICIENTE",
             "Prima con IVA Aseguradora Actual": "Prima con IVA Aseguradora Actual",
-            "Diferencia con la Aseguradora Actual": "Diferencia con la Aseguradora Actual",
             "Clase de vehiculo": "Clase de vehículo",
             "Servicio": "Servicio",
             "Marca": "Marca",
-            "Aseguradora Actual": "Aseguradora Actual"
+            "Aseguradora Actual": "Aseguradora Actual",
+            "Diferencia con la Aseguradora Actual": "Diferencia con la Aseguradora Actual"
         }
     },
+
 
     "Desertores WhatsApp" : {
 
@@ -162,6 +163,74 @@
             "sarlaft_tomador": "SARLAFT_TOMADOR",
             "sarlaft_asegurado": "SARLAFT_ASEGURADO"
 
+        }
+        },
+
+    "Renovados Scotiabank" : {
+
+    "campana": "AXA Renovaciones Sccotiabank",
+
+    "crm": "CRM2",
+
+    "nombre_formulario" : "AXA RENOVACIONES SCOTIABANK",
+    
+    "mapping": {
+
+        "Apellido": "Apellido",
+        "Apellido 2": "Apellido 2",
+        "Nombre": "Nombre",
+        "placa": "placa",
+        "Fecha de Nacimiento": "Fecha de Nacimiento",
+        "Dirección": "Dirección",
+        "T-N° Télefono": "T-N° Télefono",
+        "T-Número Celular": "T-Número Celular",
+        "T-E-mail": "T-E-mail",
+        "Nombre de la franquicia": "Nombre de la franquicia",
+        "Departamento": "Departamento",
+        "Ciudad": "Ciudad",
+        "T-N° Documento": "T-N° Documento",
+        "Vigencia de la Poliza": "Vigencia de la Poliza",
+        "Valor Asegurado": "Valor Asegurado",
+        "N° Temporario Plus": "N° Temporario Plus",
+        "Prima Plus": "Prima Plus",
+        "Modelo": "Modelo",
+        "Línea": "Línea",
+        "Motor": "Motor",
+        "Chasis": "Chasis",
+        "Cod Fasecolda": "Cod Fasecolda",
+        "Marca": "Marca"
+
+
+    }
+    },
+
+    "Axa Multicampanas" : {
+
+        "campana": "Axa Multicampanas",
+
+        "crm": "CRM2",
+
+        "nombre_formulario" : "AXA MULTICAMPAÑAS",
+        
+        "mapping": {
+
+            "No. Documento": "",
+            "Nombre": "",
+            "Producto": "",
+            "Plan": "",
+            "No. de poliza": "",
+            "No. Contrato": "",
+            "Clave Asesor": "",
+            "Nombre Asesor": "",
+            "Teléfono 1": "",
+            "Teléfono 2": "",
+            "Ciudad 1": "",
+            "Correo Electronico": "",
+            "Nombre de la base": "",
+            "Requiere placa": "",
+            "Tipificacion": "",
+            "Dirección Residencial": "",
+            "Observaciones": ""
         }
     }   
 }

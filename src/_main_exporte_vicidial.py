@@ -24,7 +24,6 @@ class ExporteFormulario:
 
         seleccion = input("Seleccione el número de la campaña a ejecutar: ")
         adicional = input("Información adicional sobre lista: ")
-        
 
         try:
             seleccion = int(seleccion)
@@ -45,6 +44,7 @@ class ExporteFormulario:
 
             # ----> Aquí uso el valor real de la campaña para el nombre del SQL
             campana_sql = config_formulario[campana_key]["campana"]
+            print("campana_sql ", campana_sql)
             hoy_formateado = datetime.now().strftime('%d%m')
             nombre_archivo = f"{campana_key} - {hoy_formateado}_{adicional}"
             sql_path = os.path.join(current_folder, 'sql', f"_sql_depurador_predictivo_{campana_sql}.sql")
@@ -63,5 +63,6 @@ class ExporteFormulario:
 
 if __name__ == '__main__':
     campana, adicional = ExporteFormulario.elegir_campana()
+
     if campana:
         ExporteFormulario.exportar_xlsx_vicidial(campana, adicional)

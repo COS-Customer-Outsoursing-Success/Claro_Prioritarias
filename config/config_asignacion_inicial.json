@@ -280,41 +280,43 @@
     "telefonos": [
             "telefono", "tele_numb", "tele_numb_3", "tele_numb_4", "telefono_contacto",
             "telefono1", "telefono2", "telefono3", "telefono4", "telefono5",
-            "telefono6", "telefono7", "telefono8", "telefono9", "telefono10","Celular del tomador"
+            "telefono6", "telefono7", "telefono8", "telefono9", "telefono10","celular_del_tomador"
             ],
 
-    "columnas_fecha": [],
+    "columnas_fecha": ["fecha_asignacion"],
 
     "renombrar_columnas": {
 
             "motivo_de_cancelacion_":"motivo_de_cancelacion",
-            "horaenproceso": "hora_en_proceso"
+            "horaenproceso": "hora_en_proceso",
+            "propietario_del_caso__nombre_completo": "propietario_del_caso_nombre_completo"
     },
 
     "columnas_necesarias": [
 
-            "numero_del_caso", 
-            "estado", 
-            "numero_de_poliza_o_contrato", 
-            "placa",     
-            "documento", 
-            "nombre_del_tomador", 
-            "apellido_del_tomador",
-            "celular_del_tomador", 
-            "correo_electronico_del_tomador", 
-            "clave",
-            "sucursal", 
-            "ramo", 
-            "tipo_de_tramite", 
-            "subtipologia",
-            "propietario_del_caso__nombre_completo", 
-            "cola_de_gestion",
-            "hora_en_proceso", 
-            "motivo_de_cancelacion", 
-            "fecha_asignacion", 
-            "anio",
-            "periodo", 
-            "nombre_base"
+       "numero_del_caso", 
+       "estado", 
+       "numero_de_poliza_o_contrato", 
+       "placa",
+       "documento", 
+       "nombre_del_tomador", 
+       "apellido_del_tomador",
+       "celular_del_tomador", 
+       "fecha_asignacion",
+       "correo_electronico_del_tomador", 
+       "clave",
+       "sucursal", 
+       "ramo", 
+       "tipo_de_tramite", 
+       "subtipologia",
+       "propietario_del_caso_nombre_completo", 
+       "cola_de_gestion",
+       "hora_en_proceso", 
+       "motivo_de_cancelacion",
+        "anio",
+        "periodo", 
+        "nombre_base",
+        "hoja"
     ],
 
     "table_duplicados": "tb_asignacion_desertores_whatsapp_v2_duplicados",    
@@ -574,8 +576,6 @@
         "periodo", 
         "nombre_base", 
         "hoja"
-
-
     ],
 
     "cols_duplicados": ["placa", "periodo"]
@@ -722,7 +722,7 @@
   "Axa Multicampanas Matyoga": {
 
     "schema":"bbdd_cos_bog_grupo_axa",
-    "table":"tb_asignacion_herramientas_matyoga_v2",
+    "table":"tb_asignacion_multicampanas_matyoga_v2",
 
     "nombre_asignacion": "asignacion_muticampanas_matyoga",
 
@@ -734,21 +734,25 @@
                 "no_telefono2"
             ],
 
+    "columnas_fecha": ["fecha_asignacion"],
+
     "renombrar_columnas": {
       "no__documento": "no_documento",
-      "no__poliza": "no_poliza"
+      "no__poliza": "id",
+      "no_poliza": "id",
+      "tipificacion": "ciudad"
     },
 
     "columnas_necesarias": [
-      "no__documento", "nombre", "plan", "no__poliza", "clave_asesor",
+      "no_documento", "nombre", "plan", "id", "clave_asesor",
        "nombre_asesor", "telefono_1", "telefono_2", "telefono_3", "direccion",
-       "correo_electronico", "tipificacion", "subtipificacion",
+       "correo_electronico", "ciudad", "subtipificacion",
        "fecha_asignacion", "anio", "periodo", "nombre_base", "hoja"
 
     ],
     
     "table_duplicados": "tb_asignacion_multicampanas_matyoga_v2_duplicados",
-    "cols_duplicados": ["no_poliza", "periodo"]
+    "cols_duplicados": ["id", "periodo"]
   },
   
   "Axa Multicampanas Herramientas": {
@@ -773,17 +777,16 @@
       "_documento": "documento", 
       "ciudad_": "ciudad", 
       "no__poliza": "no_poliza"
-
     },
 
     "columnas_necesarias": [
-      "_documento", "nombre", "placa", "cobertura", "plan", "no__poliza",
-       "clave_asesor", "nombre_asesor", "telefono_1", "ciudad_",
+      "documento", "nombre", "cobertura", "plan", "placa", "no_poliza", 
+       "clave_asesor", "nombre_asesor", "telefono_1", "ciudad",
        "correo_electronico", "fecha_asignacion", "anio", "periodo", "nombre_base", "hoja"
 
       ],
     
-    "table_duplicados": "tb_asignacion_renovados_autos_v2_duplicados",
+    "table_duplicados": "tb_asignacion_multicampanas_herramientas_v2_duplicados",
     "cols_duplicados": ["no_poliza", "periodo"]
   },
 
@@ -806,19 +809,405 @@
 
     "renombrar_columnas": {
       
-      "no__poliza": "no_poliza", 
-      "no__documento": "no_documento"
+      "no__poliza": "id", 
+      "no__documento": "no_documento",
+      "no_poliza": "id"
     },
 
     "columnas_necesarias": [
-       "no_documento", "nombre", "plan", "no_poliza", "clave_asesor",
+       "no_documento", "nombre", "plan", "id", "clave_asesor",
        "nombre_asesor", "telefono_1", "direccion", "correo_electronico",
        "tipificacion", "subtipificacion", "fecha_asignacion", "anio", "periodo", "nombre_base", "hoja"
       ],
     
     "table_duplicados": "tb_asignacion_renovados_autos_v2_duplicados",
-    "cols_duplicados": ["no_poliza", "periodo"]
+    "cols_duplicados": ["id", "periodo"]
+  },
+
+  "Axa Renovados Vida": {
+
+    "schema":"bbdd_cos_bog_grupo_axa",
+    "table":"tb_asignacion_renovados_vida_v2",
+
+    "nombre_asignacion": "asignacion_renovados_vida",
+
+    "telefonos": [
+
+
+            ],
+    
+    "columnas_fecha": ["fecha_asignacion", 
+    "fecha_de_asignacion", 
+    "fecha_inicio_de_vigencia", 
+    "fecha_inicio_de_vigencia_1", 
+    "fecha_fin_de_vigencia",
+    "fecha_de_nacimiento"],
+
+    "renombrar_columnas": {
+      
+      "no__identificacion": "no_identificacion",
+      "no__celular": "no_celular",
+      "no__telefono2": "no_telefono2",
+      "no__poliza": "no_poliza",
+      "__oneroso": "oneroso",
+      "telefono_actualizado_": "telefono_actualizado",
+      "correo_electronico_actualizado_": "correo_electronico_actualizado"
+
+    },
+
+    "columnas_necesarias": [
+    "contrato",
+    "anio",
+    "periodo",
+    "nombre_base",
+    "fecha_asignacion",
+    "fecha_de_asignacion",
+    "descripcion",
+    "compania",
+    "ano",
+    "numero_mes",
+    "canal",
+    "subcanal",
+    "zona",
+    "oficina",
+    "lider_comercial",
+    "clave_asesor",
+    "nombre_asesor",
+    "prod_tec_nivel_5",
+    "prod_tec_nivel_4",
+    "prod_tec_nivel_3",
+    "prod_tec_nivel_2",
+    "fecha_inicio_de_vigencia",
+    "fecha_inicio_de_vigencia_1",
+    "fecha_fin_de_vigencia",
+    "descripcion_grupo_endoso",
+    "tipo_linea",
+    "tipo_pago",
+    "prima",
+    "valor_de_renovacion_anterior",
+    "altura_de_la_poliza_anos",
+    "altura_de_la_poliza_anos_2",
+    "identificacion",
+    "cliente",
+    "fecha_de_nacimiento",
+    "celular",
+    "celular2",
+    "correo_electronico", 
+    "hoja"
+
+    ],
+    
+    "table_duplicados": "tb_asignacion_renovados_autos_v2_duplicados",
+    "cols_duplicados": ["placa", "periodo"]
+},
+"Axa Pichincha Endosos": {
+
+    "schema":"bbdd_cos_bog_grupo_axa",
+    "table":"tb_asignacion_endosos_pichincha",
+
+    "nombre_asignacion": "asignacion_pichincha_endosos",
+
+    "telefonos": [
+            "telefono_1", "telefono_2", "telefono_3", "telefono_4"
+
+            ],
+    
+    "columnas_fecha": ["fecha_de_nacimiento"],
+
+    "renombrar_columnas": {
+    "fecha_de_nacimiento_": "fecha_de_nacimiento",
+    "periodiciad_pago___mensual___anual_": "periodiciad_pago_mensual_anual",
+    "c45te1____": "telefono_1",
+    "c45te2____": "telefono_2", 
+    "c45te3____": "telefono_3",
+    "c45te4____": "telefono_4",
+    "email_": "email",
+    "axa___valor_asegurado_vehiculo_axa": "axa_valor_asegurado_vehiculo_axa",
+    "axa___valor_prima_mensual": "axa_valor_prima_mensual", 
+    "axa___valor_prima_anual": "axa_valor_prima_anual",
+    "desea_la_poliza__si_no": "desea_la_poliza_si_no",
+    "correo_electronico": "email"
+    },
+
+    "columnas_necesarias": [
+
+    "placa", 
+    "operacion", 
+    "mes_de_campana", 
+    "fecha_facturacion",
+    "tipo_identificacion_dueno_de_la_garantia",
+    "identificacion_dueno_de_la_garantia", 
+    "nombre_dueno_de_la_garantia",
+    "fecha_de_nacimiento", 
+    "modelo", 
+    "color", 
+    "chasis", 
+    "motor", 
+    "marca",
+    "clase", 
+    "tipo_1", 
+    "tipo_2", 
+    "tipo_3", 
+    "nombre_servicio",
+    "zona_circulacion", 
+    "telefono_1", 
+    "telefono_2", 
+    "telefono_3",
+    "telefono_4", 
+    "email", 
+    "axa_valor_asegurado_vehiculo_axa",
+    "axa_valor_prima_mensual", 
+    "axa_valor_prima_anual",
+    "vigencia_poliza_anterior", 
+    "aseguradora", 
+    "vigentes_en_cexper_si_no",
+    "codigo_fasecolda", 
+    "numero_cotizacion_campana"
+    ],
+    
+    "table_duplicados": "tb_asignacion_endosos_pichincha_duplicados",
+    "cols_duplicados": ["placa", "mes_de_campana"]
+},
+"Axa Renovaciones Scotiabank": {
+
+    "schema":"bbdd_cos_bog_grupo_axa",
+    "table":"tb_asignacion_scotiabank_v2",
+
+    "nombre_asignacion": "asignacion_scotiabank",
+
+    "telefonos": [
+            "tel1",
+            "tel2",
+            "tel3",
+            "tel4",
+            "tel5",
+            "tel6",
+            "tel7",
+            "tel8"
+
+            ],
+    
+    "columnas_fecha": ["fechadenacimiento", "fecha_vencimiento_tarjeta", "fecha_fin_vigencia_actual", "fecha_inicio_nueva_vigencia"],
+
+    "renombrar_columnas": {
+    "__de_vehiculos": "No_de_vehiculos",
+    "esencial_": "esencial",
+    "asistencia_": "asistencia",
+    "fecha_fin_vigencia_actual_": "fecha_fin_vigencia_actual"
+
+    },
+
+    "columnas_necesarias": [
+
+    "codid",
+    "anio",
+    "periodo",
+    "nombre_base",
+    "fecha_asignacion",
+    "typeid",
+    "primer_nombre",
+    "segundo_nombre",
+    "primer_apellido",
+    "segundo_apellido",
+    "genero",
+    "fechadenacimiento",
+    "edad",
+    "antig_edad_segmento",
+    "email",
+    "tel1",
+    "tel2",
+    "tel3",
+    "tel4",
+    "tel5",
+    "tel6",
+    "tel7",
+    "tel8",
+    "coddpto",
+    "nomdepto",
+    "codmunicipio",
+    "nommunicipio",
+    "direccion",
+    "prioridad",
+    "segcal",
+    "numpro",
+    "opty_id",
+    "id_campana",
+    "cod_canal",
+    "tipo_producto",
+    "nombre_franquicia",
+    "fecha_vencimiento_tarjeta",
+    "cupo_hoy",
+    "cupo_disponible",
+    "codigo_agrupador",
+    "placa",
+    "modelo",
+    "linea",
+    "motor",
+    "chasis",
+    "cod_fasecolda",
+    "marca",
+    "clase_vehiculo",
+    "servicio",
+    "No_de_vehiculos",
+    "aseguradora_actual",
+    "asistencia",
+    "valor_asegurado",
+    "esencial",
+    "no__temporario_plus",
+    "prima_plus",
+    "iva",
+    "fecha",
+    "fecha_fin_vigencia_actual",
+    "fecha_inicio_nueva_vigencia"
+
+    ],
+    
+    "table_duplicados": "tb_asignacion_scotiabank_v2_duplicados",
+    "cols_duplicados": ["codid", "periodo"]
+},
+
+    "Renovaciones Willis": {
+
+    "schema":"bbdd_cos_bog_willis_v2",
+    "table":"tb_base_asignacion_willis_",
+
+    "nombre_asignacion": "asignacion_willis",
+
+    "telefonos": [
+            "Telefono del cliente 1", "Telefono del cliente 2"
+            ],
+
+    "renombrar_columnas": {
+    },
+
+    "columnas_necesarias": [
+
+    "Placa Vehiculo",
+    "Identificación Cliente",
+    "Nombre Cliente",
+    "Póliza_Numero",
+    "Ramo_w",
+    "Aseguradora_",
+    "Fecha INICIO Vigencia",
+    "Fecha Fin Vigencia",
+    "Tipo de Renovación",
+    "Ciudad Asegurado",
+    "Dirección Asegurado",
+    "Telefono del cliente 1",
+    "Telefono del cliente 2",
+    "EMAIL DEFINITIVO",
+    "VR VEHICULO Asegurado",
+    "VR Accesorios",
+    "VR TOTAL ASEGURADO",
+    "Prima",
+    "IVA",
+    "Prima Total con IVA",
+    "GESTION SARLAFT",
+    "Prima Mensual con Iva (11 Cuotas)",
+    "VALOR PRIMA VIGENCIA ANTERIOR",
+    "VALOR ASEGURADO VIGENCIA ANTERIOR",
+    "VALOR ACCESORIOS VIGENCIA ANTERIOR",
+    "VALOR ASEGURADO TOTAL VIGENCIA ANTERIOR",
+    "SARLAFT",
+    "SALDO A FAVOR",
+    "OBS SURA",
+    "aptos",
+    "No aptos",
+    "ID_REGISTRO",
+    "Nombre_Base_Original",
+    "Producto_Nombre_BD",
+    "Fecha_Recepcion",
+    "DIA",
+    "MES",
+    "AÑO",
+    "Nom_Mes",
+    "Mes_Nombre_BD",
+    "Aseguradora",
+    "Mes_Gestion",
+    "AÃ±o_Gestion",
+    "CAMPAÑA"
+
+    ],
+
+    "cols_duplicados": ["Placa Vehiculo"]
+  },
+
+    "Axa Occidente Renovaciones": {
+
+    "schema":"bbdd_cos_bog_grupo_axa",
+    "table":"tb_asignacion_renovaciones_occidente",
+
+    "nombre_asignacion": "asignacion_occidente_endosos",
+
+    "telefonos": [
+            "telefono", "tele_numb", "tele_numb_3", "tele_numb_4", "telefono_contacto",
+            "telefono1", "telefono2", "telefono3", "telefono4", "telefono5", "telefono_4",
+            "telefono6", "telefono7", "telefono8", "telefono9", "telefono10", "Celular del tomador"
+            ],
+
+    "renombrar_columnas": {
+
+        "nro_documento": "documento"
+    },
+
+    "columnas_necesarias": [
+
+        "nombre_sucursal", 
+        "poliza", 
+        "tipo_de_documento", 
+        "expedicion", 
+        "desde",
+        "hasta", 
+        "cod_asegurado", 
+        "nombre_asegurado", 
+        "tipo_documento",
+        "documento", 
+        "sexo_aseg", 
+        "direccion_asegurado", 
+        "telefono",
+        "zona_de_operacion", 
+        "estado_civil", 
+        "tipo_de_negocio",
+        "fecha_nacimiento", 
+        "edad", 
+        "cod_tomador", 
+        "nombre_tomador",
+        "tipo_documento_tomador", 
+        "nro_documento_tomador", 
+        "direccion_tomador",
+        "telefono_tomador", 
+        "ciudad_tomador", 
+        "cod_beneficiario",
+        "nombre_beneficiario", 
+        "tipo_documento_beneficiario",
+        "nro_documento_beneficiario", 
+        "clave_intermediario", 
+        "tipo", 
+        "marca",
+        "modelo", 
+        "tipo_servicio", 
+        "codigo_fasecolda", 
+        "anio_modelo", 
+        "color",
+        "placa", 
+        "motor", 
+        "chasis", 
+        "carroceria", 
+        "vr_asegurado_comercial",
+        "producto_cobertura", 
+        "total_a_pagar", 
+        "importe_resp_civil",
+        "tipo_poliza", 
+        "tipo_de_asistencia", 
+        "observaciones", 
+        "siniestros",
+        "fecha_asignacion", 
+        "anio", 
+        "periodo", 
+        "nombre_base", 
+        "hoja"
+    ],
+
+    "cols_duplicados": ["placa", "periodo"]
   }
 }
-
-

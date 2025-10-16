@@ -33,8 +33,7 @@
     },
 
     "columnas_necesarias": [
-          "placa",
-          "periodo",
+          "placa","periodo",
           "tasa",
           "suma_asegurada",
           "prima_tradicional_sin_iva",
