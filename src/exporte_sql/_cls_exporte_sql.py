@@ -26,6 +26,7 @@ class ExportarSql:
         self.sql_path = sql_path
         self.df = None
 
+
     def leer_sql(self):
         """Ejecuta la consulta SQL y carga el DataFrame"""
         try:

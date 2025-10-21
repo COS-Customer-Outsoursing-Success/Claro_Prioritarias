@@ -22,4 +22,11 @@ select
     chasis3 AS 'Chasis',
     `cod-fasecolda4` AS 'Cod Fasecolda',
     marca5 AS 'Marca'
-FROM bbdd_cos_bog_grupo_axa.tb_soul2_501_axa_renovaciones_scotiabanck;
+FROM bbdd_cos_bog_grupo_axa.tb_soul2_501_axa_renovaciones_scotiabanck
+where `tn-documento7` IN (
+'FOP806',
+'RHP679',
+'DBC645',
+'IIT641',
+'GLR829',
+'EBV001');

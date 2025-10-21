@@ -14,8 +14,8 @@ from soul_formulario._cls_cargue_formularios import FormulariosSoul
 def main():
     
     # -- Config Credenciales --
-    usuario = 'dpinzon1'#'eaguilar84' 1
-    contrasena = 'Temporal4*'#'Bruno.1908+++++'
+    usuario = 'alvaro.chaparro'#'eaguilar84' 1
+    contrasena = 'cOS2025*'#'Bruno.1908+++++'
 
 
     

@@ -601,7 +601,7 @@
 
       "campana_vicidial": "AXA_FINC",
       "campaign_id": "AXA_FINC - 13",
-      "numero_maximo_listas": 1005000
+      "numero_maximo_listas": 9005000
   },
 
   "custom_fields": {
@@ -654,7 +654,9 @@
   
 "AXA_RENO": {
 
-  "pass_vcdl": "1031120694",
+  "campana": "renovaciones_autos",
+
+  "pass_vcdl": "1002157900",
 
   "server_vcdl": "soulphone-nine.groupcos.com.co",
 
