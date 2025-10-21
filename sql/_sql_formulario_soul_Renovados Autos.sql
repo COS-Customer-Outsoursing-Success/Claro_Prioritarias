@@ -22,4 +22,5 @@ nombre_agente,
 sarlaft_tomador,
 sarlaft_asegurado
 FROM bbdd_cos_bog_grupo_axa.tb_asignacion_renovados_autos_v2
-WHERE periodo = '202508'
+WHERE periodo = '202510'
+and nombre_base = 'Base call center renovados 700 reg 20 Octubre 2025 Aptos';

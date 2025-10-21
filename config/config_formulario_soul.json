@@ -199,8 +199,6 @@
         "Chasis": "Chasis",
         "Cod Fasecolda": "Cod Fasecolda",
         "Marca": "Marca"
-
-
     }
     },
 
@@ -232,6 +230,38 @@
             "Dirección Residencial": "",
             "Observaciones": ""
         }
-    }   
+    },
+
+    "Delima Lineas Personales" : {
+
+        "campana": "Delima Lineas Personales",
+
+        "crm": "CRM2",
+
+        "nombre_formulario" : "Lineas personales generales inbound CRM2",
+        
+        "mapping": {
+
+            "Documento": "Documento",
+            "Email Tomador": "Email Tomador",
+            "Nombre": "Nombre",
+            "Fecha Final Vigencia": "Fecha Final Vigencia",
+            "Telefono Tomador": "Telefono Tomador",
+            "Ciudad Inmueble": "Ciudad Inmueble",
+            "Desc Ramo": "Desc Ramo",
+            "Nombre Compañía": "Nombre Compañía",
+            "Póliza Agrupadora": "Póliza Agrupadora",
+            "Telefono Tomador 2":"Telefono Tomador 2",
+            "Póliza Individual": "Póliza Individual",
+            "Telefono Tomador Res":"Telefono Tomador Res",
+            "Dirección Inmueble": "Dirección Inmueble",
+            "Tipo Bien": "Tipo Bien",
+            "Telefono Tomador Oficina": "Telefono Tomador Oficina",
+            "Celular Tomador": "Celular Tomador",
+            "Telefono Asegurado 1": "Telefono Asegurado 1",
+            "Telefono Asegurado 2": "Telefono Asegurado 2",
+            "Telefono Asegurado 3":"Telefono Asegurado 3"
+        }
+    }
 }
 

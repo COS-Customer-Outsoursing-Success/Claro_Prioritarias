@@ -5,8 +5,7 @@ WITH base AS (
               OR placa IN (
 					SELECT placa 
 					FROM bbdd_cos_bog_grupo_axa.tb_asignacion_falabella_v2_no_aptos 
-					WHERE periodo = 202510
-              )
+					WHERE periodo = 202510)
 /*
               OR phone IN ( 
 					SELECT 
@@ -29,163 +28,205 @@ SELECT
 	*
 FROM consolidados 
 WHERE exclusion_total = 0
-and placa not in (
-"KUY512",
-"NLU870",
-"KRU764",
-"JYL272",
-"FSX453",
-"JPV318",
-"KQN318",
-"LOZ490",
-"KXP290",
-"FSX165",
-"LJP218",
-"KPV115",
-"LFS968",
-"NLU242",
-"EPU494",
-"NLZ865",
-"NTY090",
-"LGX998",
-"NMM306",
-"NIO626",
-"LEQ185",
-"RZL264",
-"FOR387",
-"LLK175",
-"GZV550",
-"GAX024",
-"NZO872",
-"NYY881",
-"NYL133",
-"KRT163",
-"FQO300",
-"NLU159",
-"UGW719",
-"NFN829",
-"FZY765",
-"EPZ196",
-"NTX963",
-"LIQ668",
-"NUL951",
-"JUP023",
-"KHW821",
-"NIO300",
-"NLV124",
-"NXV475",
-"NLZ646",
-"LJL730",
-"NLR601",
-"FQN838",
-"LKY797",
-"JDX924",
-"NHZ216",
-"NXV520",
-"IOV232",
-"NHX213",
-"KQN185",
-"LEQ311",
-"GRQ486",
-"LMY774",
-"NTL624",
-"LGK997",
-"FZO977",
-"DVZ858",
-"JMN246",
-"NNR889",
-"KXR979",
-"EOO822",
-"IML080",
-"JMT274",
-"KQR122",
-"LLN714",
-"NTW880",
-"KQN233",
-"KVQ142",
-"LWR715",
-"NXV057",
-"HBZ659",
-"FZT429",
-"JML543",
-"UCX415",
-"JYS419",
-"NMM034",
-"LRV194",
-"IJX371",
-"LTZ583",
-"IMW417",
-"FKL763",
-"JKZ277",
-"LQV114",
-"KVX295",
-"LSQ523",
-"NHV707",
-"NJP775",
-"LQS797",
-"LSN553",
-"KRV776",
-"NNP085",
-"NLV601",
-"JYR258",
-"NUM021",
-"EPL540",
-"KQY503",
-"EPU816",
-"JEY409",
-"KUP036",
-"DJP960",
-"KTQ175",
-"MYK641",
-"NTW486",
-"FYO743",
-"LCX237",
-"NHZ179",
-"GVX150",
-"KSL882",
-"GWT631",
-"KRR465",
-"KOQ808",
-"NWL753",
-"NON118",
-"IEP915",
-"MYT858",
-"NUL920",
-"DJY042",
-"JPY941",
-"GFM790",
-"HZL916",
-"LOM771",
-"LRU981",
-"LYM436",
-"NGU884",
-"LES521",
-"LMV804",
-"NTX639",
-"JVO301",
-"LOZ921",
-"NIO559",
-"KTQ248",
-"HRW487",
-"JSR149",
-"JPV443",
-"LRR057",
-"LGX173",
-"LIM540",
-"NPQ811",
-"KVS769",
-"NTX449",
-"UGW709",
-"KOP362",
-"LZY304",
-"LRW024",
-"NLZ683",
-"JRX070",
-"NYN787",
-"LXV364",
-"LPU385",
-"IUB986"
+# and tasa < 0.03
+# and prima_temporario_plus > 2500000
+
+-- -----------------------------------------------------------------------------------------
+-- Consultar Placas													  -- 
+-- -----------------------------------------------------------------------------------------
+/*
+and placa IN (
+'LOW543',
+'GST854',
+'NLR314',
+'NFN449',
+'KXM356',
+'LMR092',
+'LRS420',
+'KQS442',
+'PIR958',
+'NQR344',
+'NUL691',
+'LWZ920',
+'NUZ923',
+'JYU088',
+'LTT030',
+'NMS933',
+'NXQ271',
+'LMQ007',
+'LQL425',
+'JXW904',
+'DUR341',
+'GHY162',
+'KRW564',
+'JRP716',
+'JHV180',
+'LMS619',
+'KVT922',
+'FKL652',
+'EPP754',
+'NLS493',
+'NLS917',
+'LZR262',
+'JOS850',
+'LMR677',
+'JXT207',
+'LTT189',
+'NXR662',
+'LYW314',
+'NXQ870',
+'LFN842',
+'LFO138',
+'NTX087',
+'LYV617',
+'LOV605',
+'NXT869',
+'KOM663',
+'NQR189',
+'NUL736',
+'KNP993',
+'FVW094',
+'JHL234',
+'LMQ909',
+'HTY098',
+'NQN398',
+'KXW001',
+'JJQ824',
+'NFN887',
+'KNX572',
+'NFN761',
+'LMU435',
+'GZO781',
+'FOZ021',
+'FXR189',
+'EPS603',
+'EGM737',
+'DXM532',
+'KRP964',
+'LMT437',
+'MXY187',
+'GWP090',
+'NIO891',
+'KQZ143',
+'LKU072',
+'LLK186',
+'HFQ221',
+'JLM662',
+'JXV325',
+'NBL354',
+'KPV040',
+'NXU735',
+'NML862',
+'DON364',
+'JXQ738',
+'FZU061',
+'LQT762',
+'FRU269',
+'NGU871',
+'GRL769',
+'IGO637',
+'PHR875',
+'HRW487',
+'IEP915',
+'DJP960',
+'NXU693',
+'MCQ966',
+'JNQ411',
+'GWT631',
+'IMW417',
+'KUP036',
+'NHZ179',
+'IXW701',
+'NHX213',
+'LOZ490',
+'KTT593',
+'FNX172',
+'GWW289',
+'LRU981',
+'EGZ187',
+'KUQ935',
+'LMX009',
+'NTX493',
+'EPU816',
+'FIW863',
+'NVX207',
+'KOP362',
+'LRY923',
+'LIM540',
+'KRR465',
+'NLZ837',
+'JVO301',
+'IJX371',
+'GSZ631',
+'KOM504',
+'KVX295',
+'JDX924',
+'NMV022',
+'JMV120',
+'MYK641',
+'KSL882',
+'IKT821',
+'JSO210',
+'IFV751',
+'DJY042',
+'FUV145',
+'LMX762',
+'JPV443',
+'LRO999',
+'NUL920',
+'KQN233',
+'KRU019',
+'JQU733',
+'JCR763',
+'NLT554',
+'LOM771',
+'NON118',
+'KTY913',
+'EOO822',
+'NKZ491',
+'GPN056',
+'LQV114',
+'NLV601',
+'JMT274',
+'JSR149',
+'GLY050',
+'NUM021',
+'NTX639',
+'NTY033',
+'NWL753',
+'NPQ811',
+'HRW469',
+'NTW486',
+'NYL133',
+'LGX173',
+'LYZ484',
+'NTY033',
+'NWL753',
+'NPQ811',
+'HRW469',
+'LKY797',
+'NTW486',
+'NYL133',
+'LGX173',
+'LYZ484'
 )
+
+*/
+-- -----------------------------------------------------------------------------------------
+-- Consultar seguimientos sin gestion													  -- 
+-- -----------------------------------------------------------------------------------------
+/*
+and placa in (
+	select address2
+	FROM bbdd_cos_bog_grupo_axa.tb_marcaciones_desgloce_dts_v2
+	where DATE_FORMAT(call_date, '%%Y%%m%%d') 
+	BETWEEN  DATE_FORMAT("2025-10-01", "%%Y%%m%%d") AND DATE_FORMAT("2025-10-17", "%%Y%%m%%d")
+	and tipificacion = 'Volver A Llamar'
+	and campaign_id IN ('AXA_FA10', 'AXA_FAL4', 'AXA_FAL2', 'AXA_FAL5', 'AXA_FAL3')
+	) 
+
+*/
+
 #and left(no_temporario_plus, 5) = 16181
 #AND tipo_phone IN ("telefono1") #,"telefono2"
 #AND DATE_FORMAT(fecha_fin_vigencia_actual, "%%m%%d") 
@@ -195,7 +236,9 @@ and placa not in (
 -- -----------------------------------------------------------------------------------------
 -- Predictivo Sin Gestion: Descomentar colocando un # al inicio de los simbolos "/*" ---- --
 -- -----------------------------------------------------------------------------------------
-#/*
+#and left(no_temporario_plus,5) = 16181
+#and placa = 'EOM395'
+/*
     #AND aseguradora_actual IN ("ALLIANZ", "HDI-LIBERTY")
 	AND tipo_phone IN ("telefono1") #,"telefono2"
 	AND (
@@ -206,26 +249,29 @@ and placa not in (
     
     AND tipificacion_mejor_gestion_soul IS NULL
           
-	AND DATE_FORMAT(fecha_fin_vigencia_actual, "%%m%%d") 
-	BETWEEN  DATE_FORMAT("2025-10-16", "%%m%%d") AND DATE_FORMAT("2025-10-25", "%%m%%d")
+	AND DATE_FORMAT(fecha_fin_vigencia_actual, "%%m%%d") #= DATE_FORMAT('2025-10-10', "%%m%%d")	 
+	BETWEEN  DATE_FORMAT("2025-10-08", "%%m%%d") AND DATE_FORMAT("2025-10-12", "%%m%%d")
      
 #   AND prioridad = "POTENCIAL PREMIUM"
-#   AND prioridad IN ("ALTO POTENCIAL")
-    AND prioridad = "NORMAL"
+#	AND prioridad IN ("ALTO POTENCIAL")
+#   AND prioridad IN ("NORMAL")
 
-#*/
+
+*/
 
 -- -----------------------------------------------------------------------------------------
 -- Predictivo No Contacto: Descomentar colocando un # al inicio de los simbolos "/*" ---- --
 -- -----------------------------------------------------------------------------------------
-/*
+#and left(no_temporario_plus, 5 ) = 16181
+#and placa NOT IN ('KOV619')
+#/*
 
 	and tipo_phone IN ("telefono1") #,"telefono2"
 		
 		AND ( 
-		vicidial_calls <= 3
-		#AND 
-		#vicidial_calls IS NOT NULL 
+		vicidial_calls <= 6
+		AND 
+		vicidial_calls IS NOT NULL 
 		)
 
 		AND Tipificacion_mejor_gestion_soul IN ("No Contestan") #or
@@ -233,16 +279,16 @@ and placa not in (
 
 
 		AND DATE_FORMAT(fecha_fin_vigencia_actual, "%%m%%d") 
-		BETWEEN  DATE_FORMAT("2025-10-14", "%%m%%d") AND DATE_FORMAT("2025-10-31", "%%m%%d")
+		BETWEEN  DATE_FORMAT("2025-10-21", "%%m%%d") AND DATE_FORMAT("2025-10-31", "%%m%%d")
 		
 	#	AND tipificacion_mejor_gestion IN ("Agent Not Available", "Agent Altnum", "No Contacto","ADAIR")    
 	#	AND tipificacion_mejor_gestion NOT IN ("Agent Not Available", "Agent Altnum", "No Contacto","ADAIR")
 		
-	#     AND prioridad IN ("POTENCIAL PREMIUM") #   
-	#	 AND prioridad IN ("ALTO POTENCIAL") #, "BUEN POTENCIAL"
-	#    AND prioridad = "NORMAL"
+	#     AND prioridad NOT IN ("POTENCIAL PREMIUM") #   
+		 AND prioridad IN ("BUEN POTENCIAL") #, "BUEN POTENCIAL"
+	#    AND prioridad IN ("NORMAL")
 
-*/
+#*/
 
 -- -----------------------------------------------------------------------------------------
 -- Blaster : Descomentar colocando un # al inicio de los simbolos "/*" ---- --
