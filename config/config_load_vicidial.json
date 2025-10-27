@@ -1,33 +1,33 @@
 {
 
-"AXA_FA10": {
+"CAR": {
 
-  "pass_vcdl": "1002157900",  
+  "pass_vcdl": "wfm1031120694",  
 
-  "campana": "falabella",
+  "campana": "Recuperacion-cartera ",
 
-  "server_vcdl": "soulphone-nine.groupcos.com.co",
+  "server_vcdl": "soulphone-fiveone.groupcos.com.co",
 
   "configuracion_listas": {
 
-      "campana_vicidial": "AXA_FA10",
-      "campaign_id": "AXA_FA10 - 10",
-      "numero_maximo_listas": 1900000
+      "campana_vicidial": "CAR",
+      "campaign_id": "CAR - 855",
+      "numero_maximo_listas": 60000
   },
 
   "custom_fields": {
   
-      "VENDOR LEAD CODE:": "(none)",
-      "SOURCE ID:": "\"co_id\"",
-      "PHONE NUMBER:": "\"phone\"",
+      "VENDOR LEAD CODE:": "\"cuenta\"",
+      "SOURCE ID:": "\"cuenta\"",
+      "PHONE NUMBER:": "\"telefono\"",
       "TITLE:": "(none)",
-      "FIRST NAME:": "\"nombre_completo\"",
+      "FIRST NAME:": "(none)",
       "MIDDLE INITIAL:": "(none)",
       "LAST NAME:": "(none)",
       "ADDRESS1:": "(none)",
-      "ADDRESS2:": "\"placa\"",
+      "ADDRESS2:": "\"cuenta\"",
       "ADDRESS3:": "(none)",
-      "CITY:": "\"departamento\"",
+      "CITY:": "(none)",
       "STATE:": "(none)",
       "PROVINCE:": "(none)",
       "POSTAL CODE:": "(none)",
@@ -35,62 +35,53 @@
       "GENDER:": "(none)",
       "DATE OF BIRTH:": "(none)",
       "ALT PHONE:": "(none)",
-      "EMAIL:": "\"email\"",
+      "EMAIL:": "(none)",
       "SECURITY PHRASE:": "(none)",
       "COMMENTS:": "(none)",
       "RANK:": "(none)",
       "OWNER:": "(none)",
-      "DOCUMENTO:": "\"co_id\"",
-      "NOMBRE:": "\"nombre_completo\"",
-      "PLACA:": "\"placa\"",
-      "ASEGURADORA ACTUAL:": "\"aseguradora_actual\"",
-      "MARCA:": "\"marca\"",
-      "TELEFONO 1:": "\"phone\"",
-      "FECHA VIGENCIA:": "\"fecha_fin_vigencia_actual\"",
-      "NO TEMPORARIO PLUS:": "\"no_temporario_plus\"",
-      "NO TEMPORARIO TRADICIONAL:": "\"no_temporario_tradicional\"",
-      "PRIMA TEMPORARIO PLUS:": "\"prima_temporario_plus\"",
-      "PRIMASINIVA TEMPORARIO PLUS:": "\"prima_temporario_sin_iva_plus\"",
-      "PRIMA TRADICIONAL:": "\"prima_tradicional\"",
-      "PRIMASINIVA TRADICIONAL:": "\"prima_tradicional_sin_iva\"",
-      "NO TEMPORARIO VIP:": "\"no_temporario_vip\"",
-      "PRIMA VIP:": "\"prima_nueva_vip\"",
-      "PRIMA SIN IVA VIP:": "\"prima_nueva_vip_sin_iva\"",
-      "TELFONO 2:": "(none)",
-      "TELFONO 3:": "(none)",
-      "SUMA ASEGURADA:": "\"suma_asegurada\""
-
+      "CUENTA:": "\"cuenta\"",
+      "NOMBRECLIENTE:": "\"nombre_cliente\"",
+      "FECHASOLICITUD:": "\"fecha_solicitud\"",
+      "SERVICIOSACANCELAR:": "\"cantidad_servicios\"",
+      "CIUDAD:": "\"ciudad\"",
+      "ESTRATO:": "\"estrato\"",
+      "SERVICIO ACTUAL:": "\"paquete\"",
+      "OFRECIMIENTO:": "\"Novedad\"",
+      "BASEGESTION:": "\"Novedad\"",
+      "BASEGESTIONN:": "\"Novedad\"",
+      "CELULAR:": "\"telefono\""
     } 
-},
- 
-"AXA_FA11": {
+  },
 
-  "pass_vcdl": "1031120694",  
+  "RECUPERA": {
 
-  "campana": "falabella",
+  "pass_vcdl": "wfm1031120694",  
 
-  "server_vcdl": "soulphone-nine.groupcos.com.co",
+  "campana": "Recuperacion",
+
+  "server_vcdl": "soulphone-fiveone.groupcos.com.co",
 
   "configuracion_listas": {
 
-      "campana_vicidial": "AXA_FA11",
-      "campaign_id": "AXA_FA11 - 13",
-      "numero_maximo_listas": 300200
+      "campana_vicidial": "RECUPERA",
+      "campaign_id": "RECUPERA - 7413",
+      "numero_maximo_listas": 52235
   },
 
   "custom_fields": {
   
-      "VENDOR LEAD CODE:": "(none)",
-      "SOURCE ID:": "\"co_id\"",
-      "PHONE NUMBER:": "\"phone\"",
+      "VENDOR LEAD CODE:": "\"cuenta\"",
+      "SOURCE ID:": "\"cuenta\"",
+      "PHONE NUMBER:": "\"telefono\"",
       "TITLE:": "(none)",
-      "FIRST NAME:": "\"nombre_completo\"",
+      "FIRST NAME:": "(none)",
       "MIDDLE INITIAL:": "(none)",
       "LAST NAME:": "(none)",
       "ADDRESS1:": "(none)",
-      "ADDRESS2:": "\"placa\"",
+      "ADDRESS2:": "\"cuenta\"",
       "ADDRESS3:": "(none)",
-      "CITY:": "\"departamento\"",
+      "CITY:": "(none)",
       "STATE:": "(none)",
       "PROVINCE:": "(none)",
       "POSTAL CODE:": "(none)",
@@ -98,62 +89,53 @@
       "GENDER:": "(none)",
       "DATE OF BIRTH:": "(none)",
       "ALT PHONE:": "(none)",
-      "EMAIL:": "\"email\"",
+      "EMAIL:": "(none)",
       "SECURITY PHRASE:": "(none)",
       "COMMENTS:": "(none)",
       "RANK:": "(none)",
       "OWNER:": "(none)",
-      "DOCUMENTO:": "\"co_id\"",
-      "NOMBRE:": "\"nombre_completo\"",
-      "PLACA:": "\"placa\"",
-      "ASEGURADORA ACTUAL:": "\"aseguradora_actual\"",
-      "MARCA:": "\"marca\"",
-      "TELEFONO 1:": "\"phone\"",
-      "FECHA VIGENCIA:": "\"fecha_fin_vigencia_actual\"",
-      "NO TEMPORARIO PLUS:": "\"no_temporario_plus\"",
-      "NO TEMPORARIO TRADICIONAL:": "\"no_temporario_tradicional\"",
-      "PRIMA TEMPORARIO PLUS:": "\"prima_temporario_plus\"",
-      "PRIMASINIVA TEMPORARIO PLUS:": "\"prima_temporario_sin_iva_plus\"",
-      "PRIMA TRADICIONAL:": "\"prima_tradicional\"",
-      "PRIMASINIVA TRADICIONAL:": "\"prima_tradicional_sin_iva\"",
-      "NO TEMPORARIO VIP:": "\"no_temporario_vip\"",
-      "PRIMA VIP:": "\"prima_nueva_vip\"",
-      "PRIMA SIN IVA VIP:": "\"prima_nueva_vip_sin_iva\"",
-      "TELFONO 2:": "(none)",
-      "TELFONO 3:": "(none)",
-      "SUMA ASEGURADA:": "\"suma_asegurada\""
-
+      "CUENTA:": "\"cuenta\"",
+      "NOMBRECLIENTE:": "\"nombre_cliente\"",
+      "FECHASOLICITUD:": "\"fecha_solicitud\"",
+      "SERVICIOSACANCELAR:": "\"cantidad_servicios\"",
+      "CIUDAD:": "\"ciudad\"",
+      "ESTRATO:": "\"estrato\"",
+      "SERVICIO ACTUAL:": "\"paquete\"",
+      "OFRECIMIENTO:": "\"Novedad\"",
+      "BASEGESTION:": "\"Novedad\"",
+      "BASEGESTIONN:": "\"Novedad\"",
+      "CELULAR:": "\"telefono\""
     } 
-},
+  },
 
-  "AXA_FAL2": {
+  "SANILLO": {
 
-  "pass_vcdl": "1002157900",    
+  "pass_vcdl": "wfm1031120694",  
 
-  "campana": "falabella",
-  
-  "server_vcdl": "soulphone-nine.groupcos.com.co",
+  "campana": "Recuperacion-sanillo",
+
+  "server_vcdl": "soulphone-fiveone.groupcos.com.co",
 
   "configuracion_listas": {
 
-      "campana_vicidial": "AXA_FAL2",
-      "campaign_id": "AXA_FAL2 - 13",
-      "numero_maximo_listas": 400150
+      "campana_vicidial": "SANILLO",
+      "campaign_id": "SANILLO - 18",
+      "numero_maximo_listas": 51999
   },
 
   "custom_fields": {
   
-      "VENDOR LEAD CODE:": "(none)",
-      "SOURCE ID:": "\"co_id\"",
+      "VENDOR LEAD CODE:": "\"phone\"",
+      "SOURCE ID:": "\"phone\"",
       "PHONE NUMBER:": "\"phone\"",
       "TITLE:": "(none)",
-      "FIRST NAME:": "\"nombre_completo\"",
+      "FIRST NAME:": "(none)",
       "MIDDLE INITIAL:": "(none)",
       "LAST NAME:": "(none)",
       "ADDRESS1:": "(none)",
-      "ADDRESS2:": "\"placa\"",
+      "ADDRESS2:": "\"identificacion\"",
       "ADDRESS3:": "(none)",
-      "CITY:": "\"departamento\"",
+      "CITY:": "(none)",
       "STATE:": "(none)",
       "PROVINCE:": "(none)",
       "POSTAL CODE:": "(none)",
@@ -161,62 +143,49 @@
       "GENDER:": "(none)",
       "DATE OF BIRTH:": "(none)",
       "ALT PHONE:": "(none)",
-      "EMAIL:": "\"email\"",
+      "EMAIL:": "(none)",
       "SECURITY PHRASE:": "(none)",
       "COMMENTS:": "(none)",
       "RANK:": "(none)",
       "OWNER:": "(none)",
-      "DOCUMENTO:": "\"co_id\"",
-      "NOMBRE:": "\"nombre_completo\"",
-      "PLACA:": "\"placa\"",
-      "ASEGURADORA ACTUAL:": "\"aseguradora_actual\"",
-      "MARCA:": "\"marca\"",
-      "TELEFONO 1:": "\"phone\"",
-      "FECHA VIGENCIA:": "\"fecha_fin_vigencia_actual\"",
-      "NO TEMPORARIO PLUS:": "\"no_temporario_plus\"",
-      "NO TEMPORARIO TRADICIONAL:": "\"no_temporario_tradicional\"",
-      "PRIMA TEMPORARIO PLUS:": "\"prima_temporario_plus\"",
-      "PRIMASINIVA TEMPORARIO PLUS:": "\"prima_temporario_sin_iva_plus\"",
-      "PRIMA TRADICIONAL:": "\"prima_tradicional\"",
-      "PRIMASINIVA TRADICIONAL:": "\"prima_tradicional_sin_iva\"",
-      "NO TEMPORARIO VIP:": "\"no_temporario_vip\"",
-      "PRIMA VIP:": "\"prima_nueva_vip\"",
-      "PRIMA SIN IVA VIP:": "\"prima_nueva_vip_sin_iva\"",
-      "TELFONO 2:": "(none)",
-      "TELFONO 3:": "(none)",
-      "SUMA ASEGURADA:": "\"suma_asegurada\""
-
+      "NOMBRE:": "\"nombre_cliente\"",
+      "TELE NUMB:": "\"phone\"",
+      "IDENTIFICACION:": "\"identificacion\"",
+      "REGION UBICACION:": "\"region\"",
+      "CORREOEMAIL:": "\"email\"",
+      "DIRECCION:": "\"direccion\"",
+      "CIUDAD UBICACION:": "\"ciudad\""
     } 
-},
+  },
   
-"AXA_FAL3": {
+  "3ANILLO": {
 
-  "pass_vcdl": "1002157900",
+  "pass_vcdl": "wfm1031120694",  
 
-  "campana": "falabella",
+  "campana": "Recuperacion-sanillo",
 
-  "server_vcdl": "soulphone-nine.groupcos.com.co",
+  "server_vcdl": "soulphone-fiveone.groupcos.com.co",
 
   "configuracion_listas": {
 
-      "campana_vicidial": "AXA_FAL3",
-      "campaign_id": "AXA_FAL3 - 13",
-      "numero_maximo_listas": 2000000
+      "campana_vicidial": "	3ANILLO",
+      "campaign_id": "3ANILLO - 18",
+      "numero_maximo_listas": 53999
   },
 
   "custom_fields": {
   
-    "VENDOR LEAD CODE:": "(none)",
-      "SOURCE ID:": "\"co_id\"",
-      "PHONE NUMBER:": "\"phone\"",
+      "VENDOR LEAD CODE:": "\"celular\"",
+      "SOURCE ID:": "\"celular\"",
+      "PHONE NUMBER:": "\"celular\"",
       "TITLE:": "(none)",
-      "FIRST NAME:": "\"nombre_completo\"",
+      "FIRST NAME:": "(none)",
       "MIDDLE INITIAL:": "(none)",
       "LAST NAME:": "(none)",
       "ADDRESS1:": "(none)",
-      "ADDRESS2:": "\"placa\"",
+      "ADDRESS2:": "\"documento_cliente\"",
       "ADDRESS3:": "(none)",
-      "CITY:": "\"departamento\"",
+      "CITY:": "(none)",
       "STATE:": "(none)",
       "PROVINCE:": "(none)",
       "POSTAL CODE:": "(none)",
@@ -224,657 +193,18 @@
       "GENDER:": "(none)",
       "DATE OF BIRTH:": "(none)",
       "ALT PHONE:": "(none)",
-      "EMAIL:": "\"email\"",
+      "EMAIL:": "(none)",
       "SECURITY PHRASE:": "(none)",
       "COMMENTS:": "(none)",
       "RANK:": "(none)",
       "OWNER:": "(none)",
-      "DOCUMENTO:": "\"co_id\"",
-      "NOMBRE:": "\"nombre_completo\"",
-      "PLACA:": "\"placa\"",
-      "ASEGURADORA ACTUAL:": "\"aseguradora_actual\"",
-      "MARCA:": "\"marca\"",
-      "TELEFONO 1:": "\"phone\"",
-      "FECHA VIGENCIA:": "\"fecha_fin_vigencia_actual\"",
-      "NO TEMPORARIO PLUS:": "\"no_temporario_plus\"",
-      "NO TEMPORARIO TRADICIONAL:": "\"no_temporario_tradicional\"",
-      "PRIMA TEMPORARIO PLUS:": "\"prima_temporario_plus\"",
-      "PRIMASINIVA TEMPORARIO PLUS:": "\"prima_temporario_sin_iva_plus\"",
-      "PRIMA TRADICIONAL:": "\"prima_tradicional\"",
-      "PRIMASINIVA TRADICIONAL:": "\"prima_tradicional_sin_iva\"",
-      "NO TEMPORARIO VIP:": "\"no_temporario_vip\"",
-      "PRIMA VIP:": "\"prima_nueva_vip\"",
-      "PRIMA SIN IVA VIP:": "\"prima_nueva_vip_sin_iva\"",
-      "TELFONO 2:": "(none)",
-      "TELFONO 3:": "(none)",
-      "SUMA ASEGURADA:": "\"suma_asegurada\""
-
+      "NOMBRE:": "\"nombre_cliente\"",
+      "CELULAR:": "\"documento_cliente\"",
+      "MIN:": "\"celular\"",
+      "CODIGOID:": "\"co_id\"",
+      "CFM:": "\"cfm_con_imp\"",
+      "PLAN:": "\"plan_actual\"",
+      "FECHACORTE:": "\"fecha_ejecucion\""
     } 
-},
-  
-"AXA_FAL4": {
-
-  "pass_vcdl": "1002157900",
-
-  "campana": "falabella",
-
-  "server_vcdl": "soulphone-nine.groupcos.com.co",
-
-  "configuracion_listas": {
-
-      "campana_vicidial": "AXA_FAL4",
-      "campaign_id": "AXA_FAL4 - 13",
-      "numero_maximo_listas": 505000
-  },
-
-  "custom_fields": {
-  
-      "VENDOR LEAD CODE:": "(none)",
-      "SOURCE ID:": "\"co_id\"",
-      "PHONE NUMBER:": "\"phone\"",
-      "TITLE:": "(none)",
-      "FIRST NAME:": "\"nombre_completo\"",
-      "MIDDLE INITIAL:": "(none)",
-      "LAST NAME:": "(none)",
-      "ADDRESS1:": "(none)",
-      "ADDRESS2:": "\"placa\"",
-      "ADDRESS3:": "(none)",
-      "CITY:": "\"departamento\"",
-      "STATE:": "(none)",
-      "PROVINCE:": "(none)",
-      "POSTAL CODE:": "(none)",
-      "COUNTRY CODE:": "(none)",
-      "GENDER:": "(none)",
-      "DATE OF BIRTH:": "(none)",
-      "ALT PHONE:": "(none)",
-      "EMAIL:": "\"email\"",
-      "SECURITY PHRASE:": "(none)",
-      "COMMENTS:": "(none)",
-      "RANK:": "(none)",
-      "OWNER:": "(none)",
-      "DOCUMENTO:": "\"co_id\"",
-      "NOMBRE:": "\"nombre_completo\"",
-      "PLACA:": "\"placa\"",
-      "ASEGURADORA ACTUAL:": "\"aseguradora_actual\"",
-      "MARCA:": "\"marca\"",
-      "TELEFONO 1:": "\"phone\"",
-      "FECHA VIGENCIA:": "\"fecha_fin_vigencia_actual\"",
-      "NO TEMPORARIO PLUS:": "\"no_temporario_plus\"",
-      "NO TEMPORARIO TRADICIONAL:": "\"no_temporario_tradicional\"",
-      "PRIMA TEMPORARIO PLUS:": "\"prima_temporario_plus\"",
-      "PRIMASINIVA TEMPORARIO PLUS:": "\"prima_temporario_sin_iva_plus\"",
-      "PRIMA TRADICIONAL:": "\"prima_tradicional\"",
-      "PRIMASINIVA TRADICIONAL:": "\"prima_tradicional_sin_iva\"",
-      "NO TEMPORARIO VIP:": "\"no_temporario_vip\"",
-      "PRIMA VIP:": "\"prima_nueva_vip\"",
-      "PRIMA SIN IVA VIP:": "\"prima_nueva_vip_sin_iva\"",
-      "TELFONO 2:": "(none)",
-      "TELFONO 3:": "(none)",
-      "SUMA ASEGURADA:": "\"suma_asegurada\""
-
-    } 
-},
-  
-"AXA_FAL5": {
-
-  "pass_vcdl": "1002157900",
-
-  "campana": "falabella",
-
-  "server_vcdl": "soulphone-nine.groupcos.com.co",
-
-  "configuracion_listas": {
-
-      "campana_vicidial": "AXA_FAL5",
-      "campaign_id": "AXA_FAL5 - 13",
-      "numero_maximo_listas": 605000
-  },
-
-  "custom_fields": {
-  
-      "VENDOR LEAD CODE:": "(none)",
-      "SOURCE ID:": "\"co_id\"",
-      "PHONE NUMBER:": "\"phone\"",
-      "TITLE:": "(none)",
-      "FIRST NAME:": "\"nombre_completo\"",
-      "MIDDLE INITIAL:": "(none)",
-      "LAST NAME:": "(none)",
-      "ADDRESS1:": "(none)",
-      "ADDRESS2:": "\"placa\"",
-      "ADDRESS3:": "(none)",
-      "CITY:": "\"departamento\"",
-      "STATE:": "(none)",
-      "PROVINCE:": "(none)",
-      "POSTAL CODE:": "(none)",
-      "COUNTRY CODE:": "(none)",
-      "GENDER:": "(none)",
-      "DATE OF BIRTH:": "(none)",
-      "ALT PHONE:": "(none)",
-      "EMAIL:": "\"email\"",
-      "SECURITY PHRASE:": "(none)",
-      "COMMENTS:": "(none)",
-      "RANK:": "(none)",
-      "OWNER:": "(none)",
-      "DOCUMENTO:": "\"co_id\"",
-      "NOMBRE:": "\"nombre_completo\"",
-      "PLACA:": "\"placa\"",
-      "ASEGURADORA ACTUAL:": "\"aseguradora_actual\"",
-      "MARCA:": "\"marca\"",
-      "TELEFONO 1:": "\"phone\"",
-      "FECHA VIGENCIA:": "\"fecha_fin_vigencia_actual\"",
-      "NO TEMPORARIO PLUS:": "\"no_temporario_plus\"",
-      "NO TEMPORARIO TRADICIONAL:": "\"no_temporario_tradicional\"",
-      "PRIMA TEMPORARIO PLUS:": "\"prima_temporario_plus\"",
-      "PRIMASINIVA TEMPORARIO PLUS:": "\"prima_temporario_sin_iva_plus\"",
-      "PRIMA TRADICIONAL:": "\"prima_tradicional\"",
-      "PRIMASINIVA TRADICIONAL:": "\"prima_tradicional_sin_iva\"",
-      "NO TEMPORARIO VIP:": "\"no_temporario_vip\"",
-      "PRIMA VIP:": "\"prima_nueva_vip\"",
-      "PRIMA SIN IVA VIP:": "\"prima_nueva_vip_sin_iva\"",
-      "TELFONO 2:": "(none)",
-      "TELFONO 3:": "(none)",
-      "SUMA ASEGURADA:": "\"suma_asegurada\""
-    } 
-},
-
-"AXA_FAL6": {
-
-  "pass_vcdl": "1002157900",
-
-  "campana": "falabella",
-
-  "server_vcdl": "soulphone-nine.groupcos.com.co",
-
-  "configuracion_listas": {
-
-      "campana_vicidial": "AXA_FAL6",
-      "campaign_id": "AXA_FAL6 - 13",
-      "numero_maximo_listas": 100000
-  },
-
-  "custom_fields": {
-  
-      "VENDOR LEAD CODE:": "(none)",
-      "SOURCE ID:": "\"co_id\"",
-      "PHONE NUMBER:": "\"phone\"",
-      "TITLE:": "(none)",
-      "FIRST NAME:": "\"nombre_completo\"",
-      "MIDDLE INITIAL:": "(none)",
-      "LAST NAME:": "(none)",
-      "ADDRESS1:": "(none)",
-      "ADDRESS2:": "\"placa\"",
-      "ADDRESS3:": "(none)",
-      "CITY:": "\"departamento\"",
-      "STATE:": "(none)",
-      "PROVINCE:": "(none)",
-      "POSTAL CODE:": "(none)",
-      "COUNTRY CODE:": "(none)",
-      "GENDER:": "(none)",
-      "DATE OF BIRTH:": "(none)",
-      "ALT PHONE:": "(none)",
-      "EMAIL:": "\"email\"",
-      "SECURITY PHRASE:": "(none)",
-      "COMMENTS:": "(none)",
-      "RANK:": "(none)",
-      "OWNER:": "(none)",
-      "DOCUMENTO:": "\"co_id\"",
-      "NOMBRE:": "\"nombre_completo\"",
-      "PLACA:": "\"placa\"",
-      "ASEGURADORA ACTUAL:": "\"aseguradora_actual\"",
-      "MARCA:": "\"marca\"",
-      "TELEFONO 1:": "\"phone\"",
-      "FECHA VIGENCIA:": "\"fecha_fin_vigencia_actual\"",
-      "NO TEMPORARIO PLUS:": "\"no_temporario_plus\"",
-      "NO TEMPORARIO TRADICIONAL:": "\"no_temporario_tradicional\"",
-      "PRIMA TEMPORARIO PLUS:": "\"prima_temporario_plus\"",
-      "PRIMASINIVA TEMPORARIO PLUS:": "\"prima_temporario_sin_iva_plus\"",
-      "PRIMA TRADICIONAL:": "\"prima_tradicional\"",
-      "PRIMASINIVA TRADICIONAL:": "\"prima_tradicional_sin_iva\"",
-      "NO TEMPORARIO VIP:": "\"no_temporario_vip\"",
-      "PRIMA VIP:": "\"prima_nueva_vip\"",
-      "PRIMA SIN IVA VIP:": "\"prima_nueva_vip_sin_iva\"",
-      "TELFONO 2:": "(none)",
-      "TELFONO 3:": "(none)",
-      "SUMA ASEGURADA:": "\"suma_asegurada\""
-    } 
-},
-
-"AXA_FAL7": {
-
-  "pass_vcdl": "1002157900",
-
-  "campana": "falabella",
-
-  "server_vcdl": "soulphone-nine.groupcos.com.co",
-
-  "configuracion_listas": {
-
-      "campana_vicidial": "AXA_FAL7",
-      "campaign_id": "AXA_FAL7 - 13",
-      "numero_maximo_listas": 760000
-  },
-
-  "custom_fields": {
-  
-      "VENDOR LEAD CODE:": "(none)",
-      "SOURCE ID:": "\"co_id\"",
-      "PHONE NUMBER:": "\"phone\"",
-      "TITLE:": "(none)",
-      "FIRST NAME:": "\"nombre_completo\"",
-      "MIDDLE INITIAL:": "(none)",
-      "LAST NAME:": "(none)",
-      "ADDRESS1:": "(none)",
-      "ADDRESS2:": "\"placa\"",
-      "ADDRESS3:": "(none)",
-      "CITY:": "\"departamento\"",
-      "STATE:": "(none)",
-      "PROVINCE:": "(none)",
-      "POSTAL CODE:": "(none)",
-      "COUNTRY CODE:": "(none)",
-      "GENDER:": "(none)",
-      "DATE OF BIRTH:": "(none)",
-      "ALT PHONE:": "(none)",
-      "EMAIL:": "\"email\"",
-      "SECURITY PHRASE:": "(none)",
-      "COMMENTS:": "(none)",
-      "RANK:": "(none)",
-      "OWNER:": "(none)",
-      "DOCUMENTO:": "\"co_id\"",
-      "NOMBRE:": "\"nombre_completo\"",
-      "PLACA:": "\"placa\"",
-      "ASEGURADORA ACTUAL:": "\"aseguradora_actual\"",
-      "MARCA:": "\"marca\"",
-      "TELEFONO 1:": "\"phone\"",
-      "FECHA VIGENCIA:": "\"fecha_fin_vigencia_actual\"",
-      "NO TEMPORARIO PLUS:": "\"no_temporario_plus\"",
-      "NO TEMPORARIO TRADICIONAL:": "\"no_temporario_tradicional\"",
-      "PRIMA TEMPORARIO PLUS:": "\"prima_temporario_plus\"",
-      "PRIMASINIVA TEMPORARIO PLUS:": "\"prima_temporario_sin_iva_plus\"",
-      "PRIMA TRADICIONAL:": "\"prima_tradicional\"",
-      "PRIMASINIVA TRADICIONAL:": "\"prima_tradicional_sin_iva\"",
-      "NO TEMPORARIO VIP:": "\"no_temporario_vip\"",
-      "PRIMA VIP:": "\"prima_nueva_vip\"",
-      "PRIMA SIN IVA VIP:": "\"prima_nueva_vip_sin_iva\"",
-      "TELFONO 2:": "(none)",
-      "TELFONO 3:": "(none)",
-      "SUMA ASEGURADA:": "\"suma_asegurada\""
-    } 
-},
-
-"AXA_FAL8": {
-
-  "pass_vcdl": "1002157900",
-
-  "campana": "falabella",
-
-  "server_vcdl": "soulphone-nine.groupcos.com.co",
-
-  "configuracion_listas": {
-
-      "campana_vicidial": "AXA_FAL5",
-      "campaign_id": "AXA_FAL5 - 13",
-      "numero_maximo_listas": 700000
-  },
-
-  "custom_fields": {
-  
-      "VENDOR LEAD CODE:": "(none)",
-      "SOURCE ID:": "\"co_id\"",
-      "PHONE NUMBER:": "\"phone\"",
-      "TITLE:": "(none)",
-      "FIRST NAME:": "\"nombre_completo\"",
-      "MIDDLE INITIAL:": "(none)",
-      "LAST NAME:": "(none)",
-      "ADDRESS1:": "(none)",
-      "ADDRESS2:": "\"placa\"",
-      "ADDRESS3:": "(none)",
-      "CITY:": "\"departamento\"",
-      "STATE:": "(none)",
-      "PROVINCE:": "(none)",
-      "POSTAL CODE:": "(none)",
-      "COUNTRY CODE:": "(none)",
-      "GENDER:": "(none)",
-      "DATE OF BIRTH:": "(none)",
-      "ALT PHONE:": "(none)",
-      "EMAIL:": "\"email\"",
-      "SECURITY PHRASE:": "(none)",
-      "COMMENTS:": "(none)",
-      "RANK:": "(none)",
-      "OWNER:": "(none)",
-      "DOCUMENTO:": "\"co_id\"",
-      "NOMBRE:": "\"nombre_completo\"",
-      "PLACA:": "\"placa\"",
-      "ASEGURADORA ACTUAL:": "\"aseguradora_actual\"",
-      "MARCA:": "\"marca\"",
-      "TELEFONO 1:": "\"phone\"",
-      "FECHA VIGENCIA:": "\"fecha_fin_vigencia_actual\"",
-      "NO TEMPORARIO PLUS:": "\"no_temporario_plus\"",
-      "NO TEMPORARIO TRADICIONAL:": "\"no_temporario_tradicional\"",
-      "PRIMA TEMPORARIO PLUS:": "\"prima_temporario_plus\"",
-      "PRIMASINIVA TEMPORARIO PLUS:": "\"prima_temporario_sin_iva_plus\"",
-      "PRIMA TRADICIONAL:": "\"prima_tradicional\"",
-      "PRIMASINIVA TRADICIONAL:": "\"prima_tradicional_sin_iva\"",
-      "NO TEMPORARIO VIP:": "\"no_temporario_vip\"",
-      "PRIMA VIP:": "\"prima_nueva_vip\"",
-      "PRIMA SIN IVA VIP:": "\"prima_nueva_vip_sin_iva\"",
-      "TELFONO 2:": "(none)",
-      "TELFONO 3:": "(none)",
-      "SUMA ASEGURADA:": "\"suma_asegurada\""
-    } 
-},
-  
-"AUTAXAFA": {
-
-  "pass_vcdl": "wfm1031120694",
-
-  "campana": "falabella",
-
-  "server_vcdl": "10.57.250.101",
-
-  "configuracion_listas": {
-
-      "campana_vicidial": "AUTAXAFA",
-      "campaign_id": "AUTAXAFA - 13",
-      "numero_maximo_listas": 800000
-  },
-
-  "custom_fields": {
-  
-        "VENDOR LEAD CODE:": "(none)",
-        "PHONE NUMBER:": "\"phone\"",
-        "TITLE:": "\"(placa)\"",
-        "FIRST NAME:": "\"co_id\"",
-        "ADDRESS1:": "\"(co_id)\"",
-        "ADDRESS2:": "\"placa\""
-      }
-  },
-  
-"AXA_FINC": {
-
-  "campana": "fincomercio",
-
-  "pass_vcdl": "1002157900",
-
-  "server_vcdl": "soulphone-nine.groupcos.com.co",
-
-  "configuracion_listas": {
-
-      "campana_vicidial": "AXA_FINC",
-      "campaign_id": "AXA_FINC - 13",
-      "numero_maximo_listas": 9005000
-  },
-
-  "custom_fields": {
-  
-      "VENDOR LEAD CODE:": "(none)",
-      "SOURCE ID:": "(none)",
-      "PHONE NUMBER:": "\"phone\"",
-      "TITLE:": "\"placa\"",
-      "FIRST NAME:": "\"cedula\"",
-      "MIDDLE INITIAL:": "(none)",
-      "LAST NAME:": "(none)",
-      "ADDRESS1:": "\"cedula\"",
-      "ADDRESS2:": "\"placa\"",
-      "ADDRESS3:": "(none)",
-      "CITY:": "\"nom_depto\"",
-      "STATE:": "(none)",
-      "PROVINCE:": "(none)",
-      "POSTAL CODE:": "(none)",
-      "COUNTRY CODE:": "(none)",
-      "GENDER:": "\"genero\"", 
-      "DATE OF BIRTH:": "(none)",
-      "ALT PHONE:": "(none)",
-      "EMAIL:": "\"email\"",
-      "SECURITY PHRASE:": "(none)",
-      "COMMENTS:": "(none)",
-      "RANK:": "(none)",
-      "OWNER:": "(none)",
-      "DOCUMENTO:": "\"cedula\"",
-      "NOMBRE:": "\"nombre_completo\"",
-      "PLACA:": "\"placa\"",
-      "TELEFONO 1:": "\"phone\"",
-      "FECHA VIGENCIA:": "\"fecha_fin_vigencia_actual\"",
-      "NO TEMPORARIO PLUS PLUS:": "\"no_temporario_plus_plus\"",
-      "PRIMA PLUS PLUS:": "\"prima_plus_plus\"",
-      "PRIMA SIN IVA PLUS PLUS:": "\"prima_sin_iva_plus_plus\"",
-      "ASEGURADORA ACTUAL:": "\"aseguradora_actual\"",
-      "NO TEMPORARIO PLUS VIP:": "\"no_temporario_plus_vip\"",
-      "PRIMA PLUS VIP:": "\"prima_plus_vip\"",
-      "PRIMA SIN IVA PLUS VIP:": "\"prima_sin_iva_plus_vip\"",
-      "NO TEMPORARIO MOTO PLUS:": "\"no_temporario_moto_plus\"",
-      "PRIMA MOTO PLUS:": "\"prima_moto_plus\"",
-      "PRIMA SIN IVA MOTO PLUS:": "\"prima_sin_iva_moto_plus\"",
-      "NO TEMPORARIO MOTO ESENCIAL:": "\"no_temporario_moto_esencial\"",
-      "PRIMA MOTO ESENCIAL:": "\"prima_moto_esencial\"",
-      "PRIMA SIN IVA MOTO ESENCIAL:": "\"prima_sin_iva_moto_esencial\"",
-      "SUMA ASEGURADA:": "\"suma_asegurada\""
-
-    } 
-},
-  
-"AXA_RENO": {
-
-  "campana": "renovaciones_autos",
-
-  "pass_vcdl": "1002157900",
-
-  "server_vcdl": "soulphone-nine.groupcos.com.co",
-
-  "configuracion_listas": {
-
-      "campana_vicidial": "AXA_RENO",
-      "campaign_id": "AXA_RENO - 13",
-      "numero_maximo_listas": 9500000
-  },
-
-  "custom_fields": {
-  
-      "VENDOR LEAD CODE:": "(none)",
-      "SOURCE ID:": "(none)",
-      "PHONE NUMBER:": "\"phone\"",
-      "TITLE:": "\"placa\"",
-      "FIRST NAME:": "\"cedula\"",
-      "MIDDLE INITIAL:": "(none)",
-      "LAST NAME:": "(none)",
-      "ADDRESS1:": "\"cedula\"",
-      "ADDRESS2:": "\"placa\"",
-      "ADDRESS3:": "(none)",
-      "CITY:": "\"nom_depto\"",
-      "STATE:": "(none)",
-      "PROVINCE:": "(none)",
-      "POSTAL CODE:": "(none)",
-      "COUNTRY CODE:": "(none)",
-      "GENDER:": "\"genero\"", 
-      "DATE OF BIRTH:": "(none)",
-      "ALT PHONE:": "(none)",
-      "EMAIL:": "\"email\"",
-      "SECURITY PHRASE:": "(none)",
-      "COMMENTS:": "(none)",
-      "RANK:": "(none)",
-      "OWNER:": "(none)",
-      "DOCUMENTO:": "\"cedula\"",
-      "NOMBRE:": "\"nombre_completo\"",
-      "PLACA:": "\"placa\"",
-      "TELEFONO 1:": "\"phone\"",
-      "FECHA VIGENCIA:": "\"fecha_fin_vigencia_actual\"",
-      "NO TEMPORARIO PLUS PLUS:": "\"no_temporario_plus_plus\"",
-      "PRIMA PLUS PLUS:": "\"prima_plus_plus\"",
-      "PRIMA SIN IVA PLUS PLUS:": "\"prima_sin_iva_plus_plus\"",
-      "ASEGURADORA ACTUAL:": "\"aseguradora_actual\"",
-      "NO TEMPORARIO PLUS VIP:": "\"no_temporario_plus_vip\"",
-      "PRIMA PLUS VIP:": "\"prima_plus_vip\"",
-      "PRIMA SIN IVA PLUS VIP:": "\"prima_sin_iva_plus_vip\"",
-      "NO TEMPORARIO MOTO PLUS:": "\"no_temporario_moto_plus\"",
-      "PRIMA MOTO PLUS:": "\"prima_moto_plus\"",
-      "PRIMA SIN IVA MOTO PLUS:": "\"prima_sin_iva_moto_plus\"",
-      "NO TEMPORARIO MOTO ESENCIAL:": "\"no_temporario_moto_esencial\"",
-      "PRIMA MOTO ESENCIAL:": "\"prima_moto_esencial\"",
-      "PRIMA SIN IVA MOTO ESENCIAL:": "\"prima_sin_iva_moto_esencial\"",
-      "SUMA ASEGURADA:": "\"suma_asegurada\""
-
-    } 
-},
-
-"AXA_DESR": {
-
-  "campana": "desertores_tradicional",
-
-  "pass_vcdl": "1002157900",
-
-  "server_vcdl": "soulphone-nine.groupcos.com.co",
-
-  "configuracion_listas": {
-
-      "campana_vicidial": "AXA_DESR",
-      "campaign_id": "AXA_DESR - 13",
-      "numero_maximo_listas": 105000
-  },
-
-  "custom_fields": {
-    "VENDOR LEAD CODE:": "(none)",
-    "SOURCE ID:": "\"contrato\"",
-    "PHONE NUMBER:": "\"phone\"",
-    "TITLE:": "(none)",
-    "FIRST NAME:": "(none)",
-    "MIDDLE INITIAL:": "(none)",
-    "LAST NAME:": "\"primer_apellido\"",
-    "ADDRESS1:": "\"direccion_correspondencia\"",
-    "ADDRESS2:": "(none)",
-    "ADDRESS3:": "(none)",
-    "CITY:": "\"sucursal\"",
-    "STATE:": "(none)",
-    "PROVINCE:": "(none)",
-    "POSTAL CODE:": "(none)",
-    "COUNTRY CODE:": "(none)",
-    "GENDER:": "(none)",
-    "DATE OF BIRTH:": "(none)",
-    "ALT PHONE:": "(none)",
-    "EMAIL:": "\"correo_electronico\"",
-    "SECURITY PHRASE:": "(none)",
-    "COMMENTS:": "(none)",
-    "RANK:": "(none)",
-    "OWNER:": "(none)",
-    "DOCUMENTO:": "\"no_identificacion_contrante\"",
-    "NOMBRE:": "\"nombres\"",
-    "TELEFONO:": "(none)",
-    "CONTRATO:": "\"contrato\"",
-    "NOMBRE COLECTIVO:": "(none)",
-    "APLICA DEBITO:": "(none)"
-}
-
-},
-
-"AXA_WHDE": {
-
-  "campana": "bienvenida_whatsapp",
-
-  "pass_vcdl": "1002157900",
-
-  "server_vcdl": "soulphone-nine.groupcos.com.co",
-
-  "configuracion_listas": {
-
-      "campana_vicidial": "AXA_WHDE",
-      "campaign_id": "AXA_WHDE - 13",
-      "numero_maximo_listas": 105000
-  },
-
-  "custom_fields": {
-    "VENDOR LEAD CODE:": "(none)",
-    "SOURCE ID:": "\"contrato\"",
-    "PHONE NUMBER:": "\"phone\"",
-    "TITLE:": "(none)",
-    "FIRST NAME:": "(none)",
-    "MIDDLE INITIAL:": "(none)",
-    "LAST NAME:": "\"primer_apellido\"",
-    "ADDRESS1:": "\"direccion_correspondencia\"",
-    "ADDRESS2:": "(none)",
-    "ADDRESS3:": "(none)",
-    "CITY:": "\"sucursal\"",
-    "STATE:": "(none)",
-    "PROVINCE:": "(none)",
-    "POSTAL CODE:": "(none)",
-    "COUNTRY CODE:": "(none)",
-    "GENDER:": "(none)",
-    "DATE OF BIRTH:": "(none)",
-    "ALT PHONE:": "(none)",
-    "EMAIL:": "\"correo_electronico\"",
-    "SECURITY PHRASE:": "(none)",
-    "COMMENTS:": "(none)",
-    "RANK:": "(none)",
-    "OWNER:": "(none)",
-    "DOCUMENTO:": "\"no_identificacion_contrante\"",
-    "NOMBRE:": "\"nombres\"",
-    "TELEFONO:": "(none)",
-    "CONTRATO:": "\"contrato\"",
-    "NOMBRE COLECTIVO:": "(none)",
-    "APLICA DEBITO:": "(none)"
-    }
-},
-
-"AXA_BIEN": {
-
-  "campana": "bienvenida_tradicional",
-
-  "pass_vcdl": "1002157900",
-
-  "server_vcdl": "soulphone-nine.groupcos.com.co",
-
-  "configuracion_listas": {
-
-      "campana_vicidial": "AXA_BIEN",
-      "campaign_id": "AXA_BIEN - 13",
-      "numero_maximo_listas": 110000
-  },
-
-  "custom_fields": {
-        "VENDOR LEAD CODE:": "(none)",
-        "SOURCE ID:": "\"contrato\"",
-        "PHONE NUMBER:": "\"phone\"",
-        "TITLE:": "(none)",
-        "FIRST NAME:": "(none)",
-        "MIDDLE INITIAL:": "(none)",
-        "LAST NAME:": "\"nombres\"",
-        "ADDRESS1:": "\"direccion_correspondencia\"",
-        "ADDRESS2:": "(none)",
-        "ADDRESS3:": "(none)",
-        "CITY:": "\"sucursal\"",
-        "STATE:": "(none)",
-        "PROVINCE:": "(none)",
-        "POSTAL CODE:": "(none)",
-        "COUNTRY CODE:": "(none)",
-        "GENDER:": "(none)",
-        "DATE OF BIRTH:": "(none)",
-        "ALT PHONE:": "(none)",
-        "EMAIL:": "\"correo_electronico\"",
-        "SECURITY PHRASE:": "(none)",
-        "COMMENTS:": "(none)",
-        "RANK:": "(none)",
-        "OWNER:": "(none)",
-        "DOCUMENTO:": "\"no_identificacion_contrante\"",
-        "NOMBRE:": "\"nombres\"",
-        "TELEFONO:": "(none)",
-        "CONTRATO:": "\"contrato\"",
-        "NOMBRE COLECTIVO:": "(none)",
-        "APLICA DEBITO:": "(none)",
-        "PLACA:": "(none)",
-        "MARCA:": "(none)",
-        "ASEGURADORA ACTUAL:": "(none)",
-        "TELEFONO 1:": "(none)",
-        "FECHA VIGENCIA:": "(none)",
-        "NO TEMPORARIO PLUS:": "(none)",
-        "NO TEMPORARIO TRADICIONAL:": "(none)",
-        "PRIMA TEMPORARIO PLUS:": "(none)",
-        "PRIMASINIVA TEMPORARIO PLUS:": "(none)",
-        "PRIMA TRADICIONAL:": "(none)",
-        "PRIMASINIVA TRADICIONAL:": "(none)",
-        "NO TEMPORARIO VIP:": "(none)",
-        "PRIMA VIP:": "(none)",
-        "PRIMA SIN IVA VIP:": "(none)",
-        "TELFONO 2:": "(none)",
-        "TELFONO 3:": "(none)",
-        "SUMA ASEGURADA:": "(none)"
-    }
-
-}
+  }
 }

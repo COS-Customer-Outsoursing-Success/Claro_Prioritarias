@@ -14,7 +14,7 @@ from vicidial._cls_load_vcdl import LoadListVcdl
 def main():
     
     # -- Config Vcdl --
-    user_vcdl = '1002157900'
+    user_vcdl = '1031120694'
     activo = 'Y'
     opcion_copiado = 'APPEND'
     indicativo_pais = '57 - COL'

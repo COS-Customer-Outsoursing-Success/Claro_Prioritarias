@@ -278,8 +278,9 @@ class LoadListVcdl:
                 time.sleep(3)
 
                 campos_campana = self.config_campanas[nombre_base].get("custom_fields", {})
-
-                filas = driver.find_elements(By.XPATH, "//tr[@bgcolor='#69D3E0']")
+                
+                filas = driver.find_elements(By.XPATH, "//tr[@bgcolor='#69D3E0' or @bgcolor='#D9E6FE']")
+                # filas = driver.find_elements(By.XPATH, "//tr[@bgcolor='#69D3E0']")
                 print(f"Total de filas de campos personalizados encontradas: {len(filas)}")
 
                 for i, fila in enumerate(filas):
