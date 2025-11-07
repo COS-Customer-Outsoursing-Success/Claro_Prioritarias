@@ -2,9 +2,9 @@
 
 "CAR": {
 
-  "pass_vcdl": "wfm1031120694",  
+  "pass_vcdl": "114815194800",  
 
-  "campana": "Recuperacion-cartera ",
+  "campana": "Recuperacion-cartera",
 
   "server_vcdl": "soulphone-fiveone.groupcos.com.co",
 
@@ -12,7 +12,7 @@
 
       "campana_vicidial": "CAR",
       "campaign_id": "CAR - 855",
-      "numero_maximo_listas": 60000
+      "numero_maximo_listas": 59999
   },
 
   "custom_fields": {
@@ -41,7 +41,7 @@
       "RANK:": "(none)",
       "OWNER:": "(none)",
       "CUENTA:": "\"cuenta\"",
-      "NOMBRECLIENTE:": "\"nombre_cliente\"",
+      "NOMBRE:": "\"nombre_cliente\"",
       "FECHASOLICITUD:": "\"fecha_solicitud\"",
       "SERVICIOSACANCELAR:": "\"cantidad_servicios\"",
       "CIUDAD:": "\"ciudad\"",
@@ -49,14 +49,14 @@
       "SERVICIO ACTUAL:": "\"paquete\"",
       "OFRECIMIENTO:": "\"Novedad\"",
       "BASEGESTION:": "\"Novedad\"",
-      "BASEGESTIONN:": "\"Novedad\"",
+      "BASEGESTION2:": "\"Novedad\"",
       "CELULAR:": "\"telefono\""
     } 
   },
 
   "RECUPERA": {
 
-  "pass_vcdl": "wfm1031120694",  
+  "pass_vcdl": "114815194800",  
 
   "campana": "Recuperacion",
 
@@ -95,7 +95,7 @@
       "RANK:": "(none)",
       "OWNER:": "(none)",
       "CUENTA:": "\"cuenta\"",
-      "NOMBRECLIENTE:": "\"nombre_cliente\"",
+      "NOMBRE:": "\"nombre_cliente\"",
       "FECHASOLICITUD:": "\"fecha_solicitud\"",
       "SERVICIOSACANCELAR:": "\"cantidad_servicios\"",
       "CIUDAD:": "\"ciudad\"",
@@ -103,14 +103,14 @@
       "SERVICIO ACTUAL:": "\"paquete\"",
       "OFRECIMIENTO:": "\"Novedad\"",
       "BASEGESTION:": "\"Novedad\"",
-      "BASEGESTIONN:": "\"Novedad\"",
+      "BASEGESTION2:": "\"Novedad\"",
       "CELULAR:": "\"telefono\""
     } 
   },
 
   "SANILLO": {
 
-  "pass_vcdl": "wfm1031120694",  
+  "pass_vcdl": "114815194800",  
 
   "campana": "Recuperacion-sanillo",
 
@@ -133,7 +133,7 @@
       "MIDDLE INITIAL:": "(none)",
       "LAST NAME:": "(none)",
       "ADDRESS1:": "(none)",
-      "ADDRESS2:": "\"identificacion\"",
+      "ADDRESS2:": "\"phone\"",
       "ADDRESS3:": "(none)",
       "CITY:": "(none)",
       "STATE:": "(none)",
@@ -160,7 +160,7 @@
   
   "3ANILLO": {
 
-  "pass_vcdl": "wfm1031120694",  
+  "pass_vcdl": "114815194800",  
 
   "campana": "Recuperacion-sanillo",
 
@@ -168,22 +168,22 @@
 
   "configuracion_listas": {
 
-      "campana_vicidial": "	3ANILLO",
+      "campana_vicidial": "3ANILLO",
       "campaign_id": "3ANILLO - 18",
       "numero_maximo_listas": 53999
   },
 
   "custom_fields": {
   
-      "VENDOR LEAD CODE:": "\"celular\"",
-      "SOURCE ID:": "\"celular\"",
-      "PHONE NUMBER:": "\"celular\"",
+      "VENDOR LEAD CODE:": "\"telefono\"",
+      "SOURCE ID:": "\"telefono\"",
+      "PHONE NUMBER:": "\"telefono\"",
       "TITLE:": "(none)",
       "FIRST NAME:": "(none)",
       "MIDDLE INITIAL:": "(none)",
       "LAST NAME:": "(none)",
       "ADDRESS1:": "(none)",
-      "ADDRESS2:": "\"documento_cliente\"",
+      "ADDRESS2:": "\"telefono\"",
       "ADDRESS3:": "(none)",
       "CITY:": "(none)",
       "STATE:": "(none)",
@@ -200,10 +200,13 @@
       "OWNER:": "(none)",
       "NOMBRE:": "\"nombre_cliente\"",
       "CELULAR:": "\"documento_cliente\"",
-      "MIN:": "\"celular\"",
+      "MIN:": "\"telefono\"",
       "CODIGOID:": "\"co_id\"",
+      "CAUSAL:": "\"(none)\"",
       "CFM:": "\"cfm_con_imp\"",
+      "CONTRATO:": "\"(none)\"",
       "PLAN:": "\"plan_actual\"",
+      "MOTIVO:": "\"(none)\"",
       "FECHACORTE:": "\"fecha_ejecucion\""
     } 
   }

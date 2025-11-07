@@ -125,7 +125,7 @@ class LoadListVcdl:
                 continue 
 
             url = (
-                f"http://{self.user_vcdl}:{self.config_campanas[nombre_base]['pass_vcdl']}@"
+                f"https://{self.user_vcdl}:{self.config_campanas[nombre_base]['pass_vcdl']}@"
                 f"{self.config_campanas[nombre_base]['server_vcdl']}/vicidial/admin.php?"
                 f"ADD=34&campaign_id={campana_vicidial}"
             )
@@ -159,32 +159,32 @@ class LoadListVcdl:
                 lista_crear = max_list + 1
                 print(f"Lista de cargue a crear: {lista_crear}")
 
-                checkboxes = driver.find_elements(By.CSS_SELECTOR, 'input[name="list_active_change[]"]')
-                for checkbox in checkboxes:
-                    if checkbox.is_selected():
-                        list_id = checkbox.get_attribute('value')
-                        print(f"Checkbox con valor {list_id} está ACTIVO - Desactivando...")
+                # checkboxes = driver.find_elements(By.CSS_SELECTOR, 'input[name="list_active_change[]"]')
+                # for checkbox in checkboxes:
+                #     if checkbox.is_selected():
+                #         list_id = checkbox.get_attribute('value')
+                #         print(f"Checkbox con valor {list_id} está ACTIVO - Desactivando...")
                         
-                        checkbox.click()
+                #         checkbox.click()
                         
-                        if checkbox.is_selected():
-                            print(f"El checkbox {list_id} no se desmarcó correctamente, usando JavaScript")
-                            driver.execute_script("arguments[0].checked = false;", checkbox)
+                #         if checkbox.is_selected():
+                #             print(f"El checkbox {list_id} no se desmarcó correctamente, usando JavaScript")
+                #             driver.execute_script("arguments[0].checked = false;", checkbox)
                         
-                        # Luego deshabilitar
-                        driver.execute_script("""
-                            arguments[0].disabled = true;
-                            arguments[0].style.opacity = '0.5';
-                            arguments[0].style.cursor = 'not-allowed';
-                        """, checkbox)
+                #         # Luego deshabilitar
+                #         driver.execute_script("""
+                #             arguments[0].disabled = true;
+                #             arguments[0].style.opacity = '0.5';
+                #             arguments[0].style.cursor = 'not-allowed';
+                #         """, checkbox)
 
-                        WebScraping_Chrome.WebScraping_Wait(driver, 150, self.config_xpaths["xpath_submit_enviar_cambios_lista"])
-                        WebScraping_Chrome.WebScraping_Nav(driver, self.config_xpaths["xpath_submit_enviar_cambios_lista"])
-                        time.sleep(1)
+                #         WebScraping_Chrome.WebScraping_Wait(driver, 150, self.config_xpaths["xpath_submit_enviar_cambios_lista"])
+                #         WebScraping_Chrome.WebScraping_Nav(driver, self.config_xpaths["xpath_submit_enviar_cambios_lista"])
+                #         time.sleep(1)
                                 
-                        print(f"Checkbox {list_id} desactivado y deshabilitado")
-                    else:
-                        print(f"Checkbox con valor {checkbox.get_attribute('value')} ya está INACTIVO")
+                #         print(f"Checkbox {list_id} desactivado y deshabilitado")
+                #     else:
+                #         print(f"Checkbox con valor {checkbox.get_attribute('value')} ya está INACTIVO")
 
             except Exception as e:
                 print(f"Ocurrió un error: {str(e)}")

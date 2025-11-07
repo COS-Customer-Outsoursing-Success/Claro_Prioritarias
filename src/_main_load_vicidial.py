@@ -14,10 +14,11 @@ from vicidial._cls_load_vcdl import LoadListVcdl
 def main():
     
     # -- Config Vcdl --
-    user_vcdl = '1031120694'
-    activo = 'Y'
+    user_vcdl = '1148151948'
+    activo = 'N'
     opcion_copiado = 'APPEND'
     indicativo_pais = '57 - COL'
+    
     
     # -- Inicializador de clases -- 
     processor_load_vcdl = LoadListVcdl(
